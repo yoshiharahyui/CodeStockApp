@@ -14,6 +14,11 @@
 		1E4084CA2BB27CE100AECC94 /* CodeStockAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084C92BB27CE100AECC94 /* CodeStockAppTests.swift */; };
 		1E4084D42BB27CE100AECC94 /* CodeStockAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084D32BB27CE100AECC94 /* CodeStockAppUITests.swift */; };
 		1E4084D62BB27CE100AECC94 /* CodeStockAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084D52BB27CE100AECC94 /* CodeStockAppUITestsLaunchTests.swift */; };
+		1E4084E92BB2DD0B00AECC94 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084E82BB2DD0B00AECC94 /* MainTabBarController.swift */; };
+		1E4084EB2BB2E18100AECC94 /* NetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084EA2BB2E18100AECC94 /* NetViewController.swift */; };
+		1E4084ED2BB2E1AE00AECC94 /* SelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084EC2BB2E1AE00AECC94 /* SelfViewController.swift */; };
+		1E4084EF2BB2E5D600AECC94 /* NetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4084EE2BB2E5D600AECC94 /* NetView.storyboard */; };
+		1E4084F12BB2E63400AECC94 /* SelfView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4084F02BB2E63400AECC94 /* SelfView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		1E4084CF2BB27CE100AECC94 /* CodeStockAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeStockAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4084D32BB27CE100AECC94 /* CodeStockAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockAppUITests.swift; sourceTree = "<group>"; };
 		1E4084D52BB27CE100AECC94 /* CodeStockAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E4084E82BB2DD0B00AECC94 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1E4084EA2BB2E18100AECC94 /* NetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetViewController.swift; sourceTree = "<group>"; };
+		1E4084EC2BB2E1AE00AECC94 /* SelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfViewController.swift; sourceTree = "<group>"; };
+		1E4084EE2BB2E5D600AECC94 /* NetView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NetView.storyboard; sourceTree = "<group>"; };
+		1E4084F02BB2E63400AECC94 /* SelfView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,11 @@
 				1E4084BB2BB27CE100AECC94 /* Assets.xcassets */,
 				1E4084BD2BB27CE100AECC94 /* LaunchScreen.storyboard */,
 				1E4084C02BB27CE100AECC94 /* Info.plist */,
+				1E4084E82BB2DD0B00AECC94 /* MainTabBarController.swift */,
+				1E4084EA2BB2E18100AECC94 /* NetViewController.swift */,
+				1E4084EC2BB2E1AE00AECC94 /* SelfViewController.swift */,
+				1E4084EE2BB2E5D600AECC94 /* NetView.storyboard */,
+				1E4084F02BB2E63400AECC94 /* SelfView.storyboard */,
 			);
 			path = CodeStockApp;
 			sourceTree = "<group>";
@@ -227,6 +242,8 @@
 			files = (
 				1E4084BC2BB27CE100AECC94 /* Assets.xcassets in Resources */,
 				1E4084BF2BB27CE100AECC94 /* Base in Resources */,
+				1E4084EF2BB2E5D600AECC94 /* NetView.storyboard in Resources */,
+				1E4084F12BB2E63400AECC94 /* SelfView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4084EB2BB2E18100AECC94 /* NetViewController.swift in Sources */,
 				1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */,
 				1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */,
+				1E4084ED2BB2E1AE00AECC94 /* SelfViewController.swift in Sources */,
+				1E4084E92BB2DD0B00AECC94 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +451,6 @@
 				INFOPLIST_FILE = CodeStockApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,7 +478,6 @@
 				INFOPLIST_FILE = CodeStockApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
