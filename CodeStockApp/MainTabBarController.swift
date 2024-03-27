@@ -15,10 +15,14 @@ class MainTabBarController: UITabBarController {
     }
     
     func configureViewControllers() {
-        var netstoryboard = UIStoryboard(name: "Net", bundle: nil)
-        let netVC = storyboard?.instantiateViewController(withIdentifier: "NetViewController") as! NetViewController
+        var netstoryboard = UIStoryboard(name: "NetView", bundle: nil)
+        let netVC = netstoryboard.instantiateViewController(withIdentifier: "Net") as! NetViewController
+        netVC.tabBarItem = UITabBarItem(title: "Net", image: .none, selectedImage: nil)
         
-        var ownstoryboard = UIStoryboard(name: "Own", bundle: nil)
-        let ownVC = storyboard?.instantiateViewController(withIdentifier: "OwnViewController") as! OwnViewController
+        var ownstoryboard = UIStoryboard(name: "OwnView", bundle: nil)
+        let ownVC = ownstoryboard.instantiateViewController(withIdentifier: "Own") as! OwnViewController
+        ownVC.tabBarItem = UITabBarItem(title: "Own", image: .none, selectedImage: nil)
+        
+        viewControllers = [netVC, ownVC]
     }
 }
