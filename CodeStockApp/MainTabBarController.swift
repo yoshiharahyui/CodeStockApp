@@ -9,5 +9,16 @@ import Foundation
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViewControllers()
+    }
     
+    func configureViewControllers() {
+        var netstoryboard = UIStoryboard(name: "Net", bundle: nil)
+        let netVC = storyboard?.instantiateViewController(withIdentifier: "NetViewController") as! NetViewController
+        
+        var ownstoryboard = UIStoryboard(name: "Own", bundle: nil)
+        let ownVC = storyboard?.instantiateViewController(withIdentifier: "OwnViewController") as! OwnViewController
+    }
 }
