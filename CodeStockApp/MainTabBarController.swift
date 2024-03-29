@@ -20,15 +20,21 @@ class MainTabBarController: UITabBarController {
         //naviationControllerに管理下にNetViewControllerのインスタンスをおく
         let navigationController = UINavigationController(rootViewController: netvc)
         //ネット用タブの設定
-        navigationController.tabBarItem = UITabBarItem(title: "Net", image: .none, selectedImage: nil)
+        navigationController.tabBarItem = UITabBarItem(title: "Net", image: UIImage(named: "netIcon"), selectedImage: nil)
+        //tabの背景色
+        UITabBar.appearance().backgroundColor = UIColor.black
+        //tabの文字の色
+        UITabBar.appearance().tintColor = UIColor.white
+        
         
         let ownstoryboard = UIStoryboard(name: "OwnView", bundle: nil)
         let ownvc = ownstoryboard.instantiateViewController(withIdentifier: "Own") as! OwnViewController
         //naviationControllerに管理下にOwnViewControllerのインスタンスをおく
         let navigationController2 = UINavigationController(rootViewController: ownvc)
         //自分用タブの設定
-        navigationController2.tabBarItem = UITabBarItem(title: "Own", image: .none, selectedImage: nil)
+        navigationController2.tabBarItem = UITabBarItem(title: "Own", image: UIImage(named: "ownIcon"), selectedImage: nil)
         
         viewControllers = [navigationController, navigationController2]
+        
     }
 }
