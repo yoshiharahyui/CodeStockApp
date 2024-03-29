@@ -11,5 +11,7 @@ import UIKit
 class NetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "CodeStock"
+        self.navigationController?.navigationBar.backgroundColor = .green
     }
 }
