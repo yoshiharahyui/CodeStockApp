@@ -18,11 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene as! UIWindowScene)
-        window.makeKeyAndVisible()
-        self.window = window
-
+        //MainTabBarControllerは最初に表示される画面です(rootViewController)
         let vc = MainTabBarController()
+        //クラス直下のwindowを更新
+        self.window = window
+        //windowのrootViewControllerをMainTabBarControllerのインスタンスにする
         window.rootViewController = vc
+        //表示できるようにする
+        window.makeKeyAndVisible()
 
     }
 
