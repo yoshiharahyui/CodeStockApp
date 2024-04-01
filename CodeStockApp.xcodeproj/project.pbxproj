@@ -35,6 +35,8 @@
 		1E4085142BBA7E5800AECC94 /* OwnSummerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085132BBA7E5800AECC94 /* OwnSummerView.storyboard */; };
 		1E4085162BBA7EBA00AECC94 /* OwnFallView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085152BBA7EBA00AECC94 /* OwnFallView.storyboard */; };
 		1E4085182BBA7F1700AECC94 /* OwnWinterView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */; };
+		1E40851B2BBAB82000AECC94 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085192BBAB82000AECC94 /* MainTableViewCell.swift */; };
+		1E40851C2BBAB82000AECC94 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E40851A2BBAB82000AECC94 /* MainTableViewCell.xib */; };
 		56D6664392D6922068E9428D /* Pods_CodeStockAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */; };
 		B483BE4F29B07E7E6E0DBC43 /* Pods_CodeStockApp_CodeStockAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A122FC2A14683A4114D13A88 /* Pods_CodeStockApp_CodeStockAppUITests.framework */; };
 		D68EC39FF0F85E04CFB4AC15 /* Pods_CodeStockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA41FB31E3BB6B15B1B142D /* Pods_CodeStockApp.framework */; };
@@ -91,6 +93,8 @@
 		1E4085132BBA7E5800AECC94 /* OwnSummerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OwnSummerView.storyboard; sourceTree = "<group>"; };
 		1E4085152BBA7EBA00AECC94 /* OwnFallView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OwnFallView.storyboard; sourceTree = "<group>"; };
 		1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OwnWinterView.storyboard; sourceTree = "<group>"; };
+		1E4085192BBAB82000AECC94 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		1E40851A2BBAB82000AECC94 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		63F89B6AD388D2C4DDC75553 /* Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71799A22D896AEE6BEA40242 /* Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStockAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,8 @@
 				1E4084B22BB27CE000AECC94 /* AppDelegate.swift */,
 				1E4084BB2BB27CE100AECC94 /* Assets.xcassets */,
 				1E4084C02BB27CE100AECC94 /* Info.plist */,
+				1E4085192BBAB82000AECC94 /* MainTableViewCell.swift */,
+				1E40851A2BBAB82000AECC94 /* MainTableViewCell.xib */,
 			);
 			path = CodeStockApp;
 			sourceTree = "<group>";
@@ -186,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				1E4084BD2BB27CE100AECC94 /* LaunchScreen.storyboard */,
-				1E4084F42BB2FF1F00AECC94 /* OwnView.storyboard */,
 				1E4084EE2BB2E5D600AECC94 /* NetView.storyboard */,
+				1E4084F42BB2FF1F00AECC94 /* OwnView.storyboard */,
 				1E4084FB2BB820CF00AECC94 /* SpringView.storyboard */,
 				1E4084FF2BB8222F00AECC94 /* SummerView.storyboard */,
 				1E4085032BB822AB00AECC94 /* FallView.storyboard */,
@@ -367,6 +373,7 @@
 				1E4085122BBA7E0E00AECC94 /* OwnSpringView.storyboard in Resources */,
 				1E4085142BBA7E5800AECC94 /* OwnSummerView.storyboard in Resources */,
 				1E4085162BBA7EBA00AECC94 /* OwnFallView.storyboard in Resources */,
+				1E40851C2BBAB82000AECC94 /* MainTableViewCell.xib in Resources */,
 				1E4084FC2BB820CF00AECC94 /* SpringView.storyboard in Resources */,
 				1E4084EF2BB2E5D600AECC94 /* NetView.storyboard in Resources */,
 			);
@@ -506,6 +513,7 @@
 				1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */,
 				1E4084E92BB2DD0B00AECC94 /* MainTabBarController.swift in Sources */,
 				1E4085062BB822D400AECC94 /* WinterViewController.swift in Sources */,
+				1E40851B2BBAB82000AECC94 /* MainTableViewCell.swift in Sources */,
 				1E40850C2BBA7D4600AECC94 /* OwnSummerViewController.swift in Sources */,
 				1E4084FA2BB8207C00AECC94 /* SpringViewController.swift in Sources */,
 				1E4085102BBA7DD100AECC94 /* OwnWinterViewController.swift in Sources */,
