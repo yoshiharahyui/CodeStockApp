@@ -55,6 +55,7 @@ class NetViewController: UIViewController {
         pagingViewController.menuBackgroundColor = .black
         pagingViewController.textColor = .white
         pagingViewController.selectedTextColor = .darkGray
+        
         //インスタンスをChildViewControllerに入れる
         addChild(pagingViewController)
                 view.addSubview(pagingViewController.view)
