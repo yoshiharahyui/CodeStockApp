@@ -27,6 +27,8 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.datelabel.text = "2024/04/01"
         cell.imageview.image = UIImage(systemName: "swift")
         cell.memolabel.text = "ああああああああああああ"
+        //セルを選択不可
+        cell.isUserInteractionEnabled = false
         return cell
     }
 }
