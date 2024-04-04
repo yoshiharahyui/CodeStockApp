@@ -27,7 +27,7 @@ class NetViewController: UIViewController {
     }
     
     //Parchmentを使ったタブ作成
-    func configureparchment() {
+    private func configureparchment() {
         let springstoryboard = UIStoryboard(name: "SpringView", bundle: nil)
         let springvc = springstoryboard.instantiateViewController(withIdentifier: "Spring") as! SpringViewController
         
