@@ -13,8 +13,8 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         configureViewControllers()
     }
-    
-    func configureViewControllers() {
+    //NetViewとOwnViewを内包したNaviagtionControllerを表示する関数
+    private func configureViewControllers() {
         let netstoryboard = UIStoryboard(name: "NetView", bundle: nil)
         let netvc = netstoryboard.instantiateViewController(withIdentifier: "Net") as! NetViewController
         //naviationControllerに管理下にNetViewControllerのインスタンスをおく
