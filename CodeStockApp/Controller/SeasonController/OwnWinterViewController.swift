@@ -25,8 +25,10 @@ class OwnWinterViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         cell.datelabel.text = "2024/05/04"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
         cell.memolabel.text = "jasbdf aoewnvfeornasdb"
+        cell.memolabel.textColor = .black
         //セルの背景色変更
         cell.backgroundColor = UIColor(red: 202/255, green: 237/255, blue: 250/255, alpha: 1.0)
         //セルを選択不可

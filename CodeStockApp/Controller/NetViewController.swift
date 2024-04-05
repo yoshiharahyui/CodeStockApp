@@ -81,6 +81,9 @@ class NetViewController: UIViewController {
     }
     
     @objc func tapSettingButton(sender: UIButton) {
-      print("タップされました")
+        let addstoryboard = UIStoryboard(name: "AddView", bundle: nil)
+        let addVC = addstoryboard.instantiateViewController(withIdentifier: "addview")
+        addVC.modalPresentationStyle = .formSheet
+        present(addVC, animated: true, completion: nil)
     }
 }

@@ -25,8 +25,10 @@ class OwnSummerViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         cell.datelabel.text = "2024/05/02"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
         cell.memolabel.text = "fahfnawernvasdnfo"
+        cell.memolabel.textColor = .black
         cell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
         cell.isUserInteractionEnabled = false
         return cell

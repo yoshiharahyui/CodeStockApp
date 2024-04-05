@@ -25,8 +25,10 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         cell.datelabel.text = "2024/04/03"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
         cell.memolabel.text = "ううううううううううううう"
+        cell.memolabel.textColor = .black
         //セルの背景色変更
         cell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
         //セルを選択不可

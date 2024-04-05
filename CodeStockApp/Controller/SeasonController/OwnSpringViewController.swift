@@ -25,8 +25,10 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         cell.datelabel.text = "2024/05/01"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
         cell.memolabel.text = "jasdnfwnefowehnasdf"
+        cell.memolabel.textColor = .black
         //セルの背景色変更
         cell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         //セルを選択不可
