@@ -10,21 +10,34 @@ import UIKit
 import Parchment
 
 class OwnViewController: UIViewController {
+    
+    var button: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "CodeStock"
         //navigationBarの背景色の設定
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        //背景色
-        appearance.backgroundColor = UIColor.black
-        //タイトル文字の色
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        //背景色
+//        appearance.backgroundColor = UIColor.black
+//        //タイトル文字の色
+//        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         configureparchment()
+        
+        //ダークモードの設定
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.overrideUserInterfaceStyle = .dark
+        
+        button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapSettingButton))
+                navigationItem.rightBarButtonItem = button
     }
+    
         //Parchmentを使ったタブ作成
         func configureparchment() {
             let ownspringstoryboard = UIStoryboard(name: "OwnSpringView", bundle: nil)
@@ -67,5 +80,9 @@ class OwnViewController: UIViewController {
                     pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
                     pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         }
+    
+    @objc func tapSettingButton(sender: UIButton) {
+      print("タップされました")
+    }
 }
 
