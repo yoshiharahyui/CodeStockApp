@@ -9,12 +9,17 @@ import Foundation
 import UIKit
 
 class AddViewController: UIViewController {
+    @IBOutlet weak var memoTextView: UITextView!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func postButton(_ sender: Any) {
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
+    }
+    @IBAction func selectSeasonButton(_ sender: Any) {
+        print("季節選択ボタンが選ばれました")
     }
     
     override func viewDidLoad() {
