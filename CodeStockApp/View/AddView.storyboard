@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="9Td-yg-usi">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="92f-M6-BWn">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="92f-M6-BWn">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YSU-Of-Xnb">
                                                 <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,7 +32,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="bTn-sd-VhO">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="bTn-sd-VhO">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="APG-Lk-Rx7">
                                                 <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

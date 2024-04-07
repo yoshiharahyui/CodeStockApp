@@ -513,9 +513,15 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CodeStockApp/Pods-CodeStockApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xxxxxxxx/Pods-xxxxxxxx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CodeStockApp/Pods-CodeStockApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-xxxxxxxx/Pods-xxxxxxxx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
