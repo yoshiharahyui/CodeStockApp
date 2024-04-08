@@ -19,6 +19,10 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>アプリ内からカメラロールを使用するため</string>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Dark</string>
 </dict>

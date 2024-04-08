@@ -23,6 +23,13 @@ class AddViewController: UIViewController {
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
+    @IBAction func addImageButtonAction(_ sender: Any) {
+        let pickerView = UIImagePickerController()
+        pickerView.sourceType = .photoLibrary
+        pickerView.delegate = self
+        self.present(pickerView, animated: true)
+        
+    }
     @IBAction func selectSeasonButton(_ sender: Any) {
         print("季節選択ボタンが選ばれました")
     }
@@ -45,4 +52,11 @@ class AddViewController: UIViewController {
     }
 }
 
+extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as! UIImage
+        imageView.image = image
+        self.dismiss(animated: true)
+    }
+}
 
