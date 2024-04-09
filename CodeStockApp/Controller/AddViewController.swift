@@ -19,7 +19,10 @@ class AddViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func postButton(_ sender: Any) {
+        var memotext: String
+        memotext = memoTextView.text ?? ""
         self.saveImage()
+        self.saveData(with: memotext)
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
@@ -38,10 +41,17 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDoneButton()
     }
+    
+    var dateFormat: DateFormatter {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
+            return dateFormatter
+    }
+    
     //画像保存
     func saveImage() {
-        
         let codestockData = CodeStockDataModel()
         //codestockData.imageData = imageData
         //UIImageViewを取得
@@ -55,6 +65,33 @@ class AddViewController: UIViewController {
             print("😄\(codestockData)")
         }
     }
+    //memoTextとレコード時間を保存
+    func saveData(with memotext: String) {
+        let codestockData = CodeStockDataModel()
+        try! realm.write {
+            codestockData.memotext = memoTextView.text
+            //codestockData.recordDate = Date()
+            realm.add(codestockData)
+            print("😆\(codestockData)")
+        }
+    }
+    
+    
+    func configure(memo: CodeStockDataModel) {
+        codestockData.memotext = memoTextView.text
+    }
+    
+    func setDoneButton() {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y:0, width: 320, height: 40))
+        let commitButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapDoneButton))
+        toolBar.items = [commitButton]
+        memoTextView.inputAccessoryView = toolBar
+    }
+    
+    @objc func tapDoneButton() {
+        view.endEditing(true)
+    }
+    
 }
 //フォトライブラリから選んだ画像をimageViewに格納
 extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
