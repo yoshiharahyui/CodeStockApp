@@ -19,10 +19,12 @@ class AddViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func postButton(_ sender: Any) {
+        self.saveImage()
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
+    //フォトライブラリにアクセス用
     @IBAction func addImageButtonAction(_ sender: Any) {
         let pickerView = UIImagePickerController()
         pickerView.sourceType = .photoLibrary
@@ -37,26 +39,31 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    func saveImage(_ imageData: Data) {
+    //画像保存
+    func saveImage() {
         
         let codestockData = CodeStockDataModel()
-        codestockData.imageData = imageData
-        
-        //pngで保存する場合
-        //let pngImageData = imageView.image?.pngData()
+        //codestockData.imageData = imageData
+        //UIImageViewを取得
+        let setImage = imageView.image
+        //pngDataに変換
+        let setimageData = setImage?.pngData()
+        //データモデルのプロパティに代入
+        codestockData.imageData = setimageData
         try! realm.write {
         realm.add(codestockData)
             print("😄\(codestockData)")
         }
     }
 }
-
+//フォトライブラリから選んだ画像をimageViewに格納
 extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         imageView.image = image
         self.dismiss(animated: true)
+        let imageData = image.pngData()
     }
 }
 
