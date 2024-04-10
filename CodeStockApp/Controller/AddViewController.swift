@@ -13,6 +13,11 @@ class AddViewController: UIViewController {
     
     private var codestockData = CodeStockDataModel()
     private let realm = try! Realm()
+    private var dateFormat: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter
+    }
     
     @IBOutlet weak var memoTextView: UITextView!
     
@@ -44,12 +49,6 @@ class AddViewController: UIViewController {
         setDoneButton()
     }
     
-    var dateFormat: DateFormatter {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy年MM月dd日"
-            return dateFormatter
-    }
-    
     //画像保存
     func saveImage() {
         let codestockData = CodeStockDataModel()
@@ -70,7 +69,7 @@ class AddViewController: UIViewController {
         let codestockData = CodeStockDataModel()
         try! realm.write {
             codestockData.memotext = memoTextView.text
-            //codestockData.recordDate = Date()
+            codestockData.recordDate = Date()
             realm.add(codestockData)
             print("😆\(codestockData)")
         }
