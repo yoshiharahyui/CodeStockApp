@@ -77,9 +77,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Select Season"/>
-                                <connections>
-                                    <action selector="selectSeasonButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JAZ-5x-7fs"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -88,6 +85,7 @@
                     <connections>
                         <outlet property="imageView" destination="e35-lF-r7e" id="H5x-p9-oyw"/>
                         <outlet property="memoTextView" destination="zge-pb-s2s" id="75u-sB-wIR"/>
+                        <outlet property="selectSeasonButton" destination="kS4-6Q-AYe" id="5YE-1M-C1f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

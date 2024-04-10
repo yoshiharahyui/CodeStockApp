@@ -40,17 +40,34 @@ class AddViewController: UIViewController {
         self.present(pickerView, animated: true)
         
     }
-    @IBAction func selectSeasonButton(_ sender: Any) {
-        print("季節選択ボタンが選ばれました")
-    }
+    @IBOutlet weak var selectSeasonButton: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDoneButton()
+        //SelectSeasonButtonにアイテム追加、動くようにするためのコード
+        selectSeasonButton.menu = addMenuItems()
+        selectSeasonButton.showsMenuAsPrimaryAction = true
+    }
+    //投稿画面のSelectSeasonButtonのアイテム
+    private func addMenuItems() -> UIMenu{
+        let menuItems = UIMenu(title: "", options: .displayInline, children: [
+            UIAction(title: "Winter", image: UIImage(systemName: "play"), handler: { (_) in print("aaa")
+            }),
+            UIAction(title: "Fall", image: UIImage(systemName: "play"), handler: { (_) in print("iii")
+            }),
+            UIAction(title: "Summer", image: UIImage(systemName: "play"), handler: { (_) in print ("eee")
+            }),
+            UIAction(title: "Spring", image: UIImage(systemName: "play"), handler: { (_) in print("gvvv")
+            }),
+        ])
+        return menuItems
     }
     
     //画像保存
-    func saveImage() {
+    private func saveImage() {
         let codestockData = CodeStockDataModel()
         //codestockData.imageData = imageData
         //UIImageViewを取得
@@ -65,7 +82,7 @@ class AddViewController: UIViewController {
         }
     }
     //memoTextとレコード時間を保存
-    func saveData(with memotext: String) {
+    private func saveData(with memotext: String) {
         let codestockData = CodeStockDataModel()
         try! realm.write {
             codestockData.memotext = memoTextView.text
@@ -76,11 +93,12 @@ class AddViewController: UIViewController {
     }
     
     
-    func configure(memo: CodeStockDataModel) {
+    private func configure(memo: CodeStockDataModel) {
         codestockData.memotext = memoTextView.text
+        codestockData.recordDate = memo.recordDate
     }
     
-    func setDoneButton() {
+    private func setDoneButton() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y:0, width: 320, height: 40))
         let commitButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapDoneButton))
         toolBar.items = [commitButton]
@@ -90,8 +108,8 @@ class AddViewController: UIViewController {
     @objc func tapDoneButton() {
         view.endEditing(true)
     }
-    
 }
+
 //フォトライブラリから選んだ画像をimageViewに格納
 extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
