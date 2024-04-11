@@ -11,7 +11,7 @@ import RealmSwift
 
 class AddSecondViewController: UIViewController {
     
-    private var codestockData = CodeStockDataModel()
+    private var codestocksecondData = CodeStockSecondDataModel()
     private let realm = try! Realm()
     private var dateFormat: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -68,34 +68,33 @@ class AddSecondViewController: UIViewController {
     
     //画像保存
     private func saveImage() {
-        let codestockData = CodeStockDataModel()
+        let codestocksecondData = CodeStockSecondDataModel()
         //codestockData.imageData = imageData
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
         let setimageData = setImage?.pngData()
         //データモデルのプロパティに代入
-        codestockData.imageData = setimageData
+        codestocksecondData.imageData = setimageData
         try! realm.write {
-        realm.add(codestockData)
-            print("😄\(codestockData)")
+        realm.add(codestocksecondData)
         }
     }
     //memoTextとレコード時間を保存
     private func saveData(with memotext: String) {
-        let codestockData = CodeStockDataModel()
+        let codestocksecondData = CodeStockSecondDataModel()
         try! realm.write {
-            codestockData.memotext = memoTextView.text
-            codestockData.recordDate = Date()
-            realm.add(codestockData)
-            print("😆\(codestockData)")
+            codestocksecondData.memotext = memoTextView.text
+            codestocksecondData.recordDate = Date()
+            realm.add(codestocksecondData)
+            print("😆\(codestocksecondData)")
         }
     }
     
     
-    private func configure(memo: CodeStockDataModel) {
-        codestockData.memotext = memoTextView.text
-        codestockData.recordDate = memo.recordDate
+    private func configure(memo: CodeStockSecondDataModel) {
+        codestocksecondData.memotext = memoTextView.text
+        codestocksecondData.recordDate = memo.recordDate
     }
     
     private func setDoneButton() {

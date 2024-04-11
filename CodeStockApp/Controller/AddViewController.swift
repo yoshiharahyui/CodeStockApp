@@ -78,7 +78,6 @@ class AddViewController: UIViewController {
         codestockData.imageData = setimageData
         try! realm.write {
         realm.add(codestockData)
-            print("😄\(codestockData)")
         }
     }
     //memoTextとレコード時間を保存
