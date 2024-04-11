@@ -11,7 +11,7 @@
         <!--Add Second View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AddSecondViewController" customModule="CodeStockApp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addsecondview" id="Y6W-OH-hqX" customClass="AddSecondViewController" customModule="CodeStockApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Osx-oi-x79">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,10 +27,10 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8PG-a5-Msd"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <action selector="cancelButton:" destination="Y6W-OH-hqX" id="Kp6-vN-HJf"/>
-                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" id="hrp-nH-xpV">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="t2i-8B-hBX">
@@ -38,10 +38,10 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <connections>
+                                                    <action selector="postAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1Bh-AJ-UYw"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <action selector="postAction:" destination="Y6W-OH-hqX" id="iBe-z1-DjN"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -80,7 +80,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1EZ-fG-zVL"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="3Vx-3y-YCQ" id="UQT-DC-qVO"/>

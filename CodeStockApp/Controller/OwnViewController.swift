@@ -82,8 +82,8 @@ class OwnViewController: UIViewController {
         }
     
     @objc func tapSettingButton(sender: UIButton) {
-        let addstoryboard = UIStoryboard(name: "AddView", bundle: nil)
-        let addVC = addstoryboard.instantiateViewController(withIdentifier: "addview")
+        let addstoryboard = UIStoryboard(name: "AddSecondView", bundle: nil)
+        let addVC = addstoryboard.instantiateViewController(withIdentifier: "addsecondview")
         addVC.modalPresentationStyle = .formSheet
         present(addVC, animated: true, completion: nil)
     }
