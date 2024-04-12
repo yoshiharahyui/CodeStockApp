@@ -35,8 +35,8 @@ class AddSecondViewController: UIViewController {
     @IBAction func postAction(_ sender: Any) {
         var memotext: String
         memotext = memoTextView.text ?? ""
-        self.saveImage()
         self.saveData(with: memotext)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var imageView: UIImageView!
     
@@ -67,30 +67,25 @@ class AddSecondViewController: UIViewController {
     }
     
     //画像保存
-    private func saveImage() {
-        let codestocksecondData = CodeStockSecondDataModel()
-        //codestockData.imageData = imageData
-        //UIImageViewを取得
-        let setImage = imageView.image
-        //pngDataに変換
-        let setimageData = setImage?.pngData()
-        //データモデルのプロパティに代入
-        codestocksecondData.imageData = setimageData
-        try! realm.write {
-        realm.add(codestocksecondData)
-        }
-    }
-    //memoTextとレコード時間を保存
     private func saveData(with memotext: String) {
         let codestocksecondData = CodeStockSecondDataModel()
+        //codestockData.imageData = imageData
+        
         try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            codestocksecondData.imageData = pngimageData
             codestocksecondData.memotext = memoTextView.text
             codestocksecondData.recordDate = Date()
-            realm.add(codestocksecondData)
-            print("😆\(codestocksecondData)")
+        realm.add(codestocksecondData)
+            print(setImage!)
+            print(pngimageData!)
+            print(codestocksecondData)
         }
     }
-    
     
     private func configure(memo: CodeStockSecondDataModel) {
         codestocksecondData.memotext = memoTextView.text
@@ -116,6 +111,6 @@ extension AddSecondViewController: UIImagePickerControllerDelegate, UINavigation
         let image = info[.originalImage] as! UIImage
         imageView.image = image
         self.dismiss(animated: true)
-        let imageData = image.pngData()
+        //let imageData = image.pngData()
     }
 }

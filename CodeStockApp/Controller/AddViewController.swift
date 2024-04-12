@@ -26,8 +26,8 @@ class AddViewController: UIViewController {
     @IBAction func postButton(_ sender: Any) {
         var memotext: String
         memotext = memoTextView.text ?? ""
-        self.saveImage()
         self.saveData(with: memotext)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
@@ -67,27 +67,19 @@ class AddViewController: UIViewController {
     }
     
     //画像保存
-    private func saveImage() {
-        let codestockData = CodeStockDataModel()
-        //codestockData.imageData = imageData
-        //UIImageViewを取得
-        let setImage = imageView.image
-        //pngDataに変換
-        let setimageData = setImage?.pngData()
-        //データモデルのプロパティに代入
-        codestockData.imageData = setimageData
-        try! realm.write {
-        realm.add(codestockData)
-        }
-    }
-    //memoTextとレコード時間を保存
     private func saveData(with memotext: String) {
-        let codestockData = CodeStockDataModel()
+        
         try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            codestockData.imageData = pngimageData
             codestockData.memotext = memoTextView.text
             codestockData.recordDate = Date()
-            realm.add(codestockData)
-            print("😆\(codestockData)")
+        realm.add(codestockData)
+            print(codestockData)
         }
     }
     
@@ -116,7 +108,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         let image = info[.originalImage] as! UIImage
         imageView.image = image
         self.dismiss(animated: true)
-        let imageData = image.pngData()
+        //let imageData = image.pngData()
     }
 }
 
