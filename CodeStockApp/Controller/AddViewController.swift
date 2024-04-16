@@ -9,10 +9,15 @@ import Foundation
 import UIKit
 import RealmSwift
 
+protocol PostDelegate {
+    func newPost(memotext: String)
+}
+
 class AddViewController: UIViewController {
     
     private var codestockData = CodeStockDataModel()
     private let realm = try! Realm()
+    var delegate: PostDelegate?
     private var dateFormat: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -27,6 +32,7 @@ class AddViewController: UIViewController {
         var memotext: String
         memotext = memoTextView.text ?? ""
         self.saveData(with: memotext)
+        delegate?.newPost(memotext: memotext)
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func cancelButton(_ sender: Any) {

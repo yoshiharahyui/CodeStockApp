@@ -38,6 +38,7 @@ class NetViewController: UIViewController {
                 navigationItem.rightBarButtonItem = button
     }
     
+    
     //Parchmentを使ったタブ作成
     func configureparchment() {
         let springstoryboard = UIStoryboard(name: "SpringView", bundle: nil)

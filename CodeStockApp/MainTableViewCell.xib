@@ -29,6 +29,9 @@
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3kD-bP-nh7">
                         <rect key="frame" x="17" y="44" width="286" height="370"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="370" id="RWw-Vg-3YB"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ブランド名・・・ユニクロ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-tX-LrC">
                         <rect key="frame" x="17" y="419" width="286" height="68"/>
@@ -38,17 +41,27 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="3kD-bP-nh7" secondAttribute="trailing" constant="17" id="36y-Xc-cGL"/>
                     <constraint firstItem="Oyg-6M-f98" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5D4-eT-P7v"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="top" secondItem="Oyg-6M-f98" secondAttribute="bottom" constant="1" id="8io-gD-l6n"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="top" secondItem="Oyg-6M-f98" secondAttribute="bottom" constant="1" id="AKg-If-jeJ"/>
+                    <constraint firstItem="Ifu-tX-LrC" firstAttribute="top" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="5" id="B5w-u2-N64"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="ESn-kL-ckC"/>
+                    <constraint firstAttribute="trailing" secondItem="3kD-bP-nh7" secondAttribute="trailing" constant="17" id="OEZ-l9-ePE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3kD-bP-nh7" secondAttribute="trailing" constant="1" id="OXS-Dd-3rc"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="trailing" secondItem="Ifu-tX-LrC" secondAttribute="trailing" id="Ohe-nQ-Pmp"/>
                     <constraint firstItem="17b-7a-GBW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Prg-G2-Hhw"/>
                     <constraint firstAttribute="bottom" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="88" id="QxN-Wi-UGk"/>
-                    <constraint firstItem="3kD-bP-nh7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="WeE-zU-Nmx"/>
+                    <constraint firstItem="Ifu-tX-LrC" firstAttribute="top" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="5" id="TGx-Nd-PaY"/>
                     <constraint firstAttribute="bottom" secondItem="Ifu-tX-LrC" secondAttribute="bottom" constant="15" id="ZmV-Fu-B74"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="agU-4b-xdj"/>
                     <constraint firstItem="Ifu-tX-LrC" firstAttribute="top" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="5" id="dDX-FA-Fjt"/>
+                    <constraint firstItem="Ifu-tX-LrC" firstAttribute="top" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="5" id="esw-wV-Tt2"/>
                     <constraint firstItem="Ifu-tX-LrC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="fJ3-ZB-lpG"/>
                     <constraint firstAttribute="trailing" secondItem="Ifu-tX-LrC" secondAttribute="trailing" constant="17" id="gwo-UT-13x"/>
                     <constraint firstAttribute="trailing" secondItem="Oyg-6M-f98" secondAttribute="trailing" constant="8" id="hOc-cz-5as"/>
                     <constraint firstItem="17b-7a-GBW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="m0z-6T-5ua"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="leading" secondItem="Ifu-tX-LrC" secondAttribute="leading" id="u4g-W4-pWV"/>
+                    <constraint firstItem="3kD-bP-nh7" firstAttribute="top" secondItem="Oyg-6M-f98" secondAttribute="bottom" constant="1" id="vmh-qX-qbN"/>
                     <constraint firstItem="3kD-bP-nh7" firstAttribute="top" secondItem="Oyg-6M-f98" secondAttribute="bottom" constant="1" id="wHx-3R-BJs"/>
                 </constraints>
             </tableViewCellContentView>

@@ -9,7 +9,6 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var datelabel: UILabel!
-    
     @IBOutlet weak var selectbutton: UIButton!
     @IBOutlet weak var memolabel: UILabel!
     @IBOutlet weak var imageview: UIImageView!
