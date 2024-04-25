@@ -13,11 +13,12 @@ protocol PostDelegate {
     func newPost(memotext: String)
 }
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextViewDelegate {
     
     private var codestockData = CodeStockDataModel()
     private let realm = try! Realm()
     var delegate: PostDelegate?
+    
     private var dateFormat: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -47,7 +48,6 @@ class AddViewController: UIViewController {
         
     }
     @IBOutlet weak var selectSeasonButton: UIButton!
-    
     
     
     override func viewDidLoad() {
@@ -85,7 +85,6 @@ class AddViewController: UIViewController {
             codestockData.memotext = memoTextView.text
             codestockData.recordDate = Date()
         realm.add(codestockData)
-            print(codestockData)
         }
     }
     

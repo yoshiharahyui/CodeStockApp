@@ -23,15 +23,17 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         addVC.delegate = self
         setcodestockData()
+        self.tableView.reloadData()
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    private func setcodestockData() {
+    func setcodestockData() {
         let realm = try! Realm()
-        let result = realm.objects(CodeStockDataModel.self)
+        let result = realm.objects(CodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         codestockList = Array(result)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +50,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.datelabel.textColor = .black
         cell.memolabel.text = codestockDataModel.memotext
         cell.memolabel.textColor = .black
+        
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         let imageData: Data? = nil
         if let imageData = codestockDataModel.imageData {
@@ -64,13 +67,9 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 extension SpringViewController: PostDelegate {
-    
     func newPost(memotext: String) {
         setcodestockData()
-        self.tableView.reloadData()
-        addVC.delegate = self
+        tableView.reloadData()
         print("投稿された")
     }
-    
-    
 }

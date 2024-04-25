@@ -12,6 +12,10 @@ import Parchment
 class NetViewController: UIViewController {
     
     var button: UIBarButtonItem!
+    var addvc: AddViewController!
+    var springvc: SpringViewController!
+    var summervc: SummerViewController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +42,12 @@ class NetViewController: UIViewController {
                 navigationItem.rightBarButtonItem = button
     }
     
-    
     //Parchmentを使ったタブ作成
     func configureparchment() {
+        
         let springstoryboard = UIStoryboard(name: "SpringView", bundle: nil)
-        let springvc = springstoryboard.instantiateViewController(withIdentifier: "Spring") as! SpringViewController
+        let SpringVC = springstoryboard.instantiateViewController(withIdentifier: "Spring") as! SpringViewController
+        springvc = SpringVC
         
         let summerstoryboard = UIStoryboard(name: "SummerView", bundle: nil)
         let summervc = summerstoryboard.instantiateViewController(withIdentifier: "Summer") as! SummerViewController
@@ -53,7 +58,7 @@ class NetViewController: UIViewController {
         let winterstoryboard = UIStoryboard(name: "WinterView", bundle: nil)
         let wintervc = winterstoryboard.instantiateViewController(withIdentifier: "Winter") as! WinterViewController
         
-        springvc.title = "Spring"
+        SpringVC.title = "Spring"
         summervc.title = "Summer"
         fallvc.title = "Fall"
         wintervc.title = "Winter"
@@ -83,8 +88,10 @@ class NetViewController: UIViewController {
     
     @objc func tapSettingButton(sender: UIButton) {
         let addstoryboard = UIStoryboard(name: "AddView", bundle: nil)
-        let addVC = addstoryboard.instantiateViewController(withIdentifier: "addview")
-        addVC.modalPresentationStyle = .formSheet
-        present(addVC, animated: true, completion: nil)
+        let AddVC = addstoryboard.instantiateViewController(withIdentifier: "addview") as! AddViewController
+        addvc = AddVC
+        addvc.delegate = springvc
+        addvc.modalPresentationStyle = .formSheet
+        present(addvc, animated: true, completion: nil)
     }
 }
