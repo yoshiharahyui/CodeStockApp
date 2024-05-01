@@ -12,7 +12,6 @@ import Parchment
 class NetViewController: UIViewController {
     
     var button: UIBarButtonItem!
-    var addvc: AddViewController!
     var springvc: SpringViewController!
     var summervc: SummerViewController!
     
@@ -23,10 +22,6 @@ class NetViewController: UIViewController {
         //navigationBarの背景色の設定
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-//        //背景色
-//        appearance.backgroundColor = UIColor.black
-//        //タイトル文字の色
-//        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
@@ -87,6 +82,7 @@ class NetViewController: UIViewController {
     }
     
     @objc func tapSettingButton(sender: UIButton) {
+        var addvc: AddViewController!
         let addstoryboard = UIStoryboard(name: "AddView", bundle: nil)
         let AddVC = addstoryboard.instantiateViewController(withIdentifier: "addview") as! AddViewController
         addvc = AddVC

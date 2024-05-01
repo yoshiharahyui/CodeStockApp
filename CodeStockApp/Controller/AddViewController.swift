@@ -88,7 +88,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    
     private func configure(memo: CodeStockDataModel) {
         codestockData.memotext = memoTextView.text
         codestockData.recordDate = memo.recordDate
@@ -113,7 +112,6 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         let image = info[.originalImage] as! UIImage
         imageView.image = image
         self.dismiss(animated: true)
-        //let imageData = image.pngData()
     }
 }
 

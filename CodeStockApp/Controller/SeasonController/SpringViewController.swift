@@ -58,6 +58,9 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             cell.imageView?.image = defaultImage
         }
+        
+        cell.resizedimage()
+        view.layoutIfNeeded()
         //セルの背景色変更
         cell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         //セルを選択不可
@@ -70,6 +73,5 @@ extension SpringViewController: PostDelegate {
     func newPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
-        print("投稿された")
     }
 }

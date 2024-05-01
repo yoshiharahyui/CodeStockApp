@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,58 +10,66 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="604" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="CodeStockApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="604" id="p8S-ae-iex" customClass="MainTableViewCell" customModule="CodeStockApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="443" height="604"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8S-ae-iex" id="KtX-og-LbR">
                 <rect key="frame" x="0.0" y="0.0" width="443" height="604"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024/04/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17b-7a-GBW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024/04/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1r-H2-4mS">
                         <rect key="frame" x="15" y="15" width="89" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-6M-f98">
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JF-M1-mPu">
                         <rect key="frame" x="388" y="8" width="47" height="34.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34.329999999999998" id="N4G-QJ-ycb"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="•••"/>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3kD-bP-nh7">
-                        <rect key="frame" x="0.0" y="44" width="443" height="525"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rcu-fC-suR">
+                        <rect key="frame" x="0.0" y="42.333333333333314" width="443" height="519.33333333333348"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="393" id="G7t-7f-bf5"/>
-                            <constraint firstAttribute="height" constant="525" id="hwe-h0-hIe"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="393" id="6KE-T7-vHq"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="525" id="XWM-nV-XtO"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="525" id="gzr-De-nq4"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ブランド名・・・ユニクロ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-tX-LrC">
-                        <rect key="frame" x="7" y="571" width="428" height="20.333333333333371"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ブランド名・・・ユニクロ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drh-Qp-cfw">
+                        <rect key="frame" x="7" y="561.66666666666663" width="428" height="29.666666666666629"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Ifu-tX-LrC" secondAttribute="trailing" constant="8" id="5fj-0B-CYf"/>
-                    <constraint firstItem="3kD-bP-nh7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6Zn-jd-cyQ"/>
-                    <constraint firstItem="Oyg-6M-f98" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DJG-qc-C2d"/>
-                    <constraint firstAttribute="trailing" secondItem="Oyg-6M-f98" secondAttribute="trailing" constant="8" id="DyV-fh-WoU"/>
-                    <constraint firstItem="17b-7a-GBW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="JZb-KE-Osd"/>
-                    <constraint firstItem="Ifu-tX-LrC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="Ljy-pe-AHE"/>
-                    <constraint firstItem="17b-7a-GBW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="OrU-Ei-Be4"/>
-                    <constraint firstAttribute="bottom" secondItem="Ifu-tX-LrC" secondAttribute="bottom" constant="12.67" id="Wd1-sF-KBz"/>
-                    <constraint firstItem="3kD-bP-nh7" firstAttribute="top" secondItem="Oyg-6M-f98" secondAttribute="bottom" constant="1.6699999999999999" id="b2k-zG-4sI"/>
-                    <constraint firstAttribute="trailing" secondItem="3kD-bP-nh7" secondAttribute="trailing" id="fbZ-U0-MIs"/>
-                    <constraint firstItem="Ifu-tX-LrC" firstAttribute="top" secondItem="3kD-bP-nh7" secondAttribute="bottom" constant="2" id="qM4-fM-Kmz"/>
+                    <constraint firstAttribute="trailing" secondItem="rcu-fC-suR" secondAttribute="trailing" id="BM7-S4-QmS"/>
+                    <constraint firstAttribute="trailing" secondItem="Drh-Qp-cfw" secondAttribute="trailing" constant="8" id="FZs-Y4-kwA"/>
+                    <constraint firstItem="w1r-H2-4mS" firstAttribute="top" secondItem="KtX-og-LbR" secondAttribute="top" constant="15" id="Iqi-YW-m9Z"/>
+                    <constraint firstItem="Drh-Qp-cfw" firstAttribute="top" secondItem="rcu-fC-suR" secondAttribute="bottom" id="NzR-ev-Qqa"/>
+                    <constraint firstItem="rcu-fC-suR" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" id="SuG-is-I69"/>
+                    <constraint firstItem="w1r-H2-4mS" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" constant="15" id="WVC-aD-ua6"/>
+                    <constraint firstItem="rcu-fC-suR" firstAttribute="top" secondItem="6JF-M1-mPu" secondAttribute="bottom" id="ZwJ-ux-wcs"/>
+                    <constraint firstItem="rcu-fC-suR" firstAttribute="centerX" secondItem="KtX-og-LbR" secondAttribute="centerX" id="hdA-sM-a6r"/>
+                    <constraint firstAttribute="trailing" secondItem="6JF-M1-mPu" secondAttribute="trailing" constant="8" id="lL2-5T-6So"/>
+                    <constraint firstItem="6JF-M1-mPu" firstAttribute="top" secondItem="KtX-og-LbR" secondAttribute="top" constant="8" id="tG8-Ue-xvG"/>
+                    <constraint firstAttribute="bottom" secondItem="Drh-Qp-cfw" secondAttribute="bottom" constant="12.67" id="u4T-2c-mSM"/>
+                    <constraint firstItem="rcu-fC-suR" firstAttribute="centerY" secondItem="KtX-og-LbR" secondAttribute="centerY" id="wZ9-W5-Pjc"/>
+                    <constraint firstItem="Drh-Qp-cfw" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" constant="7" id="xVQ-VA-HuY"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="PWB-21-VgW"/>
             <connections>
-                <outlet property="datelabel" destination="17b-7a-GBW" id="yEX-66-CgI"/>
-                <outlet property="imageview" destination="3kD-bP-nh7" id="raU-9Z-BYD"/>
-                <outlet property="memolabel" destination="Ifu-tX-LrC" id="BRS-NO-FEv"/>
-                <outlet property="selectbutton" destination="Oyg-6M-f98" id="SMz-fa-lEM"/>
+                <outlet property="datelabel" destination="w1r-H2-4mS" id="rPH-KQ-KYk"/>
+                <outlet property="imageHeightConstraint" destination="gzr-De-nq4" id="L0c-no-u0f"/>
+                <outlet property="imageWidthConstraint" destination="6KE-T7-vHq" id="FDk-XX-QAL"/>
+                <outlet property="imageview" destination="rcu-fC-suR" id="UwK-aZ-40N"/>
+                <outlet property="memolabel" destination="Drh-Qp-cfw" id="dd9-Fi-kgL"/>
+                <outlet property="selectbutton" destination="6JF-M1-mPu" id="mkg-0J-OfH"/>
             </connections>
             <point key="canvasLocation" x="232.82442748091603" y="33.802816901408455"/>
         </tableViewCell>
