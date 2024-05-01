@@ -14,6 +14,8 @@ class NetViewController: UIViewController {
     var button: UIBarButtonItem!
     var springvc: SpringViewController!
     var summervc: SummerViewController!
+    var fallvc: FallViewController!
+    var wintervc: WinterViewController!
     
     
     override func viewDidLoad() {
@@ -45,18 +47,21 @@ class NetViewController: UIViewController {
         springvc = SpringVC
         
         let summerstoryboard = UIStoryboard(name: "SummerView", bundle: nil)
-        let summervc = summerstoryboard.instantiateViewController(withIdentifier: "Summer") as! SummerViewController
+        let Summervc = summerstoryboard.instantiateViewController(withIdentifier: "Summer") as! SummerViewController
+        summervc = Summervc
         
         let fallstoryboard = UIStoryboard(name: "FallView", bundle: nil)
-        let fallvc = fallstoryboard.instantiateViewController(withIdentifier: "Fall") as! FallViewController
+        let Fallvc = fallstoryboard.instantiateViewController(withIdentifier: "Fall") as! FallViewController
+        fallvc = Fallvc
         
         let winterstoryboard = UIStoryboard(name: "WinterView", bundle: nil)
-        let wintervc = winterstoryboard.instantiateViewController(withIdentifier: "Winter") as! WinterViewController
+        let Wintervc = winterstoryboard.instantiateViewController(withIdentifier: "Winter") as! WinterViewController
+        wintervc = Wintervc
         
         SpringVC.title = "Spring"
-        summervc.title = "Summer"
-        fallvc.title = "Fall"
-        wintervc.title = "Winter"
+        Summervc.title = "Summer"
+        Fallvc.title = "Fall"
+        Wintervc.title = "Winter"
         
         //インスタンスを作成して4つのVCを配列に入れ込む
         let pagingViewController = PagingViewController(viewControllers: [ springvc, summervc, fallvc, wintervc ])
