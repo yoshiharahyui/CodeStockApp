@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import Parchment
 
 protocol PostDelegate {
     func newPost(memotext: String)
@@ -18,6 +19,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private var codestockData = CodeStockDataModel()
     private let realm = try! Realm()
     var delegate: PostDelegate?
+    var getindex: PagingIndexItem!
     
     private var dateFormat: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -53,6 +55,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDoneButton()
+        print(self.getindex as Any)
         //SelectSeasonButtonにアイテム追加、動くようにするためのコード
         selectSeasonButton.menu = addMenuItems()
         selectSeasonButton.showsMenuAsPrimaryAction = true

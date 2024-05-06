@@ -16,6 +16,8 @@ class NetViewController: UIViewController {
     var summervc: SummerViewController!
     var fallvc: FallViewController!
     var wintervc: WinterViewController!
+    var pagingvc = PagingViewController()
+    var indexitem: PagingIndexItem!
     
     
     override func viewDidLoad() {
@@ -65,6 +67,7 @@ class NetViewController: UIViewController {
         
         //インスタンスを作成して4つのVCを配列に入れ込む
         let pagingViewController = PagingViewController(viewControllers: [ springvc, summervc, fallvc, wintervc ])
+        let pagingvc = pagingViewController
         //メニューアイテムの色設定
         pagingViewController.menuItemSpacing = -40
         pagingViewController.indicatorColor = .white
@@ -73,6 +76,7 @@ class NetViewController: UIViewController {
         pagingViewController.menuBackgroundColor = .black
         pagingViewController.textColor = .white
         pagingViewController.selectedTextColor = .darkGray
+        pagingViewController.delegate = self
         
         //インスタンスをChildViewControllerに入れる
         addChild(pagingViewController)
@@ -87,12 +91,27 @@ class NetViewController: UIViewController {
     }
     
     @objc func tapSettingButton(sender: UIButton) {
-        var addvc: AddViewController!
+        var addvc = AddViewController()
         let addstoryboard = UIStoryboard(name: "AddView", bundle: nil)
         let AddVC = addstoryboard.instantiateViewController(withIdentifier: "addview") as! AddViewController
+        AddVC.getindex = indexitem
         addvc = AddVC
         addvc.delegate = springvc
         addvc.modalPresentationStyle = .formSheet
         present(addvc, animated: true, completion: nil)
+    }
+}
+
+extension NetViewController: PagingViewControllerDelegate {
+    func pagingViewController(
+            _ pagingViewController: PagingViewController,
+            didScrollToItem pagingItem: PagingItem,
+            startingViewController: UIViewController?,
+            destinationViewController: UIViewController,
+            transitionSuccessful: Bool) {
+            //indexを取得
+            guard let indexItem = pagingViewController.state.currentPagingItem as? PagingIndexItem else {
+            return }
+                indexitem = indexItem
     }
 }

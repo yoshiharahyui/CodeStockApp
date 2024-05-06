@@ -38,6 +38,5 @@ class MainTableViewCell: UITableViewCell {
             //Update layout
             //view.layoutIfNeeded()
         }
-        print("できてますよ")
     }
 }
