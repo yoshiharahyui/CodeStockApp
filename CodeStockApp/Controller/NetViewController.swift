@@ -67,7 +67,6 @@ class NetViewController: UIViewController {
         
         //インスタンスを作成して4つのVCを配列に入れ込む
         let pagingViewController = PagingViewController(viewControllers: [ springvc, summervc, fallvc, wintervc ])
-        let pagingvc = pagingViewController
         //メニューアイテムの色設定
         pagingViewController.menuItemSpacing = -40
         pagingViewController.indicatorColor = .white
@@ -88,6 +87,7 @@ class NetViewController: UIViewController {
                 pagingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
                 pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
                 pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        pagingvc = pagingViewController
     }
     
     @objc func tapSettingButton(sender: UIButton) {
@@ -112,6 +112,7 @@ extension NetViewController: PagingViewControllerDelegate {
             //indexを取得
             guard let indexItem = pagingViewController.state.currentPagingItem as? PagingIndexItem else {
             return }
+            //クラス直下のindexitemに代入して保持する
                 indexitem = indexItem
     }
 }

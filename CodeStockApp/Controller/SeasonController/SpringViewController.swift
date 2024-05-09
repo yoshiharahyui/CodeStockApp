@@ -41,9 +41,9 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let imageView = addVC.imageView
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let codestockDataModel: CodeStockDataModel = codestockList[indexPath.row]
+        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         
         cell.datelabel.text = "\(codestockDataModel.recordDate)"
@@ -58,7 +58,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             cell.imageView?.image = defaultImage
         }
-        
+        //MaintableViewCellのresizedimage()を実行する
         cell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更

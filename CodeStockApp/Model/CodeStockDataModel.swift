@@ -15,3 +15,24 @@ class CodeStockDataModel: Object {
     @objc dynamic var memotext: String = ""
     @objc dynamic var recordDate: Date = Date()
 }
+
+class SummerCodeStockDataModel: Object {
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var imageData: Data?
+    @objc dynamic var memotext: String = ""
+    @objc dynamic var recordDate: Date = Date()
+}
+
+class FallCodeStockDataModel: Object {
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var imageData: Data?
+    @objc dynamic var memotext: String = ""
+    @objc dynamic var recordDate: Date = Date()
+}
+
+class WinterCodeStockDataModel: Object {
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var imageData: Data?
+    @objc dynamic var memotext: String = ""
+    @objc dynamic var recordDate: Date = Date()
+}

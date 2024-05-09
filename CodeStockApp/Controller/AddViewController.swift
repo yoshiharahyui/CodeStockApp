@@ -13,12 +13,24 @@ import Parchment
 protocol PostDelegate {
     func newPost(memotext: String)
 }
+protocol PostSummerDelegate {
+    func newsummerPost(memotext: String)
+}
+protocol PostFallDelegate {
+    func newfallPost(memotext: String)
+}
+protocol PostWinterDelegate {
+    func newwinterPost(memotext: String)
+}
 
 class AddViewController: UIViewController, UITextViewDelegate {
     
     private var codestockData = CodeStockDataModel()
     private let realm = try! Realm()
     var delegate: PostDelegate?
+    var summerdelegate: PostSummerDelegate?
+    var falldelegate: PostFallDelegate?
+    var winterdelegate: PostWinterDelegate?
     var getindex: PagingIndexItem!
     
     private var dateFormat: DateFormatter {
@@ -35,7 +47,16 @@ class AddViewController: UIViewController, UITextViewDelegate {
         var memotext: String
         memotext = memoTextView.text ?? ""
         self.saveData(with: memotext)
-        delegate?.newPost(memotext: memotext)
+        
+        if getindex.index == 0 {
+            delegate?.newPost(memotext: memotext)
+        } else if getindex.index == 1 {
+            summerdelegate?.newsummerPost(memotext: memotext)
+        } else if getindex.index == 2 {
+            falldelegate?.newfallPost(memotext: memotext)
+        } else if getindex.index == 3 {
+            winterdelegate?.newwinterPost(memotext: memotext)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func cancelButton(_ sender: Any) {
