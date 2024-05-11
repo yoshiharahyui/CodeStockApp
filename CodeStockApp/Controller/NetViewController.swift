@@ -97,6 +97,9 @@ class NetViewController: UIViewController {
         AddVC.getindex = indexitem
         addvc = AddVC
         addvc.delegate = springvc
+        addvc.summerdelegate = summervc
+        addvc.falldelegate = fallvc
+        addvc.winterdelegate = wintervc
         addvc.modalPresentationStyle = .formSheet
         present(addvc, animated: true, completion: nil)
     }

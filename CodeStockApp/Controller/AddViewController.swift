@@ -25,13 +25,18 @@ protocol PostWinterDelegate {
 
 class AddViewController: UIViewController, UITextViewDelegate {
     
-    private var codestockData = CodeStockDataModel()
+    private var springcodestockData = SpringCodeStockDataModel()
+    private var summercodestockData = SummerCodeStockDataModel()
+    private var fallcodestockData = FallCodeStockDataModel()
+    private var wintercodestockData = WinterCodeStockDataModel()
+    
     private let realm = try! Realm()
     var delegate: PostDelegate?
     var summerdelegate: PostSummerDelegate?
     var falldelegate: PostFallDelegate?
     var winterdelegate: PostWinterDelegate?
     var getindex: PagingIndexItem!
+    
     
     private var dateFormat: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -46,15 +51,18 @@ class AddViewController: UIViewController, UITextViewDelegate {
     @IBAction func postButton(_ sender: Any) {
         var memotext: String
         memotext = memoTextView.text ?? ""
-        self.saveData(with: memotext)
         
-        if getindex.index == 0 {
+        if getindex!.index == 0 {
+            self.savespringData(with: memotext)
             delegate?.newPost(memotext: memotext)
-        } else if getindex.index == 1 {
+        } else if getindex!.index == 1 {
+            self.savesummerData(with: memotext)
             summerdelegate?.newsummerPost(memotext: memotext)
-        } else if getindex.index == 2 {
+        } else if getindex!.index == 2 {
+            self.savefallData(with: memotext)
             falldelegate?.newfallPost(memotext: memotext)
-        } else if getindex.index == 3 {
+        } else if getindex!.index == 3 {
+            self.savewinterData(with: memotext)
             winterdelegate?.newwinterPost(memotext: memotext)
         }
         self.dismiss(animated: true, completion: nil)
@@ -76,7 +84,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDoneButton()
-        print(self.getindex as Any)
         //SelectSeasonButtonにアイテム追加、動くようにするためのコード
         selectSeasonButton.menu = addMenuItems()
         selectSeasonButton.showsMenuAsPrimaryAction = true
@@ -96,26 +103,64 @@ class AddViewController: UIViewController, UITextViewDelegate {
         return menuItems
     }
     
-    //画像保存
-    private func saveData(with memotext: String) {
-        
+    //データ保存
+    private func savespringData(with memotext: String) {
         try! realm.write {
             //UIImageViewを取得
             let setImage = imageView.image
             //pngDataに変換
             let pngimageData = setImage?.pngData()
             //データモデルのプロパティに代入
-            codestockData.imageData = pngimageData
-            codestockData.memotext = memoTextView.text
-            codestockData.recordDate = Date()
-        realm.add(codestockData)
+            springcodestockData.imageData = pngimageData
+            springcodestockData.memotext = memoTextView.text
+            springcodestockData.recordDate = Date()
+        realm.add(springcodestockData)
+        }
+    }
+    private func savesummerData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            summercodestockData.imageData = pngimageData
+            summercodestockData.memotext = memoTextView.text
+            summercodestockData.recordDate = Date()
+        realm.add(summercodestockData)
+        }
+    }
+    private func savefallData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            fallcodestockData.imageData = pngimageData
+            fallcodestockData.memotext = memoTextView.text
+            fallcodestockData.recordDate = Date()
+        realm.add(fallcodestockData)
+        }
+    }
+    private func savewinterData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            wintercodestockData.imageData = pngimageData
+            wintercodestockData.memotext = memoTextView.text
+            wintercodestockData.recordDate = Date()
+        realm.add(wintercodestockData)
         }
     }
     
-    private func configure(memo: CodeStockDataModel) {
-        codestockData.memotext = memoTextView.text
-        codestockData.recordDate = memo.recordDate
-    }
+//    private func configure(memo: CodeStockDataModel) {
+//        codestockData.memotext = memoTextView.text
+//        codestockData.recordDate = memo.recordDate
+//    }
     
     private func setDoneButton() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y:0, width: 320, height: 40))

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CodeStockDataModel: Object {
+class SpringCodeStockDataModel: Object {
     //データを一意に識別するための識別子
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var imageData: Data?

@@ -11,7 +11,7 @@ import RealmSwift
 
 class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var codestockList: [CodeStockDataModel] = []
+    private var springcodestockList: [SpringCodeStockDataModel] = []
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,41 +31,41 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setcodestockData() {
         let realm = try! Realm()
-        let result = realm.objects(CodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
-        codestockList = Array(result)
+        let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
+        springcodestockList = Array(result)
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return codestockList.count
+        return springcodestockList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        let codestockDataModel: CodeStockDataModel = codestockList[indexPath.row]
+        let springcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
+        let springcodestockDataModel: SpringCodeStockDataModel = springcodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         
-        cell.datelabel.text = "\(codestockDataModel.recordDate)"
-        cell.datelabel.textColor = .black
-        cell.memolabel.text = codestockDataModel.memotext
-        cell.memolabel.textColor = .black
+        springcell.datelabel.text = "\(springcodestockDataModel.recordDate)"
+        springcell.datelabel.textColor = .black
+        springcell.memolabel.text = springcodestockDataModel.memotext
+        springcell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         let imageData: Data? = nil
-        if let imageData = codestockDataModel.imageData {
-            cell.imageview.image = UIImage(data: codestockDataModel.imageData!)
+        if let imageData = springcodestockDataModel.imageData {
+            springcell.imageview.image = UIImage(data: springcodestockDataModel.imageData!)
         } else {
-            cell.imageView?.image = defaultImage
+            springcell.imageView?.image = defaultImage
         }
         //MaintableViewCellのresizedimage()を実行する
-        cell.resizedimage()
+        springcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        cell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
+        springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         //セルを選択不可
-        cell.isUserInteractionEnabled = false
-        return cell
+        springcell.isUserInteractionEnabled = false
+        return springcell
     }
 }
 

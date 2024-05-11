@@ -11,7 +11,7 @@ import RealmSwift
 
 class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var codestockList: [CodeStockDataModel] = []
+    private var summercodestockList: [SummerCodeStockDataModel] = []
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +21,6 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの登録
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.delegate = self
-        addVC.summerdelegate = self
         setcodestockData()
         self.tableView.reloadData()
         //セルの可変
@@ -31,41 +30,41 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setcodestockData() {
         let realm = try! Realm()
-        let result = realm.objects(CodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
-        codestockList = Array(result)
+        let result = realm.objects(SummerCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
+        summercodestockList = Array(result)
         tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return codestockList.count
+        return summercodestockList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        let codestockDataModel: CodeStockDataModel = codestockList[indexPath.row]
+        let summercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
+        let summercodestockDataModel: SummerCodeStockDataModel = summercodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         
-        cell.datelabel.text = "\(codestockDataModel.recordDate)"
-        cell.datelabel.textColor = .black
-        cell.memolabel.text = codestockDataModel.memotext
-        cell.memolabel.textColor = .black
+        summercell.datelabel.text = "\(summercodestockDataModel.recordDate)"
+        summercell.datelabel.textColor = .black
+        summercell.memolabel.text = summercodestockDataModel.memotext
+        summercell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         let imageData: Data? = nil
-        if let imageData = codestockDataModel.imageData {
-            cell.imageview.image = UIImage(data: codestockDataModel.imageData!)
+        if let imageData = summercodestockDataModel.imageData {
+            summercell.imageview.image = UIImage(data: summercodestockDataModel.imageData!)
         } else {
-            cell.imageview?.image = defaultImage
+           summercell.imageview?.image = defaultImage
         }
         //MaintableViewCellのresizedimage()を実行する
-        cell.resizedimage()
+        summercell.resizedimage()
         view.layoutIfNeeded()
         
         //セルの背景色変更
-        cell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
+        summercell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
         //セルを選択不可
-        cell.isUserInteractionEnabled = false
-        return cell
+        summercell.isUserInteractionEnabled = false
+        return summercell
     }
 }
 

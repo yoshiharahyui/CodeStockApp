@@ -11,7 +11,7 @@ import RealmSwift
 
 class FallViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var codestockList: [CodeStockDataModel] = []
+    private var fallcodestockList: [FallCodeStockDataModel] = []
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +21,6 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         //セルの登録
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.delegate = self
-        addVC.falldelegate = self
         setcodestockData()
         self.tableView.reloadData()
         //セルの可変
@@ -31,41 +30,41 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setcodestockData() {
         let realm = try! Realm()
-        let result = realm.objects(CodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
-        codestockList = Array(result)
+        let result = realm.objects(FallCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
+        fallcodestockList = Array(result)
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return codestockList.count
+        return fallcodestockList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        let codestockDataModel: CodeStockDataModel = codestockList[indexPath.row]
+        let fallcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
+        let fallcodestockDataModel: FallCodeStockDataModel = fallcodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         
-        cell.datelabel.text = "\(codestockDataModel.recordDate)"
-        cell.datelabel.textColor = .black
-        cell.memolabel.text = codestockDataModel.memotext
-        cell.memolabel.textColor = .black
+        fallcell.datelabel.text = "\(fallcodestockDataModel.recordDate)"
+        fallcell.datelabel.textColor = .black
+        fallcell.memolabel.text = fallcodestockDataModel.memotext
+        fallcell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         let imageData: Data? = nil
-        if let imageData = codestockDataModel.imageData {
-            cell.imageview.image = UIImage(data: codestockDataModel.imageData!)
+        if let imageData = fallcodestockDataModel.imageData {
+            fallcell.imageview.image = UIImage(data: fallcodestockDataModel.imageData!)
         } else {
-            cell.imageview?.image = defaultImage
+            fallcell.imageview?.image = defaultImage
         }
         //MaintableViewCellのresizedimage()を実行する
-        cell.resizedimage()
+        fallcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        cell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
+        fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
         //セルを選択不可
-        cell.isUserInteractionEnabled = false
-        return cell
+        fallcell.isUserInteractionEnabled = false
+        return fallcell
     }
     
 }
