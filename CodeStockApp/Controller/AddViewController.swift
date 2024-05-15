@@ -25,6 +25,17 @@ protocol PostWinterDelegate {
 
 class AddViewController: UIViewController, UITextViewDelegate {
     
+    //UIMenuの表示項目
+    enum MenuType: String {
+        case title = "Select Season"
+        case spring = "SPRING"
+        case summer = "SUMMER"
+        case fall = "FALL"
+        case winter = "WINTER"
+    }
+    //選択されたMenuType
+    private var selectedMenuType = MenuType.title
+    
     private var springcodestockData = SpringCodeStockDataModel()
     private var summercodestockData = SummerCodeStockDataModel()
     private var fallcodestockData = FallCodeStockDataModel()
@@ -84,25 +95,50 @@ class AddViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDoneButton()
-        //SelectSeasonButtonにアイテム追加、動くようにするためのコード
-        selectSeasonButton.menu = addMenuItems()
-        selectSeasonButton.showsMenuAsPrimaryAction = true
-    }
-    //投稿画面のSelectSeasonButtonのアイテム
-    private func addMenuItems() -> UIMenu{
-        let menuItems = UIMenu(title: "", options: .displayInline, children: [
-            UIAction(title: "Winter", image: UIImage(systemName: "play"), handler: { (_) in print("aaa")
-            }),
-            UIAction(title: "Fall", image: UIImage(systemName: "play"), handler: { (_) in print("iii")
-            }),
-            UIAction(title: "Summer", image: UIImage(systemName: "play"), handler: { (_) in print ("eee")
-            }),
-            UIAction(title: "Spring", image: UIImage(systemName: "play"), handler: { (_) in print("gvvv")
-            }),
-        ])
-        return menuItems
+        self.configureMenuButton()
+        selectSeasonButton.layer.cornerRadius = 5
     }
     
+    //UIMenuの設定
+    private func configureMenuButton() {
+        var actions = [UIMenuElement]()
+        
+        //SPRING
+        actions.append(UIAction(title: MenuType.spring.rawValue, image: nil, state: self.selectedMenuType == MenuType.spring ? .on : .off,
+                                handler: { (_) in
+            self.selectedMenuType = .spring
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //SUMMER
+        actions.append(UIAction(title: MenuType.summer.rawValue, image: nil, state: self.selectedMenuType == MenuType.summer ? .on : .off,
+                                handler: { (_) in
+            self.selectedMenuType = .summer
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //FALL
+        actions.append(UIAction(title: MenuType.fall.rawValue, image: nil, state: self.selectedMenuType == MenuType.fall ? .on : .off,
+                                handler: { (_) in
+            self.selectedMenuType = .fall
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //WINTER
+        actions.append(UIAction(title: MenuType.winter.rawValue, image: nil, state: self.selectedMenuType == MenuType.winter ? .on : .off,
+                                handler: { (_) in
+            self.selectedMenuType = .winter
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        
+        //UIButtonにUIMenuを設定
+        selectSeasonButton.menu = UIMenu(title: "", options: .displayInline, children: actions)
+        //これを書かないと表示できない場合があるので注意
+        selectSeasonButton.showsMenuAsPrimaryAction = true
+        //ボタンの表示を変更
+        selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
+    }
     //データ保存
     private func savespringData(with memotext: String) {
         try! realm.write {
