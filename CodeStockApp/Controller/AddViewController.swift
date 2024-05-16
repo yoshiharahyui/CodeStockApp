@@ -35,6 +35,13 @@ class AddViewController: UIViewController, UITextViewDelegate {
     }
     //選択されたMenuType
     private var selectedMenuType = MenuType.title
+    //選択されたUIMenuのitemを格納する変数
+    private var uimenuitem: String!
+    //取得したUIMenuの値を代入するために使う
+    private let springAction = UIAction(title: "SPRING", image: nil, state: .on) { _ in}
+    private let summerAction = UIAction(title: "SUMMER", image: nil, state: .on) { _ in}
+    private let fallAction = UIAction(title: "FALL", image: nil, state: .on) { _ in}
+    private let winterAction = UIAction(title: "WINTER", image: nil, state: .on) { _ in}
     
     private var springcodestockData = SpringCodeStockDataModel()
     private var summercodestockData = SummerCodeStockDataModel()
@@ -62,20 +69,38 @@ class AddViewController: UIViewController, UITextViewDelegate {
     @IBAction func postButton(_ sender: Any) {
         var memotext: String
         memotext = memoTextView.text ?? ""
-        
-        if getindex!.index == 0 {
+        //選択されたUIMenuごとに保存先を分ける
+        if uimenuitem == "SPRING" {
             self.savespringData(with: memotext)
             delegate?.newPost(memotext: memotext)
-        } else if getindex!.index == 1 {
+            print("春")
+        } else if uimenuitem == "SUMMER" {
             self.savesummerData(with: memotext)
             summerdelegate?.newsummerPost(memotext: memotext)
-        } else if getindex!.index == 2 {
+            print("夏")
+        } else if uimenuitem == "FALL" {
             self.savefallData(with: memotext)
             falldelegate?.newfallPost(memotext: memotext)
-        } else if getindex!.index == 3 {
+            print("秋")
+        } else if uimenuitem == "WINTER" {
             self.savewinterData(with: memotext)
             winterdelegate?.newwinterPost(memotext: memotext)
+            print("冬")
         }
+//        if getindex!.index == 0 {
+//            self.savespringData(with: memotext)
+//            delegate?.newPost(memotext: memotext)
+//       } else
+//            if getindex!.index == 1 {
+//            self.savesummerData(with: memotext)
+//            summerdelegate?.newsummerPost(memotext: memotext)
+//        } else if getindex!.index == 2 {
+//            self.savefallData(with: memotext)
+//            falldelegate?.newfallPost(memotext: memotext)
+//        } else if getindex!.index == 3 {
+//            self.savewinterData(with: memotext)
+//            winterdelegate?.newwinterPost(memotext: memotext)
+//        }
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func cancelButton(_ sender: Any) {
@@ -106,6 +131,9 @@ class AddViewController: UIViewController, UITextViewDelegate {
         //WINTER
         actions.append(UIAction(title: MenuType.winter.rawValue, image: nil, state: self.selectedMenuType == MenuType.winter ? .on : .off,
                                 handler: { (_) in
+            if self.winterAction.state == .on {
+                self.uimenuitem = self.winterAction.title
+            }
             self.selectedMenuType = .winter
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
@@ -113,6 +141,9 @@ class AddViewController: UIViewController, UITextViewDelegate {
         //FALL
         actions.append(UIAction(title: MenuType.fall.rawValue, image: nil, state: self.selectedMenuType == MenuType.fall ? .on : .off,
                                 handler: { (_) in
+            if self.fallAction.state == .on {
+                self.uimenuitem = self.fallAction.title
+            }
             self.selectedMenuType = .fall
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
@@ -120,6 +151,9 @@ class AddViewController: UIViewController, UITextViewDelegate {
         //SUMMER
         actions.append(UIAction(title: MenuType.summer.rawValue, image: nil, state: self.selectedMenuType == MenuType.summer ? .on : .off,
                                 handler: { (_) in
+            if self.summerAction.title == "SUMMER" {
+                self.uimenuitem = self.summerAction.title
+            }
             self.selectedMenuType = .summer
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
@@ -127,8 +161,10 @@ class AddViewController: UIViewController, UITextViewDelegate {
         //SPRING
         actions.append(UIAction(title: MenuType.spring.rawValue, image: nil, state: self.selectedMenuType == MenuType.spring ? .on : .off,
                                 handler: { (_) in
+            if self.springAction.state == .on {
+                self.uimenuitem = self.springAction.title
+                }
             self.selectedMenuType = .spring
-            print("aaa")
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
