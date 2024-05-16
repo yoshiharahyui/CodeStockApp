@@ -103,17 +103,10 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private func configureMenuButton() {
         var actions = [UIMenuElement]()
         
-        //SPRING
-        actions.append(UIAction(title: MenuType.spring.rawValue, image: nil, state: self.selectedMenuType == MenuType.spring ? .on : .off,
+        //WINTER
+        actions.append(UIAction(title: MenuType.winter.rawValue, image: nil, state: self.selectedMenuType == MenuType.winter ? .on : .off,
                                 handler: { (_) in
-            self.selectedMenuType = .spring
-            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-            self.configureMenuButton()
-        }))
-        //SUMMER
-        actions.append(UIAction(title: MenuType.summer.rawValue, image: nil, state: self.selectedMenuType == MenuType.summer ? .on : .off,
-                                handler: { (_) in
-            self.selectedMenuType = .summer
+            self.selectedMenuType = .winter
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
@@ -124,10 +117,18 @@ class AddViewController: UIViewController, UITextViewDelegate {
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
-        //WINTER
-        actions.append(UIAction(title: MenuType.winter.rawValue, image: nil, state: self.selectedMenuType == MenuType.winter ? .on : .off,
+        //SUMMER
+        actions.append(UIAction(title: MenuType.summer.rawValue, image: nil, state: self.selectedMenuType == MenuType.summer ? .on : .off,
                                 handler: { (_) in
-            self.selectedMenuType = .winter
+            self.selectedMenuType = .summer
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //SPRING
+        actions.append(UIAction(title: MenuType.spring.rawValue, image: nil, state: self.selectedMenuType == MenuType.spring ? .on : .off,
+                                handler: { (_) in
+            self.selectedMenuType = .spring
+            print("aaa")
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
