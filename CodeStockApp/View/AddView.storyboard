@@ -42,7 +42,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
                                                 <connections>
-                                                    <action selector="postButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zcg-GH-OSN"/>
+                                                    <action selector="postButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wgp-A0-vIP"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>

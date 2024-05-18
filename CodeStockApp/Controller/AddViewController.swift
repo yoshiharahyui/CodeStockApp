@@ -36,7 +36,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     //選択されたMenuType
     private var selectedMenuType = MenuType.title
     //選択されたUIMenuのitemを格納する変数
-    private var uimenuitem: String!
+    private var uimenuitem: String?
     //取得したUIMenuの値を代入するために使う
     private let springAction = UIAction(title: "SPRING", image: nil, state: .on) { _ in}
     private let summerAction = UIAction(title: "SUMMER", image: nil, state: .on) { _ in}
@@ -47,8 +47,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private var summercodestockData = SummerCodeStockDataModel()
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
-    
-    private let realm = try! Realm()
+        private let realm = try! Realm()
     var delegate: PostDelegate?
     var summerdelegate: PostSummerDelegate?
     var falldelegate: PostFallDelegate?
@@ -56,36 +55,57 @@ class AddViewController: UIViewController, UITextViewDelegate {
     var getindex: PagingIndexItem!
     
     
-    private var dateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        return dateFormatter
-    }
-    
     @IBOutlet weak var memoTextView: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func postButton(_ sender: Any) {
+        let alert: UIAlertController = UIAlertController(title: "Alert!", message: "Please choose Season", preferredStyle: .alert)
         var memotext: String
         memotext = memoTextView.text ?? ""
+        
+        //OKボタン
+                let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    //ボタンが押された時の処理
+                    (action: UIAlertAction) -> Void in
+                    print("OK")
+                })
+                //キャンセルボタン
+                let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .default, handler: {
+                    //ボタンが押された時の処理
+                    (action: UIAlertAction) -> Void in
+                    print("キャンセル")
+                })
+
+                //UIAlertControllerにActionを追加
+                alert.addAction(defaultAction)
+                alert.addAction(cancelAction)
+        
         //選択されたUIMenuごとに保存先を分ける
         if uimenuitem == "SPRING" {
             self.savespringData(with: memotext)
             delegate?.newPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
             print("春")
         } else if uimenuitem == "SUMMER" {
             self.savesummerData(with: memotext)
             summerdelegate?.newsummerPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
             print("夏")
         } else if uimenuitem == "FALL" {
             self.savefallData(with: memotext)
             falldelegate?.newfallPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
             print("秋")
         } else if uimenuitem == "WINTER" {
             self.savewinterData(with: memotext)
             winterdelegate?.newwinterPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
             print("冬")
+        } else if uimenuitem == nil {
+            //Alertを表示
+            present(alert, animated: true, completion: nil)
+            return
         }
 //        if getindex!.index == 0 {
 //            self.savespringData(with: memotext)
@@ -101,8 +121,8 @@ class AddViewController: UIViewController, UITextViewDelegate {
 //            self.savewinterData(with: memotext)
 //            winterdelegate?.newwinterPost(memotext: memotext)
 //        }
-        self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
@@ -176,6 +196,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         //ボタンの表示を変更
         selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
     }
+
     //データ保存
     private func savespringData(with memotext: String) {
         try! realm.write {
@@ -229,11 +250,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
         realm.add(wintercodestockData)
         }
     }
-    
-//    private func configure(memo: CodeStockDataModel) {
-//        codestockData.memotext = memoTextView.text
-//        codestockData.recordDate = memo.recordDate
-//    }
     
     private func setDoneButton() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y:0, width: 320, height: 40))

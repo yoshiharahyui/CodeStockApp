@@ -38,13 +38,19 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wintercodestockList.count
     }
+    private let formatter = DateFormatter()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let wintercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let wintercodestockDataModel: WinterCodeStockDataModel = wintercodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
-        wintercell.datelabel.text = "\(wintercodestockDataModel.recordDate)"
+        //dateFormatterの設定
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = formatter.string(from: wintercodestockDataModel.recordDate)
+        wintercell.datelabel.text = "\(date)"
         wintercell.datelabel.textColor = .black
         wintercell.memolabel.text = wintercodestockDataModel.memotext
         wintercell.memolabel.textColor = .black

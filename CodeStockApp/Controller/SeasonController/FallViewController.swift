@@ -38,14 +38,19 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fallcodestockList.count
     }
+    private let formatter = DateFormatter()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fallcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let fallcodestockDataModel: FallCodeStockDataModel = fallcodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
-        
-        fallcell.datelabel.text = "\(fallcodestockDataModel.recordDate)"
+        //dateFormatterの設定
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = formatter.string(from: fallcodestockDataModel.recordDate)
+        fallcell.datelabel.text = "\(date)"
         fallcell.datelabel.textColor = .black
         fallcell.memolabel.text = fallcodestockDataModel.memotext
         fallcell.memolabel.textColor = .black

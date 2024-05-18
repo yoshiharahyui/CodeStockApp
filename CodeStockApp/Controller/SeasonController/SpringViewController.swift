@@ -39,14 +39,20 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return springcodestockList.count
     }
+    private let formatter = DateFormatter()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let springcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let springcodestockDataModel: SpringCodeStockDataModel = springcodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
-        
-        springcell.datelabel.text = "\(springcodestockDataModel.recordDate)"
+        //dateFormatterの設定
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = formatter.string(from: springcodestockDataModel.recordDate)
+        springcell.datelabel.text = "\(date)"
+
         springcell.datelabel.textColor = .black
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black

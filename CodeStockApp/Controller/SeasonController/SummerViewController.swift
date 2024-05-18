@@ -37,14 +37,19 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return summercodestockList.count
     }
+    private let formatter = DateFormatter()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let summercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let summercodestockDataModel: SummerCodeStockDataModel = summercodestockList[indexPath.row]
         let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
-        
-        summercell.datelabel.text = "\(summercodestockDataModel.recordDate)"
+        //dateFormatterの設定
+        formatter.locale = Locale(identifier: "defaultImage")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let date = formatter.string(from: summercodestockDataModel.recordDate)
+        summercell.datelabel.text = "\(date)"
         summercell.datelabel.textColor = .black
         summercell.memolabel.text = summercodestockDataModel.memotext
         summercell.memolabel.textColor = .black
