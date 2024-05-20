@@ -86,22 +86,18 @@ class AddViewController: UIViewController, UITextViewDelegate {
             self.savespringData(with: memotext)
             delegate?.newPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
-            print("春")
         } else if uimenuitem == "SUMMER" {
             self.savesummerData(with: memotext)
             summerdelegate?.newsummerPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
-            print("夏")
         } else if uimenuitem == "FALL" {
             self.savefallData(with: memotext)
             falldelegate?.newfallPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
-            print("秋")
         } else if uimenuitem == "WINTER" {
             self.savewinterData(with: memotext)
             winterdelegate?.newwinterPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
-            print("冬")
         } else if uimenuitem == nil {
             //Alertを表示
             present(alert, animated: true, completion: nil)
@@ -142,7 +138,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         setDoneButton()
         self.configureMenuButton()
         selectSeasonButton.layer.cornerRadius = 5
-        memoTextView.placeHolder = "入力してください。"
+        memoTextView.placeHolder = "メモなどを入力してください。"
     }
     
     //UIMenuの設定
