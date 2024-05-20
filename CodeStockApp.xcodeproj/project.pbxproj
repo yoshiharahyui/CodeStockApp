@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1EC1F62BFA3F750076C535 /* PlaceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */; };
 		1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084B22BB27CE000AECC94 /* AppDelegate.swift */; };
 		1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084B42BB27CE000AECC94 /* SceneDelegate.swift */; };
 		1E4084BC2BB27CE100AECC94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4084BB2BB27CE100AECC94 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		110DAB5C2D7F2964BFE7A695 /* Pods-CodeStockAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockAppTests/Pods-CodeStockAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTextView.swift; sourceTree = "<group>"; };
 		1E4084AF2BB27CE000AECC94 /* CodeStockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4084B22BB27CE000AECC94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E4084B42BB27CE000AECC94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E1EC1F42BFA3F1D0076C535 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		1E4084A62BB27CE000AECC94 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		1E4084B12BB27CE000AECC94 /* CodeStockApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E1EC1F42BFA3F1D0076C535 /* Component */,
 				1E4084F82BB8202100AECC94 /* Model */,
 				1E4084F62BB81F8800AECC94 /* View */,
 				1E4084F72BB81FBC00AECC94 /* Controller */,
@@ -558,6 +569,7 @@
 				1E40850C2BBA7D4600AECC94 /* OwnSummerViewController.swift in Sources */,
 				1E4085242BC273B500AECC94 /* CodeStockDataModel.swift in Sources */,
 				1E4084FA2BB8207C00AECC94 /* SpringViewController.swift in Sources */,
+				1E1EC1F62BFA3F750076C535 /* PlaceTextView.swift in Sources */,
 				1E4085102BBA7DD100AECC94 /* OwnWinterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

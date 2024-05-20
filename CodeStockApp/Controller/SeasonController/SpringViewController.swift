@@ -58,7 +58,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
+        //let imageData: Data? = nil
         if let imageData = springcodestockDataModel.imageData {
             springcell.imageview.image = UIImage(data: springcodestockDataModel.imageData!)
         } else {

@@ -55,7 +55,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     var getindex: PagingIndexItem!
     
     
-    @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var memoTextView: HintTextView!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -142,6 +142,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         setDoneButton()
         self.configureMenuButton()
         selectSeasonButton.layer.cornerRadius = 5
+        memoTextView.placeHolder = "入力してください。"
     }
     
     //UIMenuの設定
