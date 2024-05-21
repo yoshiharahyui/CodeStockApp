@@ -68,13 +68,11 @@ class AddViewController: UIViewController, UITextViewDelegate {
                 let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
                     //ボタンが押された時の処理
                     (action: UIAlertAction) -> Void in
-                    print("OK")
                 })
                 //キャンセルボタン
-                let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .default, handler: {
+                let cancelAction: UIAlertAction = UIAlertAction(title: "CANCEL", style: .default, handler: {
                     //ボタンが押された時の処理
                     (action: UIAlertAction) -> Void in
-                    print("キャンセル")
                 })
 
                 //UIAlertControllerにActionを追加
@@ -103,20 +101,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
             present(alert, animated: true, completion: nil)
             return
         }
-//        if getindex!.index == 0 {
-//            self.savespringData(with: memotext)
-//            delegate?.newPost(memotext: memotext)
-//       } else
-//            if getindex!.index == 1 {
-//            self.savesummerData(with: memotext)
-//            summerdelegate?.newsummerPost(memotext: memotext)
-//        } else if getindex!.index == 2 {
-//            self.savefallData(with: memotext)
-//            falldelegate?.newfallPost(memotext: memotext)
-//        } else if getindex!.index == 3 {
-//            self.savewinterData(with: memotext)
-//            winterdelegate?.newwinterPost(memotext: memotext)
-//        }
     }
     
     @IBAction func cancelButton(_ sender: Any) {
