@@ -39,7 +39,7 @@ class OwnViewController: UIViewController {
     }
     
         //Parchmentを使ったタブ作成
-        func configureparchment() {
+        private func configureparchment() {
             let ownspringstoryboard = UIStoryboard(name: "OwnSpringView", bundle: nil)
             let ownspringvc = ownspringstoryboard.instantiateViewController(withIdentifier: "OwnSpring") as! OwnSpringViewController
             

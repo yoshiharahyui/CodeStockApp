@@ -43,7 +43,6 @@ class NetViewController: UIViewController {
     
     //Parchmentを使ったタブ作成
     func configureparchment() {
-        
         let springstoryboard = UIStoryboard(name: "SpringView", bundle: nil)
         let SpringVC = springstoryboard.instantiateViewController(withIdentifier: "Spring") as! SpringViewController
         springvc = SpringVC
