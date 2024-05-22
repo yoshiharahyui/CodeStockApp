@@ -95,6 +95,7 @@ class NetViewController: UIViewController {
         let AddVC = addstoryboard.instantiateViewController(withIdentifier: "addview") as! AddViewController
         AddVC.getindex = indexitem
         addvc = AddVC
+        //表示しているaddvcに季節のdelegateを設定する
         addvc.delegate = springvc
         addvc.summerdelegate = summervc
         addvc.falldelegate = fallvc
