@@ -69,7 +69,6 @@ class AddSecondViewController: UIViewController {
     //画像保存
     private func saveData(with memotext: String) {
         let codestocksecondData = CodeStockSecondDataModel()
-        //codestockData.imageData = imageData
         
         try! realm.write {
             //UIImageViewを取得
@@ -81,9 +80,6 @@ class AddSecondViewController: UIViewController {
             codestocksecondData.memotext = memoTextView.text
             codestocksecondData.recordDate = Date()
         realm.add(codestocksecondData)
-            print(setImage!)
-            print(pngimageData!)
-            print(codestocksecondData)
         }
     }
     
