@@ -1,14 +1,14 @@
 //
-//  SummerViewController.swift
+//  OwnSummerViewController.swift
 //  CodeStockApp
 //
-//  Created by 吉原飛偉 on 2024/03/30.
+//  Created by 吉原飛偉 on 2024/04/01.
 //
 
 import Foundation
 import UIKit
 
-class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OwnSummerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,9 +24,11 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        cell.datelabel.text = "2024/04/02"
+        cell.datelabel.text = "2024/05/02"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
-        cell.memolabel.text = "いい良い良い良いいい"
+        cell.memolabel.text = "fahfnawernvasdnfo"
+        cell.memolabel.textColor = .black
         cell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
         cell.isUserInteractionEnabled = false
         return cell

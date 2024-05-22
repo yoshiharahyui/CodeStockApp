@@ -1,16 +1,26 @@
 PODS:
   - Parchment (3.3.0)
+  - Realm (10.46.0):
+    - Realm/Headers (= 10.46.0)
+  - Realm/Headers (10.46.0)
+  - RealmSwift (10.46.0):
+    - Realm (= 10.46.0)
 
 DEPENDENCIES:
   - Parchment (~> 3.3.0)
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Parchment
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Parchment: 7678853fa5d28d38d31baaa466fa5d6ebaa6843c
+  Realm: 699b80d8e5fc66acafd2d530199e77781a2d69d3
+  RealmSwift: 3230b8fc63759433a6938a0dd2a5dc0dc2b15760
 
-PODFILE CHECKSUM: 03913376ea3c4bab980a9b7303ee70271563c073
+PODFILE CHECKSUM: 5f56eff4e06d7885db1d88c0a36fadb70f52e2bb
 
 COCOAPODS: 1.14.3

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1EC1F62BFA3F750076C535 /* PlaceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */; };
 		1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084B22BB27CE000AECC94 /* AppDelegate.swift */; };
 		1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4084B42BB27CE000AECC94 /* SceneDelegate.swift */; };
 		1E4084BC2BB27CE100AECC94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4084BB2BB27CE100AECC94 /* Assets.xcassets */; };
@@ -37,6 +38,12 @@
 		1E4085182BBA7F1700AECC94 /* OwnWinterView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */; };
 		1E40851B2BBAB82000AECC94 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085192BBAB82000AECC94 /* MainTableViewCell.swift */; };
 		1E40851C2BBAB82000AECC94 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E40851A2BBAB82000AECC94 /* MainTableViewCell.xib */; };
+		1E40851E2BBF8C3000AECC94 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E40851D2BBF8C3000AECC94 /* AddViewController.swift */; };
+		1E4085202BBF8C5C00AECC94 /* AddView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E40851F2BBF8C5C00AECC94 /* AddView.storyboard */; };
+		1E4085242BC273B500AECC94 /* CodeStockDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085232BC273B500AECC94 /* CodeStockDataModel.swift */; };
+		1E4085262BC7A27300AECC94 /* AddSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */; };
+		1E4085282BC7A2B800AECC94 /* AddSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */; };
+		1E40852A2BC7BCED00AECC94 /* CodeStockSecondDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */; };
 		56D6664392D6922068E9428D /* Pods_CodeStockAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */; };
 		B483BE4F29B07E7E6E0DBC43 /* Pods_CodeStockApp_CodeStockAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A122FC2A14683A4114D13A88 /* Pods_CodeStockApp_CodeStockAppUITests.framework */; };
 		D68EC39FF0F85E04CFB4AC15 /* Pods_CodeStockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA41FB31E3BB6B15B1B142D /* Pods_CodeStockApp.framework */; };
@@ -61,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		110DAB5C2D7F2964BFE7A695 /* Pods-CodeStockAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockAppTests/Pods-CodeStockAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTextView.swift; sourceTree = "<group>"; };
 		1E4084AF2BB27CE000AECC94 /* CodeStockApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeStockApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4084B22BB27CE000AECC94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E4084B42BB27CE000AECC94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +103,12 @@
 		1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OwnWinterView.storyboard; sourceTree = "<group>"; };
 		1E4085192BBAB82000AECC94 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		1E40851A2BBAB82000AECC94 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		1E40851D2BBF8C3000AECC94 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		1E40851F2BBF8C5C00AECC94 /* AddView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddView.storyboard; sourceTree = "<group>"; };
+		1E4085232BC273B500AECC94 /* CodeStockDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockDataModel.swift; sourceTree = "<group>"; };
+		1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSecondView.storyboard; sourceTree = "<group>"; };
+		1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSecondViewController.swift; sourceTree = "<group>"; };
+		1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockSecondDataModel.swift; sourceTree = "<group>"; };
 		63F89B6AD388D2C4DDC75553 /* Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71799A22D896AEE6BEA40242 /* Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStockAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E1EC1F42BFA3F1D0076C535 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1E1EC1F52BFA3F750076C535 /* PlaceTextView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		1E4084A62BB27CE000AECC94 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +180,7 @@
 		1E4084B12BB27CE000AECC94 /* CodeStockApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E1EC1F42BFA3F1D0076C535 /* Component */,
 				1E4084F82BB8202100AECC94 /* Model */,
 				1E4084F62BB81F8800AECC94 /* View */,
 				1E4084F72BB81FBC00AECC94 /* Controller */,
@@ -191,17 +214,12 @@
 		1E4084F62BB81F8800AECC94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1E4085222BBFACE600AECC94 /* SeasonView */,
 				1E4084BD2BB27CE100AECC94 /* LaunchScreen.storyboard */,
 				1E4084EE2BB2E5D600AECC94 /* NetView.storyboard */,
 				1E4084F42BB2FF1F00AECC94 /* OwnView.storyboard */,
-				1E4084FB2BB820CF00AECC94 /* SpringView.storyboard */,
-				1E4084FF2BB8222F00AECC94 /* SummerView.storyboard */,
-				1E4085032BB822AB00AECC94 /* FallView.storyboard */,
-				1E4085072BB822FB00AECC94 /* WinterView.storyboard */,
-				1E4085112BBA7E0E00AECC94 /* OwnSpringView.storyboard */,
-				1E4085132BBA7E5800AECC94 /* OwnSummerView.storyboard */,
-				1E4085152BBA7EBA00AECC94 /* OwnFallView.storyboard */,
-				1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */,
+				1E40851F2BBF8C5C00AECC94 /* AddView.storyboard */,
+				1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,9 +227,28 @@
 		1E4084F72BB81FBC00AECC94 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1E4085212BBFACA400AECC94 /* SeasonController */,
 				1E4084E82BB2DD0B00AECC94 /* MainTabBarController.swift */,
 				1E4084EA2BB2E18100AECC94 /* NetViewController.swift */,
 				1E4084F22BB2FED200AECC94 /* OwnViewController.swift */,
+				1E40851D2BBF8C3000AECC94 /* AddViewController.swift */,
+				1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1E4084F82BB8202100AECC94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E4085232BC273B500AECC94 /* CodeStockDataModel.swift */,
+				1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E4085212BBFACA400AECC94 /* SeasonController */ = {
+			isa = PBXGroup;
+			children = (
 				1E4084F92BB8207C00AECC94 /* SpringViewController.swift */,
 				1E4084FD2BB8220300AECC94 /* SummerViewController.swift */,
 				1E4085012BB8227700AECC94 /* FallViewController.swift */,
@@ -221,14 +258,22 @@
 				1E40850D2BBA7D9300AECC94 /* OwnFallViewController.swift */,
 				1E40850F2BBA7DD100AECC94 /* OwnWinterViewController.swift */,
 			);
-			path = Controller;
+			path = SeasonController;
 			sourceTree = "<group>";
 		};
-		1E4084F82BB8202100AECC94 /* Model */ = {
+		1E4085222BBFACE600AECC94 /* SeasonView */ = {
 			isa = PBXGroup;
 			children = (
+				1E4084FB2BB820CF00AECC94 /* SpringView.storyboard */,
+				1E4084FF2BB8222F00AECC94 /* SummerView.storyboard */,
+				1E4085032BB822AB00AECC94 /* FallView.storyboard */,
+				1E4085072BB822FB00AECC94 /* WinterView.storyboard */,
+				1E4085112BBA7E0E00AECC94 /* OwnSpringView.storyboard */,
+				1E4085132BBA7E5800AECC94 /* OwnSummerView.storyboard */,
+				1E4085152BBA7EBA00AECC94 /* OwnFallView.storyboard */,
+				1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */,
 			);
-			path = Model;
+			path = SeasonView;
 			sourceTree = "<group>";
 		};
 		8DBA5715ADE112BB485DDB37 /* Frameworks */ = {
@@ -374,8 +419,10 @@
 				1E4085142BBA7E5800AECC94 /* OwnSummerView.storyboard in Resources */,
 				1E4085162BBA7EBA00AECC94 /* OwnFallView.storyboard in Resources */,
 				1E40851C2BBAB82000AECC94 /* MainTableViewCell.xib in Resources */,
+				1E4085262BC7A27300AECC94 /* AddSecondView.storyboard in Resources */,
 				1E4084FC2BB820CF00AECC94 /* SpringView.storyboard in Resources */,
 				1E4084EF2BB2E5D600AECC94 /* NetView.storyboard in Resources */,
+				1E4085202BBF8C5C00AECC94 /* AddView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,11 +532,13 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CodeStockApp/Pods-CodeStockApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CodeStockApp/Pods-CodeStockApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -505,17 +554,22 @@
 			files = (
 				1E4084EB2BB2E18100AECC94 /* NetViewController.swift in Sources */,
 				1E4085022BB8227700AECC94 /* FallViewController.swift in Sources */,
+				1E4085282BC7A2B800AECC94 /* AddSecondViewController.swift in Sources */,
 				1E4084F32BB2FED200AECC94 /* OwnViewController.swift in Sources */,
 				1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */,
 				1E40850E2BBA7D9300AECC94 /* OwnFallViewController.swift in Sources */,
+				1E40851E2BBF8C3000AECC94 /* AddViewController.swift in Sources */,
 				1E40850A2BBA7D0200AECC94 /* OwnSpringViewController.swift in Sources */,
 				1E4084FE2BB8220300AECC94 /* SummerViewController.swift in Sources */,
+				1E40852A2BC7BCED00AECC94 /* CodeStockSecondDataModel.swift in Sources */,
 				1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */,
 				1E4084E92BB2DD0B00AECC94 /* MainTabBarController.swift in Sources */,
 				1E4085062BB822D400AECC94 /* WinterViewController.swift in Sources */,
 				1E40851B2BBAB82000AECC94 /* MainTableViewCell.swift in Sources */,
 				1E40850C2BBA7D4600AECC94 /* OwnSummerViewController.swift in Sources */,
+				1E4085242BC273B500AECC94 /* CodeStockDataModel.swift in Sources */,
 				1E4084FA2BB8207C00AECC94 /* SpringViewController.swift in Sources */,
+				1E1EC1F62BFA3F750076C535 /* PlaceTextView.swift in Sources */,
 				1E4085102BBA7DD100AECC94 /* OwnWinterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,6 +752,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,6 +781,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -21,8 +21,6 @@ class MainTabBarController: UITabBarController {
         let navigationController = UINavigationController(rootViewController: netvc)
         //ネット用タブの設定
         navigationController.tabBarItem = UITabBarItem(title: "Net", image: UIImage(named: "netIcon"), selectedImage: nil)
-        //tabの背景色
-        UITabBar.appearance().backgroundColor = UIColor.black
         //tabの文字の色
         UITabBar.appearance().tintColor = UIColor.white
         

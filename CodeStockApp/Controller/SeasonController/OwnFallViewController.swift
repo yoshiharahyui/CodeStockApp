@@ -1,14 +1,14 @@
 //
-//  WinterViewController.swift
+//  OwnFallViewController.swift
 //  CodeStockApp
 //
-//  Created by 吉原飛偉 on 2024/03/30.
+//  Created by 吉原飛偉 on 2024/04/01.
 //
 
 import Foundation
 import UIKit
 
-class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OwnFallViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,11 +24,13 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        cell.datelabel.text = "2024/04/04"
+        cell.datelabel.text = "2024/05/03"
+        cell.datelabel.textColor = .black
         cell.imageview.image = UIImage(systemName: "swift")
-        cell.memolabel.text = "えええええええええええええ"
+        cell.memolabel.text = "asdcndifnaofaewfnkasf"
+        cell.memolabel.textColor = .black
         //セルの背景色変更
-        cell.backgroundColor = UIColor(red: 202/255, green: 237/255, blue: 250/255, alpha: 1.0)
+        cell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
         //セルを選択不可
         cell.isUserInteractionEnabled = false
         return cell
