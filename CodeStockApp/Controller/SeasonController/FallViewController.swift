@@ -43,7 +43,6 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fallcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let fallcodestockDataModel: FallCodeStockDataModel = fallcodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "ja_JP")
@@ -56,8 +55,7 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
-        if let imageData = fallcodestockDataModel.imageData {
+        if fallcodestockDataModel.imageData != nil {
             fallcell.imageview.image = UIImage(data: fallcodestockDataModel.imageData!)
         } else {
             fallcell.imageview?.image = defaultImage

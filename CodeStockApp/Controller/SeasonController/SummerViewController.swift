@@ -42,7 +42,6 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let summercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let summercodestockDataModel: SummerCodeStockDataModel = summercodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "defaultImage")
@@ -55,8 +54,7 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.memolabel.textColor = .black
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
-        if let imageData = summercodestockDataModel.imageData {
+        if summercodestockDataModel.imageData != nil {
             summercell.imageview.image = UIImage(data: summercodestockDataModel.imageData!)
         } else {
            summercell.imageview?.image = defaultImage

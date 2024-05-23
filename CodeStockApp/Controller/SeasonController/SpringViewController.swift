@@ -44,7 +44,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let springcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let springcodestockDataModel: SpringCodeStockDataModel = springcodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "ja_JP")
@@ -59,7 +58,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         //let imageData: Data? = nil
-        if let imageData = springcodestockDataModel.imageData {
+        if springcodestockDataModel.imageData != nil {
             springcell.imageview.image = UIImage(data: springcodestockDataModel.imageData!)
         } else {
             springcell.imageView?.image = defaultImage

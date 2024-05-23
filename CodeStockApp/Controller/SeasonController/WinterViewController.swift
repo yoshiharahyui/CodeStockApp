@@ -43,7 +43,6 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let wintercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let wintercodestockDataModel: WinterCodeStockDataModel = wintercodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "ja_JP")
@@ -55,8 +54,7 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.memolabel.text = wintercodestockDataModel.memotext
         wintercell.memolabel.textColor = .black
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
-        if let imageData = wintercodestockDataModel.imageData {
+        if wintercodestockDataModel.imageData != nil {
             wintercell.imageview.image = UIImage(data: wintercodestockDataModel.imageData!)
         } else {
             wintercell.imageview?.image = defaultImage
