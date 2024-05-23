@@ -52,6 +52,7 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.datelabel.textColor = .black
         summercell.memolabel.text = summercodestockDataModel.memotext
         summercell.memolabel.textColor = .black
+        summercell.summerdelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if summercodestockDataModel.imageData != nil {
@@ -65,8 +66,6 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //セルの背景色変更
         summercell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
-        //セルを選択不可
-        summercell.isUserInteractionEnabled = false
         return summercell
     }
 }
@@ -75,5 +74,11 @@ extension SummerViewController: PostSummerDelegate {
     func newsummerPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
+    }
+}
+
+extension SummerViewController: CustomSummerCellDelegate {
+    func cutomSummerCellDelegateDidTapButton(cell: UITableViewCell) {
+
     }
 }

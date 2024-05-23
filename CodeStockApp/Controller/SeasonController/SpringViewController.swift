@@ -55,6 +55,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.datelabel.textColor = .black
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
+        springcell.springdelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         //let imageData: Data? = nil
@@ -68,8 +69,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.layoutIfNeeded()
         //セルの背景色変更
         springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
-        //セルを選択不可
-        springcell.isUserInteractionEnabled = false
         return springcell
     }
 }
@@ -78,5 +77,10 @@ extension SpringViewController: PostDelegate {
     func newPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
+    }
+}
+extension SpringViewController: CustomSpringCellDelegate {
+    func customSpringCellDelegateDidTapButton(cell: UITableViewCell) {
+        
     }
 }

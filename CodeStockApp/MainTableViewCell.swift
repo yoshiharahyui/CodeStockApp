@@ -7,12 +7,35 @@
 
 import UIKit
 
+protocol CustomSpringCellDelegate {
+    func customSpringCellDelegateDidTapButton(cell: UITableViewCell)
+}
+protocol CustomSummerCellDelegate {
+    func cutomSummerCellDelegateDidTapButton(cell: UITableViewCell)
+}
+protocol CustomFallCellDelegate {
+    func cutomFallCellDelegateDidTapButton(cell: UITableViewCell)
+}
+protocol CustomWinterCellDelegate {
+    func cutomWinterCellDelegateDidTapButton(cell: UITableViewCell)
+}
+
 class MainTableViewCell: UITableViewCell {
+    var springdelegate: CustomSpringCellDelegate?
+    var summerdelegate: CustomSummerCellDelegate?
+    var falldelegate: CustomFallCellDelegate?
+    var winterdelegate: CustomWinterCellDelegate?
+    
     @IBOutlet weak var datelabel: UILabel!
-    @IBOutlet weak var selectbutton: UIButton!
     @IBOutlet weak var memolabel: UILabel!
     @IBOutlet weak var imageview: UIImageView!
-    
+   
+    @IBAction func selectbutton(_ sender: Any) {
+        springdelegate?.customSpringCellDelegateDidTapButton(cell: self)
+        summerdelegate?.cutomSummerCellDelegateDidTapButton(cell: self)
+        falldelegate?.cutomFallCellDelegateDidTapButton(cell: self)
+        winterdelegate?.cutomWinterCellDelegateDidTapButton(cell: self)
+    }
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!

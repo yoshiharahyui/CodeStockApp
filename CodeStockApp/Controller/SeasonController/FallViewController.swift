@@ -53,6 +53,7 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.datelabel.textColor = .black
         fallcell.memolabel.text = fallcodestockDataModel.memotext
         fallcell.memolabel.textColor = .black
+        fallcell.falldelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if fallcodestockDataModel.imageData != nil {
@@ -65,8 +66,6 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.layoutIfNeeded()
         //セルの背景色変更
         fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
-        //セルを選択不可
-        fallcell.isUserInteractionEnabled = false
         return fallcell
     }
     
@@ -76,5 +75,11 @@ extension FallViewController: PostFallDelegate {
     func newfallPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
+    }
+}
+
+extension FallViewController: CustomFallCellDelegate {
+    func cutomFallCellDelegateDidTapButton(cell: UITableViewCell) {
+        
     }
 }

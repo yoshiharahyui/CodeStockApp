@@ -23,16 +23,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6JF-M1-mPu">
-                        <rect key="frame" x="388" y="8" width="47" height="34.333333333333336"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="34.329999999999998" id="N4G-QJ-ycb"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="•••"/>
-                    </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rcu-fC-suR">
-                        <rect key="frame" x="0.0" y="42.333333333333314" width="443" height="519.33333333333348"/>
+                        <rect key="frame" x="0.0" y="39.666666666666686" width="443" height="525"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="393" id="6KE-T7-vHq"/>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="525" id="XWM-nV-XtO"/>
@@ -40,11 +32,22 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ブランド名・・・ユニクロ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drh-Qp-cfw">
-                        <rect key="frame" x="7" y="561.66666666666663" width="428" height="29.666666666666629"/>
+                        <rect key="frame" x="7" y="564.66666666666663" width="428" height="26.666666666666629"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhy-hn-00E">
+                        <rect key="frame" x="388" y="8" width="47" height="34.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34.329999999999998" id="7g1-hq-udo"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="•••"/>
+                        <connections>
+                            <action selector="selectbutton:" destination="p8S-ae-iex" eventType="touchUpInside" id="qOM-2O-jQ0"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="rcu-fC-suR" secondAttribute="trailing" id="BM7-S4-QmS"/>
@@ -53,10 +56,9 @@
                     <constraint firstItem="Drh-Qp-cfw" firstAttribute="top" secondItem="rcu-fC-suR" secondAttribute="bottom" id="NzR-ev-Qqa"/>
                     <constraint firstItem="rcu-fC-suR" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" id="SuG-is-I69"/>
                     <constraint firstItem="w1r-H2-4mS" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" constant="15" id="WVC-aD-ua6"/>
-                    <constraint firstItem="rcu-fC-suR" firstAttribute="top" secondItem="6JF-M1-mPu" secondAttribute="bottom" id="ZwJ-ux-wcs"/>
                     <constraint firstItem="rcu-fC-suR" firstAttribute="centerX" secondItem="KtX-og-LbR" secondAttribute="centerX" id="hdA-sM-a6r"/>
-                    <constraint firstAttribute="trailing" secondItem="6JF-M1-mPu" secondAttribute="trailing" constant="8" id="lL2-5T-6So"/>
-                    <constraint firstItem="6JF-M1-mPu" firstAttribute="top" secondItem="KtX-og-LbR" secondAttribute="top" constant="8" id="tG8-Ue-xvG"/>
+                    <constraint firstAttribute="trailing" secondItem="Uhy-hn-00E" secondAttribute="trailing" constant="8" id="hnw-hC-qho"/>
+                    <constraint firstItem="Uhy-hn-00E" firstAttribute="top" secondItem="KtX-og-LbR" secondAttribute="top" constant="8" id="lBr-wM-eJ2"/>
                     <constraint firstAttribute="bottom" secondItem="Drh-Qp-cfw" secondAttribute="bottom" constant="12.67" id="u4T-2c-mSM"/>
                     <constraint firstItem="rcu-fC-suR" firstAttribute="centerY" secondItem="KtX-og-LbR" secondAttribute="centerY" id="wZ9-W5-Pjc"/>
                     <constraint firstItem="Drh-Qp-cfw" firstAttribute="leading" secondItem="KtX-og-LbR" secondAttribute="leading" constant="7" id="xVQ-VA-HuY"/>
@@ -69,7 +71,6 @@
                 <outlet property="imageWidthConstraint" destination="6KE-T7-vHq" id="FDk-XX-QAL"/>
                 <outlet property="imageview" destination="rcu-fC-suR" id="UwK-aZ-40N"/>
                 <outlet property="memolabel" destination="Drh-Qp-cfw" id="dd9-Fi-kgL"/>
-                <outlet property="selectbutton" destination="6JF-M1-mPu" id="mkg-0J-OfH"/>
             </connections>
             <point key="canvasLocation" x="232.82442748091603" y="33.802816901408455"/>
         </tableViewCell>

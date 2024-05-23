@@ -53,6 +53,7 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.datelabel.textColor = .black
         wintercell.memolabel.text = wintercodestockDataModel.memotext
         wintercell.memolabel.textColor = .black
+        wintercell.winterdelegate = self
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if wintercodestockDataModel.imageData != nil {
             wintercell.imageview.image = UIImage(data: wintercodestockDataModel.imageData!)
@@ -64,8 +65,6 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.layoutIfNeeded()
         //セルの背景色変更
         wintercell.backgroundColor = UIColor(red: 202/255, green: 237/255, blue: 250/255, alpha: 1.0)
-        //セルを選択不可
-        wintercell.isUserInteractionEnabled = false
         return wintercell
     }
 }
@@ -75,6 +74,10 @@ extension WinterViewController: PostWinterDelegate {
         setcodestockData()
         tableView.reloadData()
     }
-    
-    
+}
+
+extension WinterViewController: CustomWinterCellDelegate {
+    func cutomWinterCellDelegateDidTapButton(cell: UITableViewCell) {
+        
+    }
 }
