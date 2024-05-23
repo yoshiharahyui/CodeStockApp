@@ -58,8 +58,18 @@ class MainTableViewCell: UITableViewCell {
     
     private func showAlert(title: String) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "NO", style: .default, handler: nil))
+        let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: {
+                            //ボタンが押された時の処理
+                            (action: UIAlertAction) -> Void in
+                            print("OK")
+                        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: {
+                            //ボタンが押された時の処理
+                            (action: UIAlertAction) -> Void in
+                            print("CANCEL")
+                        })
+        alert.addAction(defaultAction)
+        alert.addAction(cancelAction)
         //guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
         let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
         windowScene?.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
