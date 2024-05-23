@@ -29,17 +29,40 @@ class MainTableViewCell: UITableViewCell {
     
     private func configureMenuButton() {
         selectButton.showsMenuAsPrimaryAction = true
-        let menuItems: [UIAction] = [UIAction(title: "Edit", handler: { _ in
-            // Editが選択された時の処理
-            print("Editが押された")
-        }),
-        UIAction(title: "Delete", handler: { _ in
-            // Deleteが選択された時の処理
-            print("Deleteが押された")
-        })
-        ]
-        let menu = UIMenu(title: "", children:menuItems)
+        let menuItems: [UIAction] = createMenuAction()
+        let menu = UIMenu(title: "", children: menuItems)
         selectButton.menu = menu
+//        let menuItems: [UIAction] = [UIAction(title: "Edit", handler: { _ in
+//            // Editが選択された時の処理
+//            print("Editが押された")
+//        }),
+//        UIAction(title: "Delete", handler: { _ in
+//            // Deleteが選択された時の処理
+//            print("Deleteが押された")
+//        })
+//        ]
+//        let menu = UIMenu(title: "", children:menuItems)
+//        selectButton.menu = menu
+    }
+    
+    private func createMenuAction() -> [UIAction] {
+        return [
+            UIAction(title: "Edit", handler: { _ in
+                self.showAlert(title: "Editだよ")
+            }),
+            UIAction(title: "Delete", handler: { _ in
+                self.showAlert(title: "Are you sure you want to delete?")
+            })
+        ]
+    }
+    
+    private func showAlert(title: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "NO", style: .default, handler: nil))
+        //guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+        let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+        windowScene?.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     //UIImageViewのサイズ調整
