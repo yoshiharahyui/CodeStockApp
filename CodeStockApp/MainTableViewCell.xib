@@ -44,9 +44,6 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="•••"/>
-                        <connections>
-                            <action selector="selectbutton:" destination="p8S-ae-iex" eventType="touchUpInside" id="qOM-2O-jQ0"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -71,6 +68,7 @@
                 <outlet property="imageWidthConstraint" destination="6KE-T7-vHq" id="FDk-XX-QAL"/>
                 <outlet property="imageview" destination="rcu-fC-suR" id="UwK-aZ-40N"/>
                 <outlet property="memolabel" destination="Drh-Qp-cfw" id="dd9-Fi-kgL"/>
+                <outlet property="selectButton" destination="Uhy-hn-00E" id="yV5-HW-CCW"/>
             </connections>
             <point key="canvasLocation" x="232.82442748091603" y="33.802816901408455"/>
         </tableViewCell>

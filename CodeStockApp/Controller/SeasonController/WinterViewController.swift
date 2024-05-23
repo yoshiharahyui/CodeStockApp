@@ -53,7 +53,7 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.datelabel.textColor = .black
         wintercell.memolabel.text = wintercodestockDataModel.memotext
         wintercell.memolabel.textColor = .black
-        wintercell.winterdelegate = self
+        
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if wintercodestockDataModel.imageData != nil {
             wintercell.imageview.image = UIImage(data: wintercodestockDataModel.imageData!)
@@ -73,11 +73,5 @@ extension WinterViewController: PostWinterDelegate {
     func newwinterPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
-    }
-}
-
-extension WinterViewController: CustomWinterCellDelegate {
-    func cutomWinterCellDelegateDidTapButton(cell: UITableViewCell) {
-        
     }
 }

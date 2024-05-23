@@ -53,7 +53,6 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.datelabel.textColor = .black
         fallcell.memolabel.text = fallcodestockDataModel.memotext
         fallcell.memolabel.textColor = .black
-        fallcell.falldelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if fallcodestockDataModel.imageData != nil {
@@ -75,11 +74,5 @@ extension FallViewController: PostFallDelegate {
     func newfallPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
-    }
-}
-
-extension FallViewController: CustomFallCellDelegate {
-    func cutomFallCellDelegateDidTapButton(cell: UITableViewCell) {
-        
     }
 }

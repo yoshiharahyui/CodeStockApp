@@ -7,47 +7,41 @@
 
 import UIKit
 
-protocol CustomSpringCellDelegate {
-    func customSpringCellDelegateDidTapButton(cell: UITableViewCell)
-}
-protocol CustomSummerCellDelegate {
-    func cutomSummerCellDelegateDidTapButton(cell: UITableViewCell)
-}
-protocol CustomFallCellDelegate {
-    func cutomFallCellDelegateDidTapButton(cell: UITableViewCell)
-}
-protocol CustomWinterCellDelegate {
-    func cutomWinterCellDelegateDidTapButton(cell: UITableViewCell)
-}
-
 class MainTableViewCell: UITableViewCell {
-    var springdelegate: CustomSpringCellDelegate?
-    var summerdelegate: CustomSummerCellDelegate?
-    var falldelegate: CustomFallCellDelegate?
-    var winterdelegate: CustomWinterCellDelegate?
-    
+
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var memolabel: UILabel!
     @IBOutlet weak var imageview: UIImageView!
    
-    @IBAction func selectbutton(_ sender: Any) {
-        springdelegate?.customSpringCellDelegateDidTapButton(cell: self)
-        summerdelegate?.cutomSummerCellDelegateDidTapButton(cell: self)
-        falldelegate?.cutomFallCellDelegateDidTapButton(cell: self)
-        winterdelegate?.cutomWinterCellDelegateDidTapButton(cell: self)
-    }
+    @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureMenuButton()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    
+    private func configureMenuButton() {
+        selectButton.showsMenuAsPrimaryAction = true
+        let menuItems: [UIAction] = [UIAction(title: "Edit", handler: { _ in
+            // Editが選択された時の処理
+            print("Editが押された")
+        }),
+        UIAction(title: "Delete", handler: { _ in
+            // Deleteが選択された時の処理
+            print("Deleteが押された")
+        })
+        ]
+        let menu = UIMenu(title: "", children:menuItems)
+        selectButton.menu = menu
+    }
+    
     //UIImageViewのサイズ調整
     func resizedimage() {
         if let image = imageview?.image {

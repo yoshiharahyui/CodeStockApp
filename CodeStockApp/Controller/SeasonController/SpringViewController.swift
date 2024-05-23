@@ -29,6 +29,31 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    enum SelectMenu: String {
+        case edit = "EDIT"
+        case delete = "DELETE"
+    }
+    // 選択されたMenuType
+        var selectedMenuType = SelectMenu.edit
+    
+    func configureSelectMenu() {
+        var actions = [UIMenuElement]()
+            // HIGH
+            actions.append(UIAction(title: SelectMenu.edit.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.edit ? .on : .off,
+                                    handler: { (_) in
+                                        self.selectedMenuType = .edit
+                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+                                        self.configureSelectMenu()
+                                    }))
+            // MID
+            actions.append(UIAction(title: SelectMenu.delete.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.delete ? .on : .off,
+                                    handler: { (_) in
+                                        self.selectedMenuType = .delete
+                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+                                        self.configureSelectMenu()
+                                    }))
+    }
+    
     func setcodestockData() {
         let realm = try! Realm()
         let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
@@ -55,7 +80,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.datelabel.textColor = .black
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
-        springcell.springdelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         //let imageData: Data? = nil
@@ -77,10 +101,5 @@ extension SpringViewController: PostDelegate {
     func newPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
-    }
-}
-extension SpringViewController: CustomSpringCellDelegate {
-    func customSpringCellDelegateDidTapButton(cell: UITableViewCell) {
-        
     }
 }

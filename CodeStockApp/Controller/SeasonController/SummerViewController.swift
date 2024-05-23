@@ -52,7 +52,6 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.datelabel.textColor = .black
         summercell.memolabel.text = summercodestockDataModel.memotext
         summercell.memolabel.textColor = .black
-        summercell.summerdelegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if summercodestockDataModel.imageData != nil {
@@ -74,11 +73,5 @@ extension SummerViewController: PostSummerDelegate {
     func newsummerPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
-    }
-}
-
-extension SummerViewController: CustomSummerCellDelegate {
-    func cutomSummerCellDelegateDidTapButton(cell: UITableViewCell) {
-
     }
 }
