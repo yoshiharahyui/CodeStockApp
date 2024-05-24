@@ -80,6 +80,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.datelabel.textColor = .black
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
+        springcell.delegate = self
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         //let imageData: Data? = nil
@@ -95,11 +96,28 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         return springcell
     }
+    
+    private func deleteData() {
+        let realm = try! Realm()
+        let targetData = realm.objects(SpringCodeStockDataModel.self)
+        try! realm.write {
+            realm.delete(targetData)
+        }
+        print("ll")
+    }
+
 }
+
 
 extension SpringViewController: PostDelegate {
     func newPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
+    }
+}
+
+extension SpringViewController: MainTableViewCellDelegate {
+    func didTapAlertButton(in cell: MainTableViewCell) {
+        deleteData()
     }
 }

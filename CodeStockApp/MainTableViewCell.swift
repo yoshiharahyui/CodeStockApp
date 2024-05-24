@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MainTableViewCellDelegate: AnyObject {
+    func didTapAlertButton(in cell: MainTableViewCell)
+}
+
 class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var datelabel: UILabel!
@@ -17,6 +21,8 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    
+    var delegate: MainTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         configureMenuButton()
@@ -61,7 +67,7 @@ class MainTableViewCell: UITableViewCell {
         let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: {
                             //ボタンが押された時の処理
                             (action: UIAlertAction) -> Void in
-                            print("OK")
+            self.delegate?.didTapAlertButton(in: self)
                         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: {
                             //ボタンが押された時の処理
