@@ -70,6 +70,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let springcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let springcodestockDataModel: SpringCodeStockDataModel = springcodestockList[indexPath.row]
         let defaultImage = UIImage(named: "defaultImage")
+
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
@@ -81,9 +82,10 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
         springcell.delegate = self
+        //セル生成時にindexPathを渡しておく
+        springcell.indexPath = indexPath
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        //let imageData: Data? = nil
         if springcodestockDataModel.imageData != nil {
             springcell.imageview.image = UIImage(data: springcodestockDataModel.imageData!)
         } else {
@@ -96,16 +98,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         return springcell
     }
-    
-    private func deleteData() {
-        let realm = try! Realm()
-        let targetData = realm.objects(SpringCodeStockDataModel.self)
-        try! realm.write {
-            realm.delete(targetData)
-        }
-        print("ll")
-    }
-
 }
 
 
@@ -115,9 +107,20 @@ extension SpringViewController: PostDelegate {
         tableView.reloadData()
     }
 }
-
+//アラートを押してカスタムセルを削除するメソッド
 extension SpringViewController: MainTableViewCellDelegate {
-    func didTapAlertButton(in cell: MainTableViewCell) {
-        deleteData()
+    
+    func didTapAlertButton(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = springcodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        springcodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

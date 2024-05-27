@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol MainTableViewCellDelegate: AnyObject {
-    func didTapAlertButton(in cell: MainTableViewCell)
+    func didTapAlertButton(at indexPath: IndexPath)
 }
 
 class MainTableViewCell: UITableViewCell {
-
+    
+    //SpringVCでセルにindexPathを渡すための定義
+    var indexPath: IndexPath?
+    
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var memolabel: UILabel!
     @IBOutlet weak var imageview: UIImageView!
@@ -38,17 +42,6 @@ class MainTableViewCell: UITableViewCell {
         let menuItems: [UIAction] = createMenuAction()
         let menu = UIMenu(title: "", children: menuItems)
         selectButton.menu = menu
-//        let menuItems: [UIAction] = [UIAction(title: "Edit", handler: { _ in
-//            // Editが選択された時の処理
-//            print("Editが押された")
-//        }),
-//        UIAction(title: "Delete", handler: { _ in
-//            // Deleteが選択された時の処理
-//            print("Deleteが押された")
-//        })
-//        ]
-//        let menu = UIMenu(title: "", children:menuItems)
-//        selectButton.menu = menu
     }
     
     private func createMenuAction() -> [UIAction] {
@@ -67,7 +60,7 @@ class MainTableViewCell: UITableViewCell {
         let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: {
                             //ボタンが押された時の処理
                             (action: UIAlertAction) -> Void in
-            self.delegate?.didTapAlertButton(in: self)
+            self.delegate?.didTapAlertButton(at: self.indexPath!)
                         })
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: {
                             //ボタンが押された時の処理
@@ -76,7 +69,6 @@ class MainTableViewCell: UITableViewCell {
                         })
         alert.addAction(defaultAction)
         alert.addAction(cancelAction)
-        //guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
         let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
         windowScene?.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
     }
