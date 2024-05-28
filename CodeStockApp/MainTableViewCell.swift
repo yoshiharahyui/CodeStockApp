@@ -47,9 +47,11 @@ class MainTableViewCell: UITableViewCell {
     private func createMenuAction() -> [UIAction] {
         return [
             UIAction(title: "Edit", handler: { _ in
+                //Editボタン押した時の処理
                 self.showAlert(title: "Editだよ")
             }),
             UIAction(title: "Delete", handler: { _ in
+                //Deleteボタン押した時の処理
                 self.showAlert(title: "Are you sure you want to delete?")
             })
         ]
