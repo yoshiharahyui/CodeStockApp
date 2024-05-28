@@ -52,7 +52,9 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.datelabel.textColor = .black
         summercell.memolabel.text = summercodestockDataModel.memotext
         summercell.memolabel.textColor = .black
-        
+        summercell.delegate = self
+        //セル生成時にindexPathを渡しておく
+        summercell.indexPath = indexPath
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if summercodestockDataModel.imageData != nil {
             summercell.imageview.image = UIImage(data: summercodestockDataModel.imageData!)
@@ -74,4 +76,22 @@ extension SummerViewController: PostSummerDelegate {
         setcodestockData()
         tableView.reloadData()
     }
+}
+
+extension SummerViewController: MainTableViewCellDelegate {
+    func didTapAlertButton(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = summercodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        summercodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
+    }
+    
+    
 }

@@ -53,6 +53,9 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.datelabel.textColor = .black
         fallcell.memolabel.text = fallcodestockDataModel.memotext
         fallcell.memolabel.textColor = .black
+        fallcell.delegate = self
+        //セル生成時にindexPathを渡しておく
+        fallcell.indexPath = indexPath
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if fallcodestockDataModel.imageData != nil {
@@ -75,4 +78,22 @@ extension FallViewController: PostFallDelegate {
         setcodestockData()
         tableView.reloadData()
     }
+}
+
+extension FallViewController: MainTableViewCellDelegate {
+    func didTapAlertButton(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = fallcodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        fallcodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
+    }
+    
+    
 }

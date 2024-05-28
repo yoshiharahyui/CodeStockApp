@@ -53,6 +53,8 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.datelabel.textColor = .black
         wintercell.memolabel.text = wintercodestockDataModel.memotext
         wintercell.memolabel.textColor = .black
+        wintercell.delegate = self
+        wintercell.indexPath = indexPath
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
         if wintercodestockDataModel.imageData != nil {
@@ -72,6 +74,22 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension WinterViewController: PostWinterDelegate {
     func newwinterPost(memotext: String) {
         setcodestockData()
+        tableView.reloadData()
+    }
+}
+
+extension WinterViewController: MainTableViewCellDelegate {
+    func didTapAlertButton(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = wintercodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        wintercodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
 }
