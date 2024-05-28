@@ -30,6 +30,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="LQB-eW-btK" eventType="touchUpInside" id="Fay-RW-zzk"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" id="AGD-Qr-CAS">
@@ -38,6 +41,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <connections>
+                                                    <action selector="postButton:" destination="LQB-eW-btK" eventType="touchUpInside" id="f24-Dj-gpo"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -77,6 +83,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImageButtonAction:" destination="LQB-eW-btK" eventType="touchUpInside" id="bnk-vc-5or"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1B-24-4hG">
                                 <rect key="frame" x="30" y="666" width="133" height="28"/>
@@ -106,6 +115,11 @@
                             <constraint firstItem="ZmL-5K-lQS" firstAttribute="centerX" secondItem="la1-u8-alS" secondAttribute="centerX" id="v1T-ET-jK6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="la1-u8-alS" id="yEb-xJ-CjO"/>
+                        <outlet property="memoTextView" destination="ZmL-5K-lQS" id="IjT-C3-fLW"/>
+                        <outlet property="selectSeasonButton" destination="B1B-24-4hG" id="HrQ-Kf-k4X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCX-9a-3vh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
