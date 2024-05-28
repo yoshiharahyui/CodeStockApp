@@ -12,7 +12,7 @@
         <!--Edit View Controller-->
         <scene sceneID="FHI-ub-qJX">
             <objects>
-                <viewController storyboardIdentifier="addview" id="LQB-eW-btK" customClass="EditViewController" customModule="CodeStockApp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editview" id="LQB-eW-btK" customClass="EditViewController" customModule="CodeStockApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2IY-Zi-bjf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

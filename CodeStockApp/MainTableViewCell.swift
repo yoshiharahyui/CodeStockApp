@@ -48,7 +48,14 @@ class MainTableViewCell: UITableViewCell {
         return [
             UIAction(title: "Edit", handler: { _ in
                 //Editボタン押した時の処理
-                self.showAlert(title: "Editだよ")
+                var editvc = EditViewController()
+                let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+                let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+                editvc = EditVC
+                editvc.modalPresentationStyle = .formSheet
+                let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+                windowScene?.windows.first?.rootViewController?.present(editvc, animated: true, completion: nil)
+                print("Editボタン")
             }),
             UIAction(title: "Delete", handler: { _ in
                 //Deleteボタン押した時の処理
