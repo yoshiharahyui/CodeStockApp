@@ -37,11 +37,10 @@ class EditViewController: UIViewController, UITextDragDelegate {
         memotext = data.memotext
         imageData = data.imageData
         recordDate = data.recordDate
-        print("\(memotext), \(recordDate)")
     }
     
     func displayData() {
         memoTextView.text = memotext
-        //imageView.image = UIImage(data: data.imageData!)
+        imageView.image = UIImage(data: imageData!)
     }
 }
