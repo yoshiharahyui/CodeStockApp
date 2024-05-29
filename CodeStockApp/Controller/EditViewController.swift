@@ -20,7 +20,7 @@ class EditViewController: UIViewController, UITextDragDelegate {
     @IBAction func addImageButtonAction(_ sender: Any) {
     }
     @IBOutlet weak var selectSeasonButton: UIButton!
-    @IBOutlet weak var memoTextView: HintTextView!
+    @IBOutlet weak var memoTextView: UITextView!
     
     var imageData: Data?
     var memotext: String = ""
@@ -28,7 +28,9 @@ class EditViewController: UIViewController, UITextDragDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memoTextView.placeHolder = "メモなどを入力してください。"
+        //memoTextView.placeHolder = "メモなどを入力してください。"
+        memoTextView.backgroundColor = .red
+        displayData()
     }
     
     func configure(data: SpringCodeStockDataModel) {
@@ -36,5 +38,10 @@ class EditViewController: UIViewController, UITextDragDelegate {
         imageData = data.imageData
         recordDate = data.recordDate
         print("\(memotext), \(recordDate)")
+    }
+    
+    func displayData() {
+        memoTextView.text = memotext
+        //imageView.image = UIImage(data: data.imageData!)
     }
 }

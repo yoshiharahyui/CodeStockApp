@@ -81,7 +81,11 @@ extension FallViewController: PostFallDelegate {
 }
 
 extension FallViewController: MainTableViewCellDelegate {
-    func didTapAlertButton(at indexPath: IndexPath) {
+    func giveEditAction(at indexPath: IndexPath) {
+        
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = fallcodestockList[indexPath.row]
         let realm = try! Realm()

@@ -79,7 +79,11 @@ extension SummerViewController: PostSummerDelegate {
 }
 
 extension SummerViewController: MainTableViewCellDelegate {
-    func didTapAlertButton(at indexPath: IndexPath) {
+    func giveEditAction(at indexPath: IndexPath) {
+        
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = summercodestockList[indexPath.row]
         let realm = try! Realm()

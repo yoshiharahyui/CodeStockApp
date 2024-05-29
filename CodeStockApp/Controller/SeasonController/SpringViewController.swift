@@ -82,7 +82,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
         springcell.delegate = self
-        springcell.editdelegate = self
         //セル生成時にindexPathを渡しておく
         springcell.indexPath = indexPath
         
@@ -110,7 +109,19 @@ extension SpringViewController: PostDelegate {
 }
 //アラートを押してカスタムセルを削除するメソッド
 extension SpringViewController: MainTableViewCellDelegate {
-    func didTapAlertButton(at indexPath: IndexPath) {
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = springcodestockList[indexPath.row]
+        //Editボタン押した時の処理
+        let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+        let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        var editvc = EditViewController()
+        EditVC.configure(data: targetData)
+        editvc = EditVC
+        editvc.modalPresentationStyle = .formSheet
+        present(editvc, animated: true, completion: nil)
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = springcodestockList[indexPath.row]
         let realm = try! Realm()
@@ -122,13 +133,6 @@ extension SpringViewController: MainTableViewCellDelegate {
         //セルを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
-    }
-}
-
-extension SpringViewController: EditDelegate {
-    func didTapEditButton(at indexPath: IndexPath) {
-        let data = springcodestockList[indexPath.row]
-        let mainTVC = MainTableViewCell()
-        mainTVC.editvc.configure(data: data)
+        print("aaaaa")
     }
 }

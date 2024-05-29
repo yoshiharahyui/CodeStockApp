@@ -79,7 +79,11 @@ extension WinterViewController: PostWinterDelegate {
 }
 
 extension WinterViewController: MainTableViewCellDelegate {
-    func didTapAlertButton(at indexPath: IndexPath) {
+    func giveEditAction(at indexPath: IndexPath) {
+        
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = wintercodestockList[indexPath.row]
         let realm = try! Realm()
