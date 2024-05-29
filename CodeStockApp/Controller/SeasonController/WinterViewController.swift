@@ -78,9 +78,18 @@ extension WinterViewController: PostWinterDelegate {
     }
 }
 
+//アラートを押してカスタムセルを削除するメソッド
 extension WinterViewController: MainTableViewCellDelegate {
     func giveEditAction(at indexPath: IndexPath) {
-        
+        let targetData = wintercodestockList[indexPath.row]
+        //Editボタン押した時の処理
+        let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+        let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        var editvc = EditViewController()
+        EditVC.winterconfigure(data: targetData)
+        editvc = EditVC
+        editvc.modalPresentationStyle = .formSheet
+        present(editvc, animated: true, completion: nil)
     }
     
     func giveAction(at indexPath: IndexPath) {

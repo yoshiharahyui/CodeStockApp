@@ -67,7 +67,6 @@ class MainTableViewCell: UITableViewCell {
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: {
                             //ボタンが押された時の処理
                             (action: UIAlertAction) -> Void in
-                            print("CANCEL")
                         })
         alert.addAction(defaultAction)
         alert.addAction(cancelAction)

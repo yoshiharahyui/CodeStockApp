@@ -80,9 +80,18 @@ extension FallViewController: PostFallDelegate {
     }
 }
 
+//アラートを押してカスタムセルを削除するメソッド
 extension FallViewController: MainTableViewCellDelegate {
     func giveEditAction(at indexPath: IndexPath) {
-        
+        let targetData = fallcodestockList[indexPath.row]
+        //Editボタン押した時の処理
+        let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+        let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        var editvc = EditViewController()
+        EditVC.fallconfigure(data: targetData)
+        editvc = EditVC
+        editvc.modalPresentationStyle = .formSheet
+        present(editvc, animated: true, completion: nil)
     }
     
     func giveAction(at indexPath: IndexPath) {
@@ -98,6 +107,4 @@ extension FallViewController: MainTableViewCellDelegate {
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
-    
-    
 }

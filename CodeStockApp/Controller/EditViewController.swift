@@ -38,8 +38,24 @@ class EditViewController: UIViewController, UITextDragDelegate {
         imageData = data.imageData
         recordDate = data.recordDate
     }
+    func summerconfigure(data: SummerCodeStockDataModel) {
+        memotext = data.memotext
+        imageData = data.imageData
+        recordDate = data.recordDate
+    }
+    func fallconfigure(data: FallCodeStockDataModel) {
+        memotext = data.memotext
+        imageData = data.imageData
+        recordDate = data.recordDate
+    }
+    func winterconfigure(data: WinterCodeStockDataModel) {
+        memotext = data.memotext
+        imageData = data.imageData
+        recordDate = data.recordDate
+    }
     
-    func displayData() {
+    
+    private func displayData() {
         memoTextView.text = memotext
         imageView.image = UIImage(data: imageData!)
     }
