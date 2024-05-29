@@ -21,4 +21,20 @@ class EditViewController: UIViewController, UITextDragDelegate {
     }
     @IBOutlet weak var selectSeasonButton: UIButton!
     @IBOutlet weak var memoTextView: HintTextView!
+    
+    var imageData: Data?
+    var memotext: String = ""
+    var recordDate: Date = Date()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        memoTextView.placeHolder = "メモなどを入力してください。"
+    }
+    
+    func configure(data: SpringCodeStockDataModel) {
+        memotext = data.memotext
+        imageData = data.imageData
+        recordDate = data.recordDate
+        print("\(memotext), \(recordDate)")
+    }
 }

@@ -12,6 +12,9 @@ protocol MainTableViewCellDelegate: AnyObject {
     func didTapAlertButton(at indexPath: IndexPath)
 }
 
+protocol EditDelegate: AnyObject {
+    func didTapEditButton(at indexPath: IndexPath)
+}
 class MainTableViewCell: UITableViewCell {
     
     //SpringVCでセルにindexPathを渡すための定義
@@ -27,6 +30,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     
     var delegate: MainTableViewCellDelegate?
+    var editdelegate: EditDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         configureMenuButton()
@@ -43,18 +47,23 @@ class MainTableViewCell: UITableViewCell {
         let menu = UIMenu(title: "", children: menuItems)
         selectButton.menu = menu
     }
+    //クラス直下におく
+    var editvc = EditViewController()
     
     private func createMenuAction() -> [UIAction] {
         return [
             UIAction(title: "Edit", handler: { _ in
                 //Editボタン押した時の処理
-                var editvc = EditViewController()
                 let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
                 let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
-                editvc = EditVC
-                editvc.modalPresentationStyle = .formSheet
+                
+                self.editvc = EditVC
+                //editvc.configure(data: springData)
+                self.editvc.modalPresentationStyle = .formSheet
+                self.editdelegate?.didTapEditButton(at: self.indexPath!)
+                //アラートの上からpresent表示ができるようにするためのコード
                 let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
-                windowScene?.windows.first?.rootViewController?.present(editvc, animated: true, completion: nil)
+                windowScene?.windows.first?.rootViewController?.present(self.editvc, animated: true, completion: nil)
                 print("Editボタン")
             }),
             UIAction(title: "Delete", handler: { _ in

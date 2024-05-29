@@ -64,7 +64,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         var memotext: String
         memotext = memoTextView.text ?? ""
         
-        //OKボタン
+        //uimenuitemが選択されてない時用のアラート
                 let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
                     //ボタンが押された時の処理
                     (action: UIAlertAction) -> Void in

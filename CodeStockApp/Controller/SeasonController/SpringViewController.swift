@@ -11,7 +11,7 @@ import RealmSwift
 
 class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var springcodestockList: [SpringCodeStockDataModel] = []
+    var springcodestockList: [SpringCodeStockDataModel] = []
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -82,6 +82,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
         springcell.delegate = self
+        springcell.editdelegate = self
         //セル生成時にindexPathを渡しておく
         springcell.indexPath = indexPath
         
@@ -109,7 +110,6 @@ extension SpringViewController: PostDelegate {
 }
 //アラートを押してカスタムセルを削除するメソッド
 extension SpringViewController: MainTableViewCellDelegate {
-    
     func didTapAlertButton(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = springcodestockList[indexPath.row]
@@ -122,5 +122,13 @@ extension SpringViewController: MainTableViewCellDelegate {
         //セルを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
+    }
+}
+
+extension SpringViewController: EditDelegate {
+    func didTapEditButton(at indexPath: IndexPath) {
+        let data = springcodestockList[indexPath.row]
+        let mainTVC = MainTableViewCell()
+        mainTVC.editvc.configure(data: data)
     }
 }
