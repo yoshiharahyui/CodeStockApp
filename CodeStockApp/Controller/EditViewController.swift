@@ -179,8 +179,6 @@ class EditViewController: UIViewController, UITextDragDelegate {
             data.memotext = memoTextView.text
             data.recordDate = Date()
             updatedelegate?.updatePost(data: data)
-            print("\(data)")
-            //print("\(String(describing: targetupdateData))")
         }
     }
 }
