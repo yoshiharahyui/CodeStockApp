@@ -12,7 +12,6 @@ import RealmSwift
 class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var springcodestockList: [SpringCodeStockDataModel] = []
-    let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,13 +20,17 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの登録
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.delegate = self
-        addVC.delegate = self
         setcodestockData()
         self.tableView.reloadData()
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            setcodestockData()
+        self.tableView.reloadData()
+        }
     
     enum SelectMenu: String {
         case edit = "EDIT"
@@ -82,6 +85,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black
         springcell.delegate = self
+
         //セル生成時にindexPathを渡しておく
         springcell.indexPath = indexPath
         
@@ -107,20 +111,31 @@ extension SpringViewController: PostDelegate {
         tableView.reloadData()
     }
 }
-//アラートを押してカスタムセルを削除するメソッド
+extension SpringViewController: UpdateDelegate {
+    func updatePost(data: SpringCodeStockDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+        print("\(data.self)")
+    }
+}
+
 extension SpringViewController: MainTableViewCellDelegate {
     func giveEditAction(at indexPath: IndexPath) {
         let targetData = springcodestockList[indexPath.row]
         //Editボタン押した時の処理
         let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
         let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        EditVC.updatedelegate = self
+        //表示しているインスタンス
         var editvc = EditViewController()
         EditVC.configure(data: targetData)
+        //EditVC.updatespringData(data: targetData)
         editvc = EditVC
         editvc.modalPresentationStyle = .formSheet
         present(editvc, animated: true, completion: nil)
     }
     
+    //アラートを押してカスタムセルを削除するメソッド
     func giveAction(at indexPath: IndexPath) {
         //IndexPathをもとに削除するオブジェクトを特定
         let target = springcodestockList[indexPath.row]
@@ -133,6 +148,5 @@ extension SpringViewController: MainTableViewCellDelegate {
         //セルを削除
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
-        print("aaaaa")
     }
 }

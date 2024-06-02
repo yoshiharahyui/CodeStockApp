@@ -39,6 +39,7 @@ class NetViewController: UIViewController {
         
         button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapSettingButton))
                 navigationItem.rightBarButtonItem = button
+        
     }
     
     //Parchmentを使ったタブ作成

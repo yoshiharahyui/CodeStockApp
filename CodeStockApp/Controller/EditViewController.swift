@@ -9,11 +9,18 @@ import Foundation
 import UIKit
 import RealmSwift
 
+protocol UpdateDelegate {
+    func updatePost(data: SpringCodeStockDataModel)
+}
+
 class EditViewController: UIViewController, UITextDragDelegate {
+    
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
     @IBAction func postButton(_ sender: Any) {
+        self.updatespringData(data: SpringCodeStockDataModel())
+        self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var imageView: UIImageView!
     
@@ -29,6 +36,13 @@ class EditViewController: UIViewController, UITextDragDelegate {
     var imageData: Data?
     var memotext: String = ""
     var recordDate: Date = Date()
+    private let realm = try! Realm()
+    private var springcodestockData = SpringCodeStockDataModel()
+    private var summercodestockData = SummerCodeStockDataModel()
+    private var fallcodestockData = FallCodeStockDataModel()
+    private var wintercodestockData = WinterCodeStockDataModel()
+    var updatedelegate: UpdateDelegate?
+    
     
     //UIMenuの表示項目
     enum MenuType: String {
@@ -52,7 +66,7 @@ class EditViewController: UIViewController, UITextDragDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //memoTextView.placeHolder = "メモなどを入力してください。"
-        memoTextView.backgroundColor = .red
+        memoTextView.backgroundColor = .gray
         displayData()
         setDoneButton()
         selectSeasonButton.layer.cornerRadius = 5
@@ -136,7 +150,7 @@ class EditViewController: UIViewController, UITextDragDelegate {
                                 handler: { (_) in
             if self.springAction.state == .on {
                 self.uimenuitem = self.springAction.title
-                }
+            }
             self.selectedMenuType = .spring
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
@@ -149,9 +163,28 @@ class EditViewController: UIViewController, UITextDragDelegate {
         //ボタンの表示を変更
         selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
     }
-
     
+    //データの更新
+    func updatespringData(data: SpringCodeStockDataModel) {
+        //更新したいデータを検索する
+        //guard let targetupdateData = realm.objects(SpringCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        //UIImageViewを取得
+        let setImage = imageView.image
+        //pngDataに変換
+        let pngimageData = setImage?.pngData()
+        //print("\(String(describing: targetupdateData))")
+        
+        try! realm.write {
+            data.imageData = pngimageData
+            data.memotext = memoTextView.text
+            data.recordDate = Date()
+            updatedelegate?.updatePost(data: data)
+            print("\(data)")
+            //print("\(String(describing: targetupdateData))")
+        }
+    }
 }
+
 
 //フォトライブラリから選んだ画像をimageViewに格納
 extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

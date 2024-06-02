@@ -47,7 +47,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private var summercodestockData = SummerCodeStockDataModel()
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
-        private let realm = try! Realm()
+    private let realm = try! Realm()
     var delegate: PostDelegate?
     var summerdelegate: PostSummerDelegate?
     var falldelegate: PostFallDelegate?
