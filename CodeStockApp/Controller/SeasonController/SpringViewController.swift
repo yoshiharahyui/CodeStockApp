@@ -12,6 +12,7 @@ import RealmSwift
 class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var springcodestockList: [SpringCodeStockDataModel] = []
+    let realm = try! Realm()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,11 +27,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
-    override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            setcodestockData()
-        self.tableView.reloadData()
-        }
     
     enum SelectMenu: String {
         case edit = "EDIT"
@@ -58,7 +54,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func setcodestockData() {
-        let realm = try! Realm()
         let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         springcodestockList = Array(result)
         tableView.reloadData()
@@ -104,18 +99,18 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
-
+//新しく投稿する際のdelegate
 extension SpringViewController: PostDelegate {
     func newPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
     }
 }
+//編集のためのdelegate
 extension SpringViewController: UpdateDelegate {
-    func updatePost(data: SpringCodeStockDataModel) {
+    func updatePost(updateData: SpringCodeStockDataModel) {
         setcodestockData()
         tableView.reloadData()
-        print("\(data.self)")
     }
 }
 

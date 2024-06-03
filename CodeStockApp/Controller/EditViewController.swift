@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol UpdateDelegate {
-    func updatePost(data: SpringCodeStockDataModel)
+    func updatePost(updateData: SpringCodeStockDataModel)
 }
 
 class EditViewController: UIViewController, UITextDragDelegate {
@@ -18,8 +18,9 @@ class EditViewController: UIViewController, UITextDragDelegate {
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
+    
     @IBAction func postButton(_ sender: Any) {
-        self.updatespringData(data: SpringCodeStockDataModel())
+        self.updatespringData(data: updateData)
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var imageView: UIImageView!
@@ -42,7 +43,8 @@ class EditViewController: UIViewController, UITextDragDelegate {
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
     var updatedelegate: UpdateDelegate?
-    
+    //編集対象のオブジェクトはクラス直下に保持しておく
+    var updateData = SpringCodeStockDataModel()
     
     //UIMenuの表示項目
     enum MenuType: String {
@@ -77,6 +79,8 @@ class EditViewController: UIViewController, UITextDragDelegate {
         memotext = data.memotext
         imageData = data.imageData
         recordDate = data.recordDate
+        //クラス直下のupdateDataに代入する
+        updateData = data
     }
     func summerconfigure(data: SummerCodeStockDataModel) {
         memotext = data.memotext
@@ -167,18 +171,20 @@ class EditViewController: UIViewController, UITextDragDelegate {
     //データの更新
     func updatespringData(data: SpringCodeStockDataModel) {
         //更新したいデータを検索する
-        //guard let targetupdateData = realm.objects(SpringCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        guard let targetupdateData = realm.objects(SpringCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
         let pngimageData = setImage?.pngData()
         //print("\(String(describing: targetupdateData))")
-        
         try! realm.write {
-            data.imageData = pngimageData
-            data.memotext = memoTextView.text
-            data.recordDate = Date()
-            updatedelegate?.updatePost(data: data)
+            targetupdateData.imageData = pngimageData
+            targetupdateData.memotext = memoTextView.text
+            targetupdateData.recordDate = Date()
+            print(targetupdateData)
+            //クラス直下変数に代入して同じインスタンスにする
+            updateData = targetupdateData
+            updatedelegate?.updatePost(updateData: targetupdateData)
         }
     }
 }
