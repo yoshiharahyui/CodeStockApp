@@ -12,7 +12,15 @@ import RealmSwift
 protocol UpdateDelegate {
     func updatePost(updateData: SpringCodeStockDataModel)
 }
-
+protocol SummerUpdateDelegate {
+    func summerupdatePost(summerupdateData: SummerCodeStockDataModel)
+}
+protocol FallUpdateDelegate {
+    func fallupdatePost(fallupdateData: FallCodeStockDataModel)
+}
+protocol WinterUpdateDelegate {
+    func winterupdatePost(winterupdateData: WinterCodeStockDataModel)
+}
 class EditViewController: UIViewController, UITextDragDelegate {
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -21,7 +29,22 @@ class EditViewController: UIViewController, UITextDragDelegate {
     
     @IBAction func postButton(_ sender: Any) {
         self.updatespringData(data: updateData)
+        self.updatesummerData(data: summerupdateData)
+        self.updatefallData(data: fallupdateData)
+        self.updatewinterData(data: winterupdateData)
         self.dismiss(animated: true, completion: nil)
+        //選択されたUIMenuごとに保存先を分ける
+        if uimenuitem == "SPRING" {
+            print("春")
+        } else if uimenuitem == "SUMMER" {
+            print("夏")
+        } else if uimenuitem == "Fall" {
+            print("秋")
+        } else if uimenuitem == "WINTER" {
+            print("冬")
+        } else if uimenuitem == nil {
+            return
+        }
     }
     @IBOutlet weak var imageView: UIImageView!
     
@@ -43,8 +66,14 @@ class EditViewController: UIViewController, UITextDragDelegate {
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
     var updatedelegate: UpdateDelegate?
+    var summerupdatedelegate: SummerUpdateDelegate?
+    var fallupdatedelegate: FallUpdateDelegate?
+    var winterupdatedelegate: WinterUpdateDelegate?
     //編集対象のオブジェクトはクラス直下に保持しておく
     var updateData = SpringCodeStockDataModel()
+    var summerupdateData = SummerCodeStockDataModel()
+    var fallupdateData = FallCodeStockDataModel()
+    var winterupdateData = WinterCodeStockDataModel()
     
     //UIMenuの表示項目
     enum MenuType: String {
@@ -82,20 +111,26 @@ class EditViewController: UIViewController, UITextDragDelegate {
         //クラス直下のupdateDataに代入する
         updateData = data
     }
-    func summerconfigure(data: SummerCodeStockDataModel) {
-        memotext = data.memotext
-        imageData = data.imageData
-        recordDate = data.recordDate
+    func summerconfigure(summerdata: SummerCodeStockDataModel) {
+        memotext = summerdata.memotext
+        imageData = summerdata.imageData
+        recordDate = summerdata.recordDate
+        //クラス直下のupdateDataに代入する
+        summerupdateData = summerdata
     }
-    func fallconfigure(data: FallCodeStockDataModel) {
-        memotext = data.memotext
-        imageData = data.imageData
-        recordDate = data.recordDate
+    func fallconfigure(falldata: FallCodeStockDataModel) {
+        memotext = falldata.memotext
+        imageData = falldata.imageData
+        recordDate = falldata.recordDate
+        //クラス直下のupdateDataに代入する
+        fallupdateData = falldata
     }
     func winterconfigure(data: WinterCodeStockDataModel) {
         memotext = data.memotext
         imageData = data.imageData
         recordDate = data.recordDate
+        //クラス直下のupdateDataに代入する
+        winterupdateData = data
     }
     
     
@@ -168,7 +203,7 @@ class EditViewController: UIViewController, UITextDragDelegate {
         selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
     }
     
-    //データの更新
+    //Springデータの更新
     func updatespringData(data: SpringCodeStockDataModel) {
         //更新したいデータを検索する
         guard let targetupdateData = realm.objects(SpringCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
@@ -181,14 +216,64 @@ class EditViewController: UIViewController, UITextDragDelegate {
             targetupdateData.imageData = pngimageData
             targetupdateData.memotext = memoTextView.text
             targetupdateData.recordDate = Date()
-            print(targetupdateData)
             //クラス直下変数に代入して同じインスタンスにする
             updateData = targetupdateData
             updatedelegate?.updatePost(updateData: targetupdateData)
         }
     }
+    //Summerデータの更新
+    private func updatesummerData(data: SummerCodeStockDataModel) {
+        //更新したいデータを検索する
+        guard let targetupdateData = realm.objects(SummerCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        //UIImageViewを取得
+        let setImage = imageView.image
+        //pngDataに変換
+        let pngimageData = setImage?.pngData()
+        try! realm.write {
+            targetupdateData.imageData = pngimageData
+            targetupdateData.memotext = memoTextView.text
+            targetupdateData.recordDate = Date()
+            //クラス直下変数に代入して同じインスタンスにする
+            summerupdateData = targetupdateData
+            summerupdatedelegate?.summerupdatePost(summerupdateData: targetupdateData)
+        }
+        
+    }
+    //Fallデータの更新
+    private func updatefallData(data: FallCodeStockDataModel) {
+        //更新したいデータを検索する
+        guard let targetupdateData = realm.objects(FallCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        //UIImageViewを取得
+        let setImage = imageView.image
+        //pngDataに変換
+        let pngimageData = setImage?.pngData()
+        try! realm.write {
+            targetupdateData.imageData = pngimageData
+            targetupdateData.memotext = memoTextView.text
+            targetupdateData.recordDate = Date()
+            //クラス直下変数に代入して同じインスタンスにする
+            fallupdateData = targetupdateData
+            fallupdatedelegate?.fallupdatePost(fallupdateData: targetupdateData)
+        }
+    }
+    //Winterデータの更新
+    private func updatewinterData(data: WinterCodeStockDataModel) {
+        //更新したいデータを検索する
+        guard let targetupdateData = realm.objects(WinterCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        //UIImageViewを取得
+        let setImage = imageView.image
+        //pngDataに変換
+        let pngimageData = setImage?.pngData()
+        try! realm.write {
+            targetupdateData.imageData = pngimageData
+            targetupdateData.memotext = memoTextView.text
+            targetupdateData.recordDate = Date()
+            //クラス直下変数に代入して同じインスタンスにする
+            winterupdateData = targetupdateData
+            winterupdatedelegate?.winterupdatePost(winterupdateData: targetupdateData)
+        }
+    }
 }
-
 
 //フォトライブラリから選んだ画像をimageViewに格納
 extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

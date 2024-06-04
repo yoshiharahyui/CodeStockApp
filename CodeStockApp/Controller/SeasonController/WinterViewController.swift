@@ -70,9 +70,16 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return wintercell
     }
 }
-
+//新しく投稿する際のdelegate
 extension WinterViewController: PostWinterDelegate {
     func newwinterPost(memotext: String) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
+//編集のためのdelegate
+extension WinterViewController: WinterUpdateDelegate {
+    func winterupdatePost(winterupdateData: WinterCodeStockDataModel) {
         setcodestockData()
         tableView.reloadData()
     }
@@ -86,6 +93,7 @@ extension WinterViewController: MainTableViewCellDelegate {
         let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
         let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
         var editvc = EditViewController()
+        EditVC.winterupdatedelegate = self
         EditVC.winterconfigure(data: targetData)
         editvc = EditVC
         editvc.modalPresentationStyle = .formSheet

@@ -72,14 +72,20 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 }
-
+//新しく投稿する際のdelegate
 extension FallViewController: PostFallDelegate {
     func newfallPost(memotext: String) {
         setcodestockData()
         tableView.reloadData()
     }
 }
-
+//編集のためのdelegate
+extension FallViewController: FallUpdateDelegate {
+    func fallupdatePost(fallupdateData: FallCodeStockDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
 //アラートを押してカスタムセルを削除するメソッド
 extension FallViewController: MainTableViewCellDelegate {
     func giveEditAction(at indexPath: IndexPath) {
@@ -88,7 +94,8 @@ extension FallViewController: MainTableViewCellDelegate {
         let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
         let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
         var editvc = EditViewController()
-        EditVC.fallconfigure(data: targetData)
+        EditVC.fallupdatedelegate = self
+        EditVC.fallconfigure(falldata: targetData)
         editvc = EditVC
         editvc.modalPresentationStyle = .formSheet
         present(editvc, animated: true, completion: nil)

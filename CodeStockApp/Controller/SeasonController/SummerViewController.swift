@@ -77,6 +77,14 @@ extension SummerViewController: PostSummerDelegate {
         tableView.reloadData()
     }
 }
+extension SummerViewController: SummerUpdateDelegate {
+    func summerupdatePost(summerupdateData: SummerCodeStockDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+    
+    
+}
 //アラートを押してカスタムセルを削除するメソッド
 extension SummerViewController: MainTableViewCellDelegate {
     func giveEditAction(at indexPath: IndexPath) {
@@ -85,7 +93,8 @@ extension SummerViewController: MainTableViewCellDelegate {
         let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
         let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
         var editvc = EditViewController()
-        EditVC.summerconfigure(data: targetData)
+        EditVC.summerupdatedelegate = self
+        EditVC.summerconfigure(summerdata: targetData)
         editvc = EditVC
         editvc.modalPresentationStyle = .formSheet
         present(editvc, animated: true, completion: nil)

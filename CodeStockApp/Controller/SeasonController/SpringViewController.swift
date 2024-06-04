@@ -120,9 +120,9 @@ extension SpringViewController: MainTableViewCellDelegate {
         //Editボタン押した時の処理
         let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
         let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
-        EditVC.updatedelegate = self
         //表示しているインスタンス
         var editvc = EditViewController()
+        EditVC.updatedelegate = self
         EditVC.configure(data: targetData)
         //EditVC.updatespringData(data: targetData)
         editvc = EditVC
