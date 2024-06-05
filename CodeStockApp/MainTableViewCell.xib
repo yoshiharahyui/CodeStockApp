@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024/04/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1r-H2-4mS">
-                        <rect key="frame" x="15" y="15" width="89" height="21"/>
+                        <rect key="frame" x="15" y="15.000000000000002" width="89" height="22.666666666666671"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="rcu-fC-suR" firstAttribute="top" secondItem="w1r-H2-4mS" secondAttribute="bottom" constant="2" id="2Jx-hc-iyS"/>
                     <constraint firstAttribute="trailing" secondItem="rcu-fC-suR" secondAttribute="trailing" id="BM7-S4-QmS"/>
                     <constraint firstAttribute="trailing" secondItem="Drh-Qp-cfw" secondAttribute="trailing" constant="8" id="FZs-Y4-kwA"/>
                     <constraint firstItem="w1r-H2-4mS" firstAttribute="top" secondItem="KtX-og-LbR" secondAttribute="top" constant="15" id="Iqi-YW-m9Z"/>
