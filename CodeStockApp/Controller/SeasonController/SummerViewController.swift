@@ -69,6 +69,11 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
         return summercell
     }
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 
 extension SummerViewController: PostSummerDelegate {

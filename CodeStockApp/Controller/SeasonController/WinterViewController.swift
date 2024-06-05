@@ -69,6 +69,11 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.backgroundColor = UIColor(red: 202/255, green: 237/255, blue: 250/255, alpha: 1.0)
         return wintercell
     }
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 //新しく投稿する際のdelegate
 extension WinterViewController: PostWinterDelegate {

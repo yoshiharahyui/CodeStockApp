@@ -97,6 +97,11 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
         return springcell
     }
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 
 //新しく投稿する際のdelegate

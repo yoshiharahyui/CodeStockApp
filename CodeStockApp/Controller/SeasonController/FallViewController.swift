@@ -70,7 +70,11 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
         return fallcell
     }
-    
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 //新しく投稿する際のdelegate
 extension FallViewController: PostFallDelegate {
