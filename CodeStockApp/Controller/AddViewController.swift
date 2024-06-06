@@ -47,7 +47,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private var summercodestockData = SummerCodeStockDataModel()
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
-        private let realm = try! Realm()
+    private let realm = try! Realm()
     var delegate: PostDelegate?
     var summerdelegate: PostSummerDelegate?
     var falldelegate: PostFallDelegate?
@@ -64,7 +64,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         var memotext: String
         memotext = memoTextView.text ?? ""
         
-        //OKボタン
+        //uimenuitemが選択されてない時用のアラート
                 let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
                     //ボタンが押された時の処理
                     (action: UIAlertAction) -> Void in

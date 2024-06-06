@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit View Controller-->
+        <scene sceneID="FHI-ub-qJX">
+            <objects>
+                <viewController storyboardIdentifier="editview" id="LQB-eW-btK" customClass="EditViewController" customModule="CodeStockApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2IY-Zi-bjf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XG-6B-HhK">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dB7-v2-DSp"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="c70-W5-Gaa">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="ZJW-sa-Mcy">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="r8T-CX-0io">
+                                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="LQB-eW-btK" eventType="touchUpInside" id="Fay-RW-zzk"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="AGD-Qr-CAS">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rVZ-mG-RBr">
+                                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <connections>
+                                                    <action selector="postButton:" destination="LQB-eW-btK" eventType="touchUpInside" id="f24-Dj-gpo"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <navigationBarAppearance key="standardAppearance">
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </navigationBarAppearance>
+                                <navigationBarAppearance key="scrollEdgeAppearance"/>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="la1-u8-alS">
+                                <rect key="frame" x="30" y="119" width="333" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="mbj-ur-OB4"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-5K-lQS" customClass="HintTextView" customModule="CodeStockApp" customModuleProvider="target">
+                                <rect key="frame" x="30" y="563" width="333" height="95"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="1Gh-O7-8Ak"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-XF-fwg">
+                                <rect key="frame" x="30" y="527" width="113" height="28"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="4Mp-i3-vb5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Picture"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImageButtonAction:" destination="LQB-eW-btK" eventType="touchUpInside" id="bnk-vc-5or"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1B-24-4hG">
+                                <rect key="frame" x="30" y="666" width="133" height="28"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="pXu-rO-Pl6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select Season"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vhg-RB-bPY"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7XG-6B-HhK" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" id="1HZ-W4-J4L"/>
+                            <constraint firstItem="SpF-XF-fwg" firstAttribute="top" secondItem="la1-u8-alS" secondAttribute="bottom" constant="8" symbolic="YES" id="28R-x8-DP8"/>
+                            <constraint firstItem="B1B-24-4hG" firstAttribute="top" secondItem="ZmL-5K-lQS" secondAttribute="bottom" constant="8" symbolic="YES" id="2kw-bY-znj"/>
+                            <constraint firstItem="ZmL-5K-lQS" firstAttribute="top" secondItem="SpF-XF-fwg" secondAttribute="bottom" constant="8" symbolic="YES" id="Dbo-ih-SHY"/>
+                            <constraint firstItem="la1-u8-alS" firstAttribute="top" secondItem="7XG-6B-HhK" secondAttribute="bottom" constant="16" id="Flj-uU-yeh"/>
+                            <constraint firstItem="la1-u8-alS" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" constant="30" id="Pyz-FY-fgO"/>
+                            <constraint firstItem="7XG-6B-HhK" firstAttribute="trailing" secondItem="Vhg-RB-bPY" secondAttribute="trailing" id="RTV-Oc-lZA"/>
+                            <constraint firstItem="Vhg-RB-bPY" firstAttribute="trailing" secondItem="la1-u8-alS" secondAttribute="trailing" constant="30" id="cey-WJ-9Hk"/>
+                            <constraint firstItem="SpF-XF-fwg" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" constant="30" id="fFZ-wu-V6A"/>
+                            <constraint firstItem="7XG-6B-HhK" firstAttribute="top" secondItem="Vhg-RB-bPY" secondAttribute="top" id="iyf-pP-lyP"/>
+                            <constraint firstItem="SpF-XF-fwg" firstAttribute="leading" secondItem="B1B-24-4hG" secondAttribute="leading" id="kQ6-US-E4j"/>
+                            <constraint firstItem="ZmL-5K-lQS" firstAttribute="trailing" secondItem="la1-u8-alS" secondAttribute="trailing" id="l5c-sg-nTb"/>
+                            <constraint firstItem="ZmL-5K-lQS" firstAttribute="centerX" secondItem="la1-u8-alS" secondAttribute="centerX" id="v1T-ET-jK6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="la1-u8-alS" id="yEb-xJ-CjO"/>
+                        <outlet property="memoTextView" destination="ZmL-5K-lQS" id="IjT-C3-fLW"/>
+                        <outlet property="selectSeasonButton" destination="B1B-24-4hG" id="HrQ-Kf-k4X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCX-9a-3vh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="-18.30985915492958"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

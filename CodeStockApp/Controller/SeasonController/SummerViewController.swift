@@ -42,7 +42,6 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let summercell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let summercodestockDataModel: SummerCodeStockDataModel = summercodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "defaultImage")
@@ -53,10 +52,11 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summercell.datelabel.textColor = .black
         summercell.memolabel.text = summercodestockDataModel.memotext
         summercell.memolabel.textColor = .black
-        
+        summercell.delegate = self
+        //セル生成時にindexPathを渡しておく
+        summercell.indexPath = indexPath
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
-        if let imageData = summercodestockDataModel.imageData {
+        if summercodestockDataModel.imageData != nil {
             summercell.imageview.image = UIImage(data: summercodestockDataModel.imageData!)
         } else {
            summercell.imageview?.image = defaultImage
@@ -67,15 +67,55 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //セルの背景色変更
         summercell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
-        //セルを選択不可
-        summercell.isUserInteractionEnabled = false
         return summercell
     }
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
 
 extension SummerViewController: PostSummerDelegate {
     func newsummerPost(memotext: String) {
         setcodestockData()
+        tableView.reloadData()
+    }
+}
+extension SummerViewController: SummerUpdateDelegate {
+    func summerupdatePost(summerupdateData: SummerCodeStockDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+    
+    
+}
+//アラートを押してカスタムセルを削除するメソッド
+extension SummerViewController: MainTableViewCellDelegate {
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = summercodestockList[indexPath.row]
+        //Editボタン押した時の処理
+        let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+        let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        var editvc = EditViewController()
+        EditVC.summerupdatedelegate = self
+        EditVC.summerconfigure(summerdata: targetData)
+        editvc = EditVC
+        editvc.modalPresentationStyle = .formSheet
+        present(editvc, animated: true, completion: nil)
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = summercodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        summercodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
 }

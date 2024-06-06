@@ -6,6 +6,8 @@ target 'CodeStockApp' do
   use_frameworks!
   pod 'Parchment', '~> 3.3.0'
   pod 'RealmSwift'
+  pod 'TPKeyboardAvoiding'
+  pod 'IQKeyboardManagerSwift'
 
   # Pods for CodeStockApp
 

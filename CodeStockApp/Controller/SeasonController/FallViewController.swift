@@ -43,7 +43,6 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let fallcell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let fallcodestockDataModel: FallCodeStockDataModel = fallcodestockList[indexPath.row]
-        let imageView = addVC.imageView
         let defaultImage = UIImage(named: "defaultImage")
         //dateFormatterの設定
         formatter.locale = Locale(identifier: "ja_JP")
@@ -54,10 +53,12 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.datelabel.textColor = .black
         fallcell.memolabel.text = fallcodestockDataModel.memotext
         fallcell.memolabel.textColor = .black
+        fallcell.delegate = self
+        //セル生成時にindexPathを渡しておく
+        fallcell.indexPath = indexPath
         
         //if letを使いData?をアンラップし、dataがある時とnilの時で分けた
-        let imageData: Data? = nil
-        if let imageData = fallcodestockDataModel.imageData {
+        if fallcodestockDataModel.imageData != nil {
             fallcell.imageview.image = UIImage(data: fallcodestockDataModel.imageData!)
         } else {
             fallcell.imageview?.image = defaultImage
@@ -67,16 +68,54 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.layoutIfNeeded()
         //セルの背景色変更
         fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
-        //セルを選択不可
-        fallcell.isUserInteractionEnabled = false
         return fallcell
     }
-    
+    // Cell が選択された場合
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
 }
-
+//新しく投稿する際のdelegate
 extension FallViewController: PostFallDelegate {
     func newfallPost(memotext: String) {
         setcodestockData()
+        tableView.reloadData()
+    }
+}
+//編集のためのdelegate
+extension FallViewController: FallUpdateDelegate {
+    func fallupdatePost(fallupdateData: FallCodeStockDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
+//アラートを押してカスタムセルを削除するメソッド
+extension FallViewController: MainTableViewCellDelegate {
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = fallcodestockList[indexPath.row]
+        //Editボタン押した時の処理
+        let editstoryboard = UIStoryboard(name: "EditView", bundle: nil)
+        let EditVC = editstoryboard.instantiateViewController(withIdentifier: "editview") as! EditViewController
+        var editvc = EditViewController()
+        EditVC.fallupdatedelegate = self
+        EditVC.fallconfigure(falldata: targetData)
+        editvc = EditVC
+        editvc.modalPresentationStyle = .formSheet
+        present(editvc, animated: true, completion: nil)
+    }
+    
+    func giveAction(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = fallcodestockList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        fallcodestockList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
 }
