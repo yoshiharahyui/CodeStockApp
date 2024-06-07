@@ -8,18 +8,57 @@
 import Foundation
 import UIKit
 import RealmSwift
+import Parchment
+
+protocol PostSpringSecondDelegate {
+    func newSecondPost(memotext: String)
+}
+protocol PostSummerSecondDelegate {
+    func newsummerSecondPost(memotext: String)
+}
+protocol PostFallSecondDelegate {
+    func newfallsecondPost(memotext: String)
+}
+protocol PostWinterSecondDelegate {
+    func newwintersecondPost(memotext: String)
+}
 
 class AddSecondViewController: UIViewController {
     
-    private var codestocksecondData = CodeStockSecondDataModel()
-    private let realm = try! Realm()
-    private var dateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        return dateFormatter
+    //UIMenuの表示項目
+    enum MenuType: String {
+        case title = "Select Season"
+        case spring = "SPRING"
+        case summer = "SUMMER"
+        case fall = "FALL"
+        case winter = "WINTER"
     }
     
-    @IBOutlet weak var memoTextView: UITextView!
+    //選択されたMenuType
+    private var selectedMenuType = MenuType.title
+    //選択されたUIMenuのitemを格納する変数
+    private var uimenuitem: String?
+    //取得したUIMenuの値を代入するために使う
+    private let springAction = UIAction(title: "SPRING", image: nil, state: .on) { _ in}
+    private let summerAction = UIAction(title: "SUMMER", image: nil, state: .on) { _ in}
+    private let fallAction = UIAction(title: "FALL", image: nil, state: .on) { _ in}
+    private let winterAction = UIAction(title: "WINTER", image: nil, state: .on) { _ in}
+    
+    private var springcodestocksecondData = SpringCodeStockSecondDataModel()
+    private var summercodestocksecondData = SummerCodeStockDataModel()
+    private var fallcodestocksecondData = FallCodeStockDataModel()
+    private var wintercodestocksecondData = WinterCodeStockDataModel()
+    
+    private let realm = try! Realm()
+    
+    var springseconddelegate: PostSpringSecondDelegate?
+    var summerseconddelegate: PostSummerSecondDelegate?
+    var fallseconddelegate: PostFallSecondDelegate?
+    var winterseconddelegate: PostWinterSecondDelegate?
+    var getsecondindex: PagingIndexItem!
+
+    
+    @IBOutlet weak var memoTextView: HintTextView!
     
     @IBAction func addImageButtonAction(_ sender: Any) {
         let pickerView = UIImagePickerController()
@@ -33,10 +72,47 @@ class AddSecondViewController: UIViewController {
     }
     
     @IBAction func postAction(_ sender: Any) {
+        let alert: UIAlertController = UIAlertController(title: "Alert!", message: "Please choose Season", preferredStyle: .alert)
         var memotext: String
         memotext = memoTextView.text ?? ""
-        self.saveData(with: memotext)
-        self.dismiss(animated: true, completion: nil)
+        
+        //uimenuitemが選択されてない時用のアラート
+                let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {
+                    //ボタンが押された時の処理
+                    (action: UIAlertAction) -> Void in
+                })
+                //キャンセルボタン
+                let cancelAction: UIAlertAction = UIAlertAction(title: "CANCEL", style: .default, handler: {
+                    //ボタンが押された時の処理
+                    (action: UIAlertAction) -> Void in
+                })
+
+                //UIAlertControllerにActionを追加
+                alert.addAction(defaultAction)
+                alert.addAction(cancelAction)
+        
+        //選択されたUIMenuごとに保存先を分ける
+        if uimenuitem == "SPRING" {
+            self.savespringData(with: memotext)
+            springseconddelegate?.newSecondPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
+        } else if uimenuitem == "SUMMER" {
+            self.savesummerData(with: memotext)
+            summerseconddelegate?.newsummerSecondPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
+        } else if uimenuitem == "FALL" {
+            self.savefallData(with: memotext)
+            fallseconddelegate?.newfallsecondPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
+        } else if uimenuitem == "WINTER" {
+            self.savewinterData(with: memotext)
+            winterseconddelegate?.newwintersecondPost(memotext: memotext)
+            self.dismiss(animated: true, completion: nil)
+        } else if uimenuitem == nil {
+            //Alertを表示
+            present(alert, animated: true, completion: nil)
+            return
+        }
     }
     @IBOutlet weak var imageView: UIImageView!
     
@@ -46,29 +122,121 @@ class AddSecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDoneButton()
-        //SelectSeasonButtonにアイテム追加、動くようにするためのコード
-        selectSeasonButton.menu = addMenuItems()
-        selectSeasonButton.showsMenuAsPrimaryAction = true
+        self.configureMenuButton()
+        selectSeasonButton.layer.cornerRadius = 5
+        memoTextView.placeHolder = "メモなどを入力してください。"
     }
     
-    //投稿画面のSelectSeasonButtonのアイテム
-    private func addMenuItems() -> UIMenu{
-        let menuItems = UIMenu(title: "", options: .displayInline, children: [
-            UIAction(title: "Winter", image: UIImage(systemName: "play"), handler: { (_) in print("aaa")
-            }),
-            UIAction(title: "Fall", image: UIImage(systemName: "play"), handler: { (_) in print("iii")
-            }),
-            UIAction(title: "Summer", image: UIImage(systemName: "play"), handler: { (_) in print ("eee")
-            }),
-            UIAction(title: "Spring", image: UIImage(systemName: "play"), handler: { (_) in print("gvvv")
-            }),
-        ])
-        return menuItems
+    //UIMenuの設定
+    private func configureMenuButton() {
+        var actions = [UIMenuElement]()
+        
+        //WINTER
+        actions.append(UIAction(title: MenuType.winter.rawValue, image: nil, state: self.selectedMenuType == MenuType.winter ? .on : .off,
+                                handler: { (_) in
+            if self.winterAction.state == .on {
+                self.uimenuitem = self.winterAction.title
+            }
+            self.selectedMenuType = .winter
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //FALL
+        actions.append(UIAction(title: MenuType.fall.rawValue, image: nil, state: self.selectedMenuType == MenuType.fall ? .on : .off,
+                                handler: { (_) in
+            if self.fallAction.state == .on {
+                self.uimenuitem = self.fallAction.title
+            }
+            self.selectedMenuType = .fall
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //SUMMER
+        actions.append(UIAction(title: MenuType.summer.rawValue, image: nil, state: self.selectedMenuType == MenuType.summer ? .on : .off,
+                                handler: { (_) in
+            if self.summerAction.title == "SUMMER" {
+                self.uimenuitem = self.summerAction.title
+            }
+            self.selectedMenuType = .summer
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        //SPRING
+        actions.append(UIAction(title: MenuType.spring.rawValue, image: nil, state: self.selectedMenuType == MenuType.spring ? .on : .off,
+                                handler: { (_) in
+            if self.springAction.state == .on {
+                self.uimenuitem = self.springAction.title
+                }
+            self.selectedMenuType = .spring
+            //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
+            self.configureMenuButton()
+        }))
+        
+        //UIButtonにUIMenuを設定
+        selectSeasonButton.menu = UIMenu(title: "", options: .displayInline, children: actions)
+        //これを書かないと表示できない場合があるので注意
+        selectSeasonButton.showsMenuAsPrimaryAction = true
+        //ボタンの表示を変更
+        selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
+    }
+    
+    //データ保存
+    private func savespringData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            springcodestocksecondData.imageData = pngimageData
+            springcodestocksecondData.memotext = memoTextView.text
+            springcodestocksecondData.recordDate = Date()
+        realm.add(springcodestocksecondData)
+        }
+    }
+    private func savesummerData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            summercodestocksecondData.imageData = pngimageData
+            summercodestocksecondData.memotext = memoTextView.text
+            summercodestocksecondData.recordDate = Date()
+        realm.add(summercodestocksecondData)
+        }
+    }
+    private func savefallData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            fallcodestocksecondData.imageData = pngimageData
+            fallcodestocksecondData.memotext = memoTextView.text
+            fallcodestocksecondData.recordDate = Date()
+        realm.add(fallcodestocksecondData)
+        }
+    }
+    private func savewinterData(with memotext: String) {
+        try! realm.write {
+            //UIImageViewを取得
+            let setImage = imageView.image
+            //pngDataに変換
+            let pngimageData = setImage?.pngData()
+            //データモデルのプロパティに代入
+            wintercodestocksecondData.imageData = pngimageData
+            wintercodestocksecondData.memotext = memoTextView.text
+            wintercodestocksecondData.recordDate = Date()
+        realm.add(wintercodestocksecondData)
+        }
     }
     
     //画像保存
     private func saveData(with memotext: String) {
-        let codestocksecondData = CodeStockSecondDataModel()
+        let springcodestocksecondData = SpringCodeStockSecondDataModel()
         
         try! realm.write {
             //UIImageViewを取得
@@ -76,16 +244,16 @@ class AddSecondViewController: UIViewController {
             //pngDataに変換
             let pngimageData = setImage?.pngData()
             //データモデルのプロパティに代入
-            codestocksecondData.imageData = pngimageData
-            codestocksecondData.memotext = memoTextView.text
-            codestocksecondData.recordDate = Date()
-        realm.add(codestocksecondData)
+            springcodestocksecondData.imageData = pngimageData
+            springcodestocksecondData.memotext = memoTextView.text
+            springcodestocksecondData.recordDate = Date()
+        realm.add(springcodestocksecondData)
         }
     }
     
-    private func configure(memo: CodeStockSecondDataModel) {
-        codestocksecondData.memotext = memoTextView.text
-        codestocksecondData.recordDate = memo.recordDate
+    private func configure(memo: SpringCodeStockSecondDataModel) {
+        springcodestocksecondData.memotext = memoTextView.text
+        springcodestocksecondData.recordDate = memo.recordDate
     }
     
     private func setDoneButton() {
