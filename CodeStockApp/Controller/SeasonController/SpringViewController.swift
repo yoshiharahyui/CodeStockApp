@@ -35,7 +35,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // 選択されたMenuType
         var selectedMenuType = SelectMenu.edit
     
-    func configureSelectMenu() {
+    private func configureSelectMenu() {
         var actions = [UIMenuElement]()
             // HIGH
             actions.append(UIAction(title: SelectMenu.edit.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.edit ? .on : .off,
@@ -53,7 +53,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                     }))
     }
     
-    func setcodestockData() {
+    private func setcodestockData() {
         let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         springcodestockList = Array(result)
         tableView.reloadData()
@@ -101,7 +101,7 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
-        }
+    }
 }
 
 //新しく投稿する際のdelegate
