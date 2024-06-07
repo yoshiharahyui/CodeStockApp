@@ -28,31 +28,6 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    enum SelectMenu: String {
-        case edit = "EDIT"
-        case delete = "DELETE"
-    }
-    //選択されたMenuType
-    var selectedMenuType = SelectMenu.edit
-    
-    private func configureSelectMenu() {
-        var actions = [UIMenuElement]()
-            // HIGH
-            actions.append(UIAction(title: SelectMenu.edit.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.edit ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .edit
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-            // MID
-            actions.append(UIAction(title: SelectMenu.delete.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.delete ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .delete
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-    }
-    
     private func setcodestockData() {
         let result = realm.objects(SpringCodeStockSecondDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         springcodestockSecondList = Array(result)
@@ -76,7 +51,6 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: springcodestockDataModel.recordDate)
         springcell.datelabel.text = "\(date)"
-
         springcell.datelabel.textColor = .black
         springcell.memolabel.text = springcodestockDataModel.memotext
         springcell.memolabel.textColor = .black

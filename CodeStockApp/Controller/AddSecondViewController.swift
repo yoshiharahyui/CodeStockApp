@@ -45,9 +45,9 @@ class AddSecondViewController: UIViewController {
     private let winterAction = UIAction(title: "WINTER", image: nil, state: .on) { _ in}
     
     private var springcodestocksecondData = SpringCodeStockSecondDataModel()
-    private var summercodestocksecondData = SummerCodeStockDataModel()
-    private var fallcodestocksecondData = FallCodeStockDataModel()
-    private var wintercodestocksecondData = WinterCodeStockDataModel()
+    private var summercodestocksecondData = SummerCodeStockSecondDataModel()
+    private var fallcodestocksecondData = FallCodeStockSecondDataModel()
+    private var wintercodestocksecondData = WinterCodeStockSecondDataModel()
     
     private let realm = try! Realm()
     
@@ -232,28 +232,6 @@ class AddSecondViewController: UIViewController {
             wintercodestocksecondData.recordDate = Date()
         realm.add(wintercodestocksecondData)
         }
-    }
-    
-    //画像保存
-    private func saveData(with memotext: String) {
-        let springcodestocksecondData = SpringCodeStockSecondDataModel()
-        
-        try! realm.write {
-            //UIImageViewを取得
-            let setImage = imageView.image
-            //pngDataに変換
-            let pngimageData = setImage?.pngData()
-            //データモデルのプロパティに代入
-            springcodestocksecondData.imageData = pngimageData
-            springcodestocksecondData.memotext = memoTextView.text
-            springcodestocksecondData.recordDate = Date()
-        realm.add(springcodestocksecondData)
-        }
-    }
-    
-    private func configure(memo: SpringCodeStockSecondDataModel) {
-        springcodestocksecondData.memotext = memoTextView.text
-        springcodestocksecondData.recordDate = memo.recordDate
     }
     
     private func setDoneButton() {

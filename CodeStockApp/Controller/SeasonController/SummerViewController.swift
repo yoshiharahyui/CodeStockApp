@@ -12,7 +12,6 @@ import RealmSwift
 class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var summercodestockList: [SummerCodeStockDataModel] = []
-    let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -28,31 +28,6 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    enum SelectMenu: String {
-        case edit = "EDIT"
-        case delete = "DELETE"
-    }
-    // 選択されたMenuType
-        var selectedMenuType = SelectMenu.edit
-    
-    private func configureSelectMenu() {
-        var actions = [UIMenuElement]()
-            // HIGH
-            actions.append(UIAction(title: SelectMenu.edit.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.edit ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .edit
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-            // MID
-            actions.append(UIAction(title: SelectMenu.delete.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.delete ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .delete
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-    }
-    
     private func setcodestockData() {
         let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         springcodestockList = Array(result)

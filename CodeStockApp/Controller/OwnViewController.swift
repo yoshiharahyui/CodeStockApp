@@ -99,7 +99,7 @@ class OwnViewController: UIViewController {
         addsecondvc = AddSecondVC
         //表示しているaddvcに季節のdelegateを設定する
         addsecondvc.springseconddelegate = ownspringvc
-        //addsecondvc.summerseconddelegate = ownsummervc
+        addsecondvc.summerseconddelegate = ownsummervc
         //addvc.falldelegate = fallvc
         //addvc.winterdelegate = wintervc
         addsecondvc.modalPresentationStyle = .formSheet
