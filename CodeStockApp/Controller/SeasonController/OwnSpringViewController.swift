@@ -88,13 +88,45 @@ extension OwnSpringViewController: PostSpringSecondDelegate {
 }
 
 //編集のためのdelegate
+extension OwnSpringViewController: SpringSecondUpdateDelegate {
+    func springsecondupdatePost(secondupdateData: SpringCodeStockSecondDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+//    func newSecondPost(memotext: String) {
+//        setcodestockData()
+//        tableView.reloadData()
+//    }
+}
+
 
 extension OwnSpringViewController: MainTableViewCellDelegate {
-    func giveAction(at indexPath: IndexPath) {
-        print("sss")
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = springcodestockSecondList[indexPath.row]
+        //Editボタン押した時の処理
+        let editsecondstoryboard = UIStoryboard(name: "EditSecondView", bundle: nil)
+        let EditSVC = editsecondstoryboard.instantiateViewController(withIdentifier: "editsecondview") as! EditSecondViewController
+        //表示しているインスタンス
+        var editsvc = EditSecondViewController()
+        EditSVC.springsecondupdatedelegate = self
+        EditSVC.configure(data: targetData)
+        //EditSVC.updatespringData(data: targetData)
+        editsvc = EditSVC
+        editsvc.modalPresentationStyle = .formSheet
+        present(editsvc, animated: true, completion: nil)
     }
     
-    func giveEditAction(at indexPath: IndexPath) {
-        print("ssss")
+    func giveAction(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = springcodestockSecondList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        springcodestockSecondList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

@@ -12,7 +12,7 @@
         <!--Edit Second View Controller-->
         <scene sceneID="ynP-Li-e7w">
             <objects>
-                <viewController storyboardIdentifier="editview" id="vQc-KU-VMZ" customClass="EditSecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editsecondview" id="vQc-KU-VMZ" customClass="EditSecondViewController" customModule="CodeStockApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNC-Vf-IKB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <connections>
+                                                    <action selector="postButton:" destination="vQc-KU-VMZ" eventType="touchUpInside" id="Yns-iV-9Ms"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -80,6 +83,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImageButtonAction:" destination="vQc-KU-VMZ" eventType="touchUpInside" id="Vzf-GV-Ycg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-Ag-ck5">
                                 <rect key="frame" x="30" y="666" width="133" height="28"/>
@@ -109,6 +115,11 @@
                             <constraint firstItem="nTf-ax-qBS" firstAttribute="leading" secondItem="coP-6F-Rbv" secondAttribute="leading" constant="30" id="yhj-eT-Zww"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="nTf-ax-qBS" id="F6v-MG-QWQ"/>
+                        <outlet property="memoTextView" destination="B3W-xH-NAd" id="poS-89-bBu"/>
+                        <outlet property="selectSeasonButton" destination="bXn-Ag-ck5" id="ny2-8u-w3K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh0-zq-Thd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
