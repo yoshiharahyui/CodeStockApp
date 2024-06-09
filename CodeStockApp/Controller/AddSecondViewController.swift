@@ -17,10 +17,10 @@ protocol PostSummerSecondDelegate {
     func newsummerSecondPost(memotext: String)
 }
 protocol PostFallSecondDelegate {
-    func newfallsecondPost(memotext: String)
+    func newfallSecondPost(memotext: String)
 }
 protocol PostWinterSecondDelegate {
-    func newwintersecondPost(memotext: String)
+    func newwinterSecondPost(memotext: String)
 }
 
 class AddSecondViewController: UIViewController {
@@ -102,11 +102,11 @@ class AddSecondViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else if uimenuitem == "FALL" {
             self.savefallData(with: memotext)
-            fallseconddelegate?.newfallsecondPost(memotext: memotext)
+            fallseconddelegate?.newfallSecondPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
         } else if uimenuitem == "WINTER" {
             self.savewinterData(with: memotext)
-            winterseconddelegate?.newwintersecondPost(memotext: memotext)
+            winterseconddelegate?.newwinterSecondPost(memotext: memotext)
             self.dismiss(animated: true, completion: nil)
         } else if uimenuitem == nil {
             //Alertを表示
