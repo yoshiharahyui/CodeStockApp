@@ -89,12 +89,39 @@ extension OwnSummerViewController: PostSummerSecondDelegate {
 }
 
 //編集のためのdelegate
+extension OwnSummerViewController: SummerSecondUpdateDelegate {
+    func summersecondupdatePost(secondupdateData: SummerCodeStockSecondDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
+
 extension OwnSummerViewController: MainTableViewCellDelegate {
-    func giveAction(at indexPath: IndexPath) {
-        print("sss")
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = summercodestockSecondList[indexPath.row]
+        //Editボタン押した時の処理
+        let editsecondstoryboard = UIStoryboard(name: "EditSecondView", bundle: nil)
+        let EditSVC = editsecondstoryboard.instantiateViewController(withIdentifier: "editsecondview") as! EditSecondViewController
+        //表示しているインスタンス
+        var editsvc = EditSecondViewController()
+        EditSVC.summersecondupdatedelegate = self
+        EditSVC.summerconfigure(summerdata: targetData)
+        editsvc = EditSVC
+        editsvc.modalPresentationStyle = .formSheet
+        present(editsvc, animated: true, completion: nil)
     }
     
-    func giveEditAction(at indexPath: IndexPath) {
-        print("sss")
+    func giveAction(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = summercodestockSecondList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        summercodestockSecondList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

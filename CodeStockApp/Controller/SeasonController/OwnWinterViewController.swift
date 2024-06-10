@@ -88,12 +88,38 @@ extension OwnWinterViewController: PostWinterSecondDelegate {
 }
 
 //編集のためのdelegate
+extension OwnWinterViewController: WinterSecondUpdateDelegate {
+    func wintersecondupdatePost(secondupdateData: WinterCodeStockSecondDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
 extension OwnWinterViewController: MainTableViewCellDelegate {
     func giveAction(at indexPath: IndexPath) {
-        print("sss")
+        let targetData = wintercodestockSecondList[indexPath.row]
+        //Editボタン押した時の処理
+        let editsecondstoryboard = UIStoryboard(name: "EditSecondView", bundle: nil)
+        let EditSVC = editsecondstoryboard.instantiateViewController(withIdentifier: "editsecondview") as! EditSecondViewController
+        //表示しているインスタンス
+        var editsvc = EditSecondViewController()
+        EditSVC.wintersecondupdatedelegate = self
+        EditSVC.winterconfigure(winterdata: targetData)
+        editsvc = EditSVC
+        editsvc.modalPresentationStyle = .formSheet
+        present(editsvc, animated: true, completion: nil)
     }
     
     func giveEditAction(at indexPath: IndexPath) {
-        print("sss")
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = wintercodestockSecondList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        wintercodestockSecondList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

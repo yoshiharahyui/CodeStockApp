@@ -79,7 +79,6 @@ class OwnFallViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
 //新しく投稿する際のdelegate
 extension OwnFallViewController: PostFallSecondDelegate {
     func newfallSecondPost(memotext: String) {
@@ -87,14 +86,40 @@ extension OwnFallViewController: PostFallSecondDelegate {
         tableView.reloadData()
     }
 }
-
 //編集のためのdelegate
+extension OwnFallViewController: FallSecondUpdateDelegate {
+    func fallsecondupdatePost(secondupdateData: FallCodeStockSecondDataModel) {
+        setcodestockData()
+        tableView.reloadData()
+    }
+}
+
 extension OwnFallViewController: MainTableViewCellDelegate {
-    func giveAction(at indexPath: IndexPath) {
-        print("sss")
+    func giveEditAction(at indexPath: IndexPath) {
+        let targetData = fallcodestockSecondList[indexPath.row]
+        //Editボタン押した時の処理
+        let editsecondstoryboard = UIStoryboard(name: "EditSecondView", bundle: nil)
+        let EditSVC = editsecondstoryboard.instantiateViewController(withIdentifier: "editsecondview") as! EditSecondViewController
+        //表示しているインスタンス
+        var editsvc = EditSecondViewController()
+        EditSVC.fallsecondupdatedelegate = self
+        EditSVC.fallconfigure(falldata: targetData)
+        editsvc = EditSVC
+        editsvc.modalPresentationStyle = .formSheet
+        present(editsvc, animated: true, completion: nil)
     }
     
-    func giveEditAction(at indexPath: IndexPath) {
-        print("sss")
+    func giveAction(at indexPath: IndexPath) {
+        //IndexPathをもとに削除するオブジェクトを特定
+        let target = fallcodestockSecondList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(target)
+        }
+        //配列からそのオブジェクトを削除
+        fallcodestockSecondList.remove(at: indexPath.row)
+        //セルを削除
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }

@@ -93,10 +93,6 @@ extension OwnSpringViewController: SpringSecondUpdateDelegate {
         setcodestockData()
         tableView.reloadData()
     }
-//    func newSecondPost(memotext: String) {
-//        setcodestockData()
-//        tableView.reloadData()
-//    }
 }
 
 
