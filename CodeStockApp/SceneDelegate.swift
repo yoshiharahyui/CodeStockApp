@@ -19,11 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene as! UIWindowScene)
         //MainTabBarControllerは最初に表示される画面です(rootViewController)
-        let vc = MainTabBarController()
+        //let vc = MainTabBarController()
+        let splashVC = SplashViewController()
         //クラス直下のwindowを更新
         self.window = window
         //windowのrootViewControllerをMainTabBarControllerのインスタンスにする
-        window.rootViewController = vc
+        //window.rootViewController = vc
+        window.rootViewController = splashVC
         //表示できるようにする
         window.makeKeyAndVisible()
 

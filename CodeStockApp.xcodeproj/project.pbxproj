@@ -48,6 +48,7 @@
 		1E40852A2BC7BCED00AECC94 /* CodeStockSecondDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */; };
 		1E8FEE322C14ACD8000DD33F /* EditSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */; };
 		1E8FEE342C14ACFF000DD33F /* EditSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */; };
+		1E8FEE472C1717FD000DD33F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE462C1717FD000DD33F /* SplashViewController.swift */; };
 		56D6664392D6922068E9428D /* Pods_CodeStockAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */; };
 		B483BE4F29B07E7E6E0DBC43 /* Pods_CodeStockApp_CodeStockAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A122FC2A14683A4114D13A88 /* Pods_CodeStockApp_CodeStockAppUITests.framework */; };
 		D68EC39FF0F85E04CFB4AC15 /* Pods_CodeStockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA41FB31E3BB6B15B1B142D /* Pods_CodeStockApp.framework */; };
@@ -117,6 +118,8 @@
 		1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockSecondDataModel.swift; sourceTree = "<group>"; };
 		1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecondViewController.swift; sourceTree = "<group>"; };
 		1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditSecondView.storyboard; sourceTree = "<group>"; };
+		1E8FEE3F2C16DF24000DD33F /* logo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		1E8FEE462C1717FD000DD33F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		63F89B6AD388D2C4DDC75553 /* Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71799A22D896AEE6BEA40242 /* Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStockAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,7 @@
 		1E4084B12BB27CE000AECC94 /* CodeStockApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E8FEE3D2C16DDCD000DD33F /* Animation */,
 				1E1EC1F42BFA3F1D0076C535 /* Component */,
 				1E4084F82BB8202100AECC94 /* Model */,
 				1E4084F62BB81F8800AECC94 /* View */,
@@ -245,6 +249,7 @@
 				1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */,
 				1E1EC1F92C0590650076C535 /* EditViewController.swift */,
 				1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */,
+				1E8FEE462C1717FD000DD33F /* SplashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +291,14 @@
 				1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */,
 			);
 			path = SeasonView;
+			sourceTree = "<group>";
+		};
+		1E8FEE3D2C16DDCD000DD33F /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1E8FEE3F2C16DF24000DD33F /* logo.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		8DBA5715ADE112BB485DDB37 /* Frameworks */ = {
@@ -569,6 +582,7 @@
 				1E4085022BB8227700AECC94 /* FallViewController.swift in Sources */,
 				1E4085282BC7A2B800AECC94 /* AddSecondViewController.swift in Sources */,
 				1E4084F32BB2FED200AECC94 /* OwnViewController.swift in Sources */,
+				1E8FEE472C1717FD000DD33F /* SplashViewController.swift in Sources */,
 				1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */,
 				1E40850E2BBA7D9300AECC94 /* OwnFallViewController.swift in Sources */,
 				1E40851E2BBF8C3000AECC94 /* AddViewController.swift in Sources */,
@@ -759,6 +773,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3J8CXP9GNA;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -766,7 +781,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "アプリ内からカメラロールを使用するため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -791,6 +807,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3J8CXP9GNA;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -798,7 +815,8 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "アプリ内からカメラロールを使用するため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
