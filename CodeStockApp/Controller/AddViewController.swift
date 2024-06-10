@@ -123,7 +123,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         setDoneButton()
         self.configureMenuButton()
         selectSeasonButton.layer.cornerRadius = 5
-        memoTextView.placeHolder = "メモなどを入力してください。"
+        memoTextView.placeHolder = "Please enter a note."
     }
     
     //UIMenuの設定
