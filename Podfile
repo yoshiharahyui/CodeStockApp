@@ -8,6 +8,7 @@ target 'CodeStockApp' do
   pod 'RealmSwift'
   pod 'TPKeyboardAvoiding'
   pod 'IQKeyboardManagerSwift'
+  pod 'lottie-ios'
 
   # Pods for CodeStockApp
 
