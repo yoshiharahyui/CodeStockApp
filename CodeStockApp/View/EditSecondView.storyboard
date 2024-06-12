@@ -71,13 +71,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAV-PH-x8d">
-                                <rect key="frame" x="30" y="527" width="113" height="28"/>
+                                <rect key="frame" x="30" y="527" width="141" height="28"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="ohQ-8m-eWU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add Picture"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Picture"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -86,15 +86,6 @@
                                 <connections>
                                     <action selector="addImageButtonAction:" destination="vQc-KU-VMZ" eventType="touchUpInside" id="Vzf-GV-Ycg"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-Ag-ck5">
-                                <rect key="frame" x="30" y="666" width="133" height="28"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="qO4-gi-4du"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Select Season"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="coP-6F-Rbv"/>
@@ -105,12 +96,10 @@
                             <constraint firstItem="nTf-ax-qBS" firstAttribute="top" secondItem="fPZ-6r-ARb" secondAttribute="bottom" constant="16" id="5so-C9-cEg"/>
                             <constraint firstItem="fPZ-6r-ARb" firstAttribute="top" secondItem="coP-6F-Rbv" secondAttribute="top" id="8ml-Ft-tl8"/>
                             <constraint firstItem="B3W-xH-NAd" firstAttribute="trailing" secondItem="nTf-ax-qBS" secondAttribute="trailing" id="AG9-bL-FDr"/>
-                            <constraint firstItem="bXn-Ag-ck5" firstAttribute="top" secondItem="B3W-xH-NAd" secondAttribute="bottom" constant="8" symbolic="YES" id="L7Q-Kp-96N"/>
                             <constraint firstItem="XAV-PH-x8d" firstAttribute="top" secondItem="nTf-ax-qBS" secondAttribute="bottom" constant="8" symbolic="YES" id="L9Q-7b-FJT"/>
                             <constraint firstItem="B3W-xH-NAd" firstAttribute="top" secondItem="XAV-PH-x8d" secondAttribute="bottom" constant="8" symbolic="YES" id="OYk-ym-oA3"/>
                             <constraint firstItem="fPZ-6r-ARb" firstAttribute="leading" secondItem="coP-6F-Rbv" secondAttribute="leading" id="TPV-3Y-2RA"/>
                             <constraint firstItem="fPZ-6r-ARb" firstAttribute="trailing" secondItem="coP-6F-Rbv" secondAttribute="trailing" id="VCo-le-Yzq"/>
-                            <constraint firstItem="XAV-PH-x8d" firstAttribute="leading" secondItem="bXn-Ag-ck5" secondAttribute="leading" id="c1m-vm-zkp"/>
                             <constraint firstItem="coP-6F-Rbv" firstAttribute="trailing" secondItem="nTf-ax-qBS" secondAttribute="trailing" constant="30" id="c1x-9w-Cgm"/>
                             <constraint firstItem="nTf-ax-qBS" firstAttribute="leading" secondItem="coP-6F-Rbv" secondAttribute="leading" constant="30" id="yhj-eT-Zww"/>
                         </constraints>
@@ -118,7 +107,6 @@
                     <connections>
                         <outlet property="imageView" destination="nTf-ax-qBS" id="F6v-MG-QWQ"/>
                         <outlet property="memoTextView" destination="B3W-xH-NAd" id="poS-89-bBu"/>
-                        <outlet property="selectSeasonButton" destination="bXn-Ag-ck5" id="ny2-8u-w3K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh0-zq-Thd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

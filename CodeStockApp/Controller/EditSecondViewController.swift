@@ -40,7 +40,6 @@ class EditSecondViewController: UIViewController, UITextDragDelegate {
         pickerView.delegate = self
         self.present(pickerView, animated: true)
     }
-    @IBOutlet weak var selectSeasonButton: UIButton!
     @IBOutlet weak var memoTextView: HintTextView!
     
     var imageData: Data?
@@ -87,8 +86,6 @@ class EditSecondViewController: UIViewController, UITextDragDelegate {
         memoTextView.backgroundColor = .gray
         displayData()
         setDoneButton()
-        selectSeasonButton.layer.cornerRadius = 5
-        configureMenuButton()
     }
     
     func configure(data: SpringCodeStockSecondDataModel) {
@@ -183,13 +180,7 @@ class EditSecondViewController: UIViewController, UITextDragDelegate {
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
-        
-        //UIButtonにUIMenuを設定
-        selectSeasonButton.menu = UIMenu(title: "", options: .displayInline, children: actions)
-        //これを書かないと表示できない場合があるので注意
-        selectSeasonButton.showsMenuAsPrimaryAction = true
-        //ボタンの表示を変更
-        selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
+
     }
     
     //Springデータの更新

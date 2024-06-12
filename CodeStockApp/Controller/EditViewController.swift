@@ -54,7 +54,6 @@ class EditViewController: UIViewController, UITextDragDelegate {
         pickerView.delegate = self
         self.present(pickerView, animated: true)
     }
-    @IBOutlet weak var selectSeasonButton: UIButton!
     @IBOutlet weak var memoTextView: UITextView!
     
     var imageData: Data?
@@ -100,8 +99,6 @@ class EditViewController: UIViewController, UITextDragDelegate {
         memoTextView.backgroundColor = .gray
         displayData()
         setDoneButton()
-        selectSeasonButton.layer.cornerRadius = 5
-        configureMenuButton()
     }
     
     func configure(data: SpringCodeStockDataModel) {
@@ -195,12 +192,6 @@ class EditViewController: UIViewController, UITextDragDelegate {
             self.configureMenuButton()
         }))
         
-        //UIButtonにUIMenuを設定
-        selectSeasonButton.menu = UIMenu(title: "", options: .displayInline, children: actions)
-        //これを書かないと表示できない場合があるので注意
-        selectSeasonButton.showsMenuAsPrimaryAction = true
-        //ボタンの表示を変更
-        selectSeasonButton.setTitle(self.selectedMenuType.rawValue, for: .normal)
     }
     
     //Springデータの更新

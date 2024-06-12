@@ -71,13 +71,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-XF-fwg">
-                                <rect key="frame" x="30" y="527" width="113" height="28"/>
+                                <rect key="frame" x="30" y="527" width="141" height="28"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="4Mp-i3-vb5"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add Picture"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Picture"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -87,22 +87,12 @@
                                     <action selector="addImageButtonAction:" destination="LQB-eW-btK" eventType="touchUpInside" id="bnk-vc-5or"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1B-24-4hG">
-                                <rect key="frame" x="30" y="666" width="133" height="28"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="pXu-rO-Pl6"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Select Season"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vhg-RB-bPY"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7XG-6B-HhK" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" id="1HZ-W4-J4L"/>
                             <constraint firstItem="SpF-XF-fwg" firstAttribute="top" secondItem="la1-u8-alS" secondAttribute="bottom" constant="8" symbolic="YES" id="28R-x8-DP8"/>
-                            <constraint firstItem="B1B-24-4hG" firstAttribute="top" secondItem="ZmL-5K-lQS" secondAttribute="bottom" constant="8" symbolic="YES" id="2kw-bY-znj"/>
                             <constraint firstItem="ZmL-5K-lQS" firstAttribute="top" secondItem="SpF-XF-fwg" secondAttribute="bottom" constant="8" symbolic="YES" id="Dbo-ih-SHY"/>
                             <constraint firstItem="la1-u8-alS" firstAttribute="top" secondItem="7XG-6B-HhK" secondAttribute="bottom" constant="16" id="Flj-uU-yeh"/>
                             <constraint firstItem="la1-u8-alS" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" constant="30" id="Pyz-FY-fgO"/>
@@ -110,7 +100,6 @@
                             <constraint firstItem="Vhg-RB-bPY" firstAttribute="trailing" secondItem="la1-u8-alS" secondAttribute="trailing" constant="30" id="cey-WJ-9Hk"/>
                             <constraint firstItem="SpF-XF-fwg" firstAttribute="leading" secondItem="Vhg-RB-bPY" secondAttribute="leading" constant="30" id="fFZ-wu-V6A"/>
                             <constraint firstItem="7XG-6B-HhK" firstAttribute="top" secondItem="Vhg-RB-bPY" secondAttribute="top" id="iyf-pP-lyP"/>
-                            <constraint firstItem="SpF-XF-fwg" firstAttribute="leading" secondItem="B1B-24-4hG" secondAttribute="leading" id="kQ6-US-E4j"/>
                             <constraint firstItem="ZmL-5K-lQS" firstAttribute="trailing" secondItem="la1-u8-alS" secondAttribute="trailing" id="l5c-sg-nTb"/>
                             <constraint firstItem="ZmL-5K-lQS" firstAttribute="centerX" secondItem="la1-u8-alS" secondAttribute="centerX" id="v1T-ET-jK6"/>
                         </constraints>
@@ -118,7 +107,6 @@
                     <connections>
                         <outlet property="imageView" destination="la1-u8-alS" id="yEb-xJ-CjO"/>
                         <outlet property="memoTextView" destination="ZmL-5K-lQS" id="IjT-C3-fLW"/>
-                        <outlet property="selectSeasonButton" destination="B1B-24-4hG" id="HrQ-Kf-k4X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCX-9a-3vh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
