@@ -29,6 +29,7 @@
                                 <rect key="frame" x="290" y="609" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="A4H-Zv-iEG"/>
                                     <constraint firstAttribute="height" constant="60" id="ZOu-d8-xg8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -44,7 +45,6 @@
                             <constraint firstItem="hxH-V9-2Bb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="550" id="70D-SQ-z10"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="djx-vZ-tYv" secondAttribute="trailing" id="Ibc-SD-uEI"/>
                             <constraint firstItem="djx-vZ-tYv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SiF-ha-jR4"/>
-                            <constraint firstItem="hxH-V9-2Bb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="290" id="Sty-4O-sJf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="djx-vZ-tYv" secondAttribute="bottom" id="hVH-Aw-KIH"/>
                             <constraint firstItem="djx-vZ-tYv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="pS2-4V-hHk"/>
                         </constraints>

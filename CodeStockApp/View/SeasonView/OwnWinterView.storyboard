@@ -29,6 +29,7 @@
                                 <rect key="frame" x="290" y="609" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="2Cz-Cp-Zpe"/>
                                     <constraint firstAttribute="height" constant="60" id="87w-fp-DZ8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -42,7 +43,6 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xDP-Ot-hc1" secondAttribute="trailing" id="IDX-6r-RcT"/>
                             <constraint firstItem="xDP-Ot-hc1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="JPX-pd-LlM"/>
-                            <constraint firstItem="cCt-bb-iGV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="290" id="Nkb-lU-dDk"/>
                             <constraint firstItem="xDP-Ot-hc1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Z0k-Af-R1Q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cCt-bb-iGV" secondAttribute="trailing" constant="43" id="g13-FW-ygi"/>
                             <constraint firstItem="cCt-bb-iGV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="550" id="phy-OD-oKg"/>

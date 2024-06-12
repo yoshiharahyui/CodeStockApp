@@ -28,10 +28,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eTH-Ao-MHT" secondAttribute="trailing" constant="68" id="6Tn-SV-TDA"/>
                                     <constraint firstItem="eTH-Ao-MHT" firstAttribute="top" secondItem="3ee-wp-UeR" secondAttribute="top" id="Cqa-oD-FC2"/>
-                                    <constraint firstItem="eTH-Ao-MHT" firstAttribute="leading" secondItem="3ee-wp-UeR" secondAttribute="leading" constant="68" id="D5M-mg-7El"/>
                                     <constraint firstAttribute="bottom" secondItem="eTH-Ao-MHT" secondAttribute="bottom" constant="792" id="GkN-IC-ZFa"/>
+                                    <constraint firstItem="eTH-Ao-MHT" firstAttribute="centerX" secondItem="3ee-wp-UeR" secondAttribute="centerX" id="umH-3B-5Z6"/>
                                 </constraints>
                             </view>
                         </subviews>

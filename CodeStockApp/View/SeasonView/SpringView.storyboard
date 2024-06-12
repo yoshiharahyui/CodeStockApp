@@ -30,6 +30,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BDX-uQ-89P"/>
+                                    <constraint firstAttribute="width" constant="60" id="sj2-Zf-PHZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Top">
@@ -42,7 +43,6 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="66E-ha-nG0" secondAttribute="trailing" constant="43" id="8Vo-FH-kZi"/>
                             <constraint firstItem="Fei-5b-E9e" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="8kE-rF-pWN"/>
-                            <constraint firstItem="66E-ha-nG0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="290" id="FTn-H2-aE7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Fei-5b-E9e" secondAttribute="trailing" id="YE2-lE-caW"/>
                             <constraint firstItem="66E-ha-nG0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="550" id="bBG-w3-cGX"/>
                             <constraint firstItem="Fei-5b-E9e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c44-Xo-ZzZ"/>
