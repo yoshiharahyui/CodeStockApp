@@ -21,6 +21,7 @@ class SplashViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //titleLogoのアニメーション設定
             UIView.animate(withDuration: 2.0, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.0, options: []) {
                 self.titleLogo.alpha = 1
                 self.titleLogo.frame.origin.y += 350
@@ -34,14 +35,14 @@ class SplashViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //2秒後にsplashViewを削除
+        //3.2秒後にsplashViewを削除
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
             self.splashView.removeFromSuperview()
-            
-            let vc = MainTabBarController()
-            let sceneDelegate = UIApplication.shared.connectedScenes
+        //3.2秒後にMainTabBarControllerを表示させる
+        let vc = MainTabBarController()
+        let sceneDelegate = UIApplication.shared.connectedScenes
                     .first!.delegate as! SceneDelegate
-            sceneDelegate.window!.rootViewController = vc
+        sceneDelegate.window!.rootViewController = vc
         }
     }
 }
