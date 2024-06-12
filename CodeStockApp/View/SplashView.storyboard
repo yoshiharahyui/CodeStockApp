@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +18,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-wp-UeR">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CodeStock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTH-Ao-MHT">
+                                        <rect key="frame" x="68" y="0.0" width="257" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eTH-Ao-MHT" secondAttribute="trailing" constant="68" id="6Tn-SV-TDA"/>
+                                    <constraint firstItem="eTH-Ao-MHT" firstAttribute="top" secondItem="3ee-wp-UeR" secondAttribute="top" id="Cqa-oD-FC2"/>
+                                    <constraint firstItem="eTH-Ao-MHT" firstAttribute="leading" secondItem="3ee-wp-UeR" secondAttribute="leading" constant="68" id="D5M-mg-7El"/>
+                                    <constraint firstAttribute="bottom" secondItem="eTH-Ao-MHT" secondAttribute="bottom" constant="792" id="GkN-IC-ZFa"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -36,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="splashView" destination="5EZ-qb-Rvc" id="TdY-bg-xox"/>
+                        <outlet property="titleLogo" destination="eTH-Ao-MHT" id="AFv-FW-Qpg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,9 +57,4 @@
             <point key="canvasLocation" x="139.69465648854961" y="-17.605633802816904"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
