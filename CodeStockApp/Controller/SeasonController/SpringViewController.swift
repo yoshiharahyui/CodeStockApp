@@ -16,6 +16,8 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var ScrollButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //セルの登録
@@ -26,6 +28,12 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     private func setcodestockData() {

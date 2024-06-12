@@ -49,6 +49,8 @@
 		1E8FEE322C14ACD8000DD33F /* EditSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */; };
 		1E8FEE342C14ACFF000DD33F /* EditSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */; };
 		1E8FEE472C1717FD000DD33F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE462C1717FD000DD33F /* SplashViewController.swift */; };
+		1E8FEE492C1739D4000DD33F /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE482C1739D4000DD33F /* SplashView.storyboard */; };
+		1E8FEE4B2C17E4CD000DD33F /* MainTabBarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE4A2C17E4CD000DD33F /* MainTabBarView.storyboard */; };
 		56D6664392D6922068E9428D /* Pods_CodeStockAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */; };
 		B483BE4F29B07E7E6E0DBC43 /* Pods_CodeStockApp_CodeStockAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A122FC2A14683A4114D13A88 /* Pods_CodeStockApp_CodeStockAppUITests.framework */; };
 		D68EC39FF0F85E04CFB4AC15 /* Pods_CodeStockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA41FB31E3BB6B15B1B142D /* Pods_CodeStockApp.framework */; };
@@ -120,6 +122,8 @@
 		1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditSecondView.storyboard; sourceTree = "<group>"; };
 		1E8FEE3F2C16DF24000DD33F /* logo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
 		1E8FEE462C1717FD000DD33F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		1E8FEE482C1739D4000DD33F /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
+		1E8FEE4A2C17E4CD000DD33F /* MainTabBarView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarView.storyboard; sourceTree = "<group>"; };
 		63F89B6AD388D2C4DDC75553 /* Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71799A22D896AEE6BEA40242 /* Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStockAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +238,8 @@
 				1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */,
 				1E1EC1F72C058FD70076C535 /* EditView.storyboard */,
 				1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */,
+				1E8FEE482C1739D4000DD33F /* SplashView.storyboard */,
+				1E8FEE4A2C17E4CD000DD33F /* MainTabBarView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,10 +439,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8FEE4B2C17E4CD000DD33F /* MainTabBarView.storyboard in Resources */,
 				1E4085082BB822FB00AECC94 /* WinterView.storyboard in Resources */,
 				1E4085002BB8222F00AECC94 /* SummerView.storyboard in Resources */,
 				1E4084F52BB2FF1F00AECC94 /* OwnView.storyboard in Resources */,
 				1E4085182BBA7F1700AECC94 /* OwnWinterView.storyboard in Resources */,
+				1E8FEE492C1739D4000DD33F /* SplashView.storyboard in Resources */,
 				1E4084BC2BB27CE100AECC94 /* Assets.xcassets in Resources */,
 				1E4084BF2BB27CE100AECC94 /* Base in Resources */,
 				1E4085042BB822AB00AECC94 /* FallView.storyboard in Resources */,

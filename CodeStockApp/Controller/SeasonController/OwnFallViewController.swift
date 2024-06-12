@@ -15,6 +15,7 @@ class OwnFallViewController: UIViewController, UITableViewDelegate, UITableViewD
     let realm = try! Realm()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ScrollButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,13 @@ class OwnFallViewController: UIViewController, UITableViewDelegate, UITableViewD
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     func setcodestockData() {
