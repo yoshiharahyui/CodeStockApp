@@ -68,8 +68,8 @@ class MainTableViewCell: UITableViewCell {
                             //ボタンが押された時の処理
                             (action: UIAlertAction) -> Void in
                         })
-        alert.addAction(defaultAction)
         alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
         let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
         windowScene?.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
     }
