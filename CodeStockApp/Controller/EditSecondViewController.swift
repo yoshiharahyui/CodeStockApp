@@ -83,7 +83,6 @@ class EditSecondViewController: UIViewController, UITextDragDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memoTextView.backgroundColor = .gray
         displayData()
         setDoneButton()
     }

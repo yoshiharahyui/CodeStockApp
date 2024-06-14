@@ -95,8 +95,6 @@ class EditViewController: UIViewController, UITextDragDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //memoTextView.placeHolder = "メモなどを入力してください。"
-        memoTextView.backgroundColor = .gray
         displayData()
         setDoneButton()
     }
