@@ -58,9 +58,9 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: fallcodestockDataModel.recordDate)
         fallcell.datelabel.text = "\(date)"
-        fallcell.datelabel.textColor = .black
+        fallcell.datelabel.textColor = .white
         fallcell.memolabel.text = fallcodestockDataModel.memotext
-        fallcell.memolabel.textColor = .black
+        fallcell.memolabel.textColor = .white
         fallcell.delegate = self
         //セル生成時にindexPathを渡しておく
         fallcell.indexPath = indexPath
@@ -75,7 +75,7 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
+        fallcell.backgroundColor = .systemGray6
         return fallcell
     }
     // Cell が選択された場合

@@ -59,9 +59,9 @@ class OwnWinterViewController: UIViewController, UITableViewDelegate, UITableVie
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: wintercodestockDataModel.recordDate)
         wintercell.datelabel.text = "\(date)"
-        wintercell.datelabel.textColor = .black
+        wintercell.datelabel.textColor = .white
         wintercell.memolabel.text = wintercodestockDataModel.memotext
-        wintercell.memolabel.textColor = .black
+        wintercell.memolabel.textColor = .white
         wintercell.delegate = self
         
         //セル生成時にindexPathを渡しておく
@@ -77,7 +77,7 @@ class OwnWinterViewController: UIViewController, UITableViewDelegate, UITableVie
         wintercell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        wintercell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
+        wintercell.backgroundColor = .systemGray6
         return wintercell
     }
     // Cell が選択された場合

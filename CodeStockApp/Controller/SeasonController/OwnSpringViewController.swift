@@ -59,9 +59,9 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: springcodestockDataModel.recordDate)
         springcell.datelabel.text = "\(date)"
-        springcell.datelabel.textColor = .black
+        springcell.datelabel.textColor = .white
         springcell.memolabel.text = springcodestockDataModel.memotext
-        springcell.memolabel.textColor = .black
+        springcell.memolabel.textColor = .white
         springcell.delegate = self
 
         //セル生成時にindexPathを渡しておく
@@ -77,7 +77,7 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
         springcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
+        springcell.backgroundColor = .systemGray6
         return springcell
     }
     // Cell が選択された場合
