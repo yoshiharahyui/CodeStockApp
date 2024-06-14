@@ -78,6 +78,8 @@ class OwnSpringViewController: UIViewController, UITableViewDelegate, UITableVie
         view.layoutIfNeeded()
         //セルの背景色変更
         springcell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        springcell.selectionStyle = UITableViewCell.SelectionStyle.none
         return springcell
     }
     // Cell が選択された場合

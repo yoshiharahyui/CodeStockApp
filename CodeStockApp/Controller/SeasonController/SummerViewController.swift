@@ -74,6 +74,8 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //セルの背景色変更
         summercell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        summercell.selectionStyle = UITableViewCell.SelectionStyle.none
         return summercell
     }
     // Cell が選択された場合

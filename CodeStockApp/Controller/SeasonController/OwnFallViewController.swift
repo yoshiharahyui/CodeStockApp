@@ -78,7 +78,8 @@ class OwnFallViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.layoutIfNeeded()
         //セルの背景色変更
         fallcell.backgroundColor = .systemGray6
-        
+        //セルのタップを不可能にする
+        fallcell.selectionStyle = UITableViewCell.SelectionStyle.none
         return fallcell
     }
     // Cell が選択された場合

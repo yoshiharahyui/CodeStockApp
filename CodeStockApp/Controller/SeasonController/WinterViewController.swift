@@ -75,6 +75,8 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.layoutIfNeeded()
         //セルの背景色変更
         wintercell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        wintercell.selectionStyle = UITableViewCell.SelectionStyle.none
         return wintercell
     }
     // Cell が選択された場合
