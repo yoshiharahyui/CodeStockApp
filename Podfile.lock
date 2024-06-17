@@ -1,6 +1,5 @@
 PODS:
   - IQKeyboardManagerSwift (7.0.3)
-  - lottie-ios (4.4.3)
   - Parchment (3.3.0)
   - Realm (10.46.0):
     - Realm/Headers (= 10.46.0)
@@ -11,15 +10,13 @@ PODS:
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
-  - lottie-ios
   - Parchment (~> 3.3.0)
-  - RealmSwift
+  - RealmSwift (~> 10.46.0)
   - TPKeyboardAvoiding
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManagerSwift
-    - lottie-ios
     - Parchment
     - Realm
     - RealmSwift
@@ -27,12 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: f9c5dc36cba16ddd2e51fa7d51c34a2e083029b5
-  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
   Parchment: 7678853fa5d28d38d31baaa466fa5d6ebaa6843c
   Realm: 699b80d8e5fc66acafd2d530199e77781a2d69d3
   RealmSwift: 3230b8fc63759433a6938a0dd2a5dc0dc2b15760
   TPKeyboardAvoiding: d55b3ea7b362540af8fcf36aa3ed2e87bf210cc6
 
-PODFILE CHECKSUM: a88432054583794a1affe563cc68d2528a6b8691
+PODFILE CHECKSUM: f285d6b6c7cfdc8ca0d4ac0748e983d8ae814ec3
 
 COCOAPODS: 1.14.3

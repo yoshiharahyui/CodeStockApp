@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Lottie
 
 class SplashViewController: UIViewController {
    // @IBOutlet var splashView: LottieAnimationView!
