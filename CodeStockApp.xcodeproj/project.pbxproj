@@ -46,6 +46,10 @@
 		1E4085262BC7A27300AECC94 /* AddSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */; };
 		1E4085282BC7A2B800AECC94 /* AddSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */; };
 		1E40852A2BC7BCED00AECC94 /* CodeStockSecondDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */; };
+		1E8FEE322C14ACD8000DD33F /* EditSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */; };
+		1E8FEE342C14ACFF000DD33F /* EditSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */; };
+		1E8FEE472C1717FD000DD33F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FEE462C1717FD000DD33F /* SplashViewController.swift */; };
+		1E8FEE492C1739D4000DD33F /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E8FEE482C1739D4000DD33F /* SplashView.storyboard */; };
 		56D6664392D6922068E9428D /* Pods_CodeStockAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */; };
 		B483BE4F29B07E7E6E0DBC43 /* Pods_CodeStockApp_CodeStockAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A122FC2A14683A4114D13A88 /* Pods_CodeStockApp_CodeStockAppUITests.framework */; };
 		D68EC39FF0F85E04CFB4AC15 /* Pods_CodeStockApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA41FB31E3BB6B15B1B142D /* Pods_CodeStockApp.framework */; };
@@ -113,6 +117,11 @@
 		1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSecondView.storyboard; sourceTree = "<group>"; };
 		1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSecondViewController.swift; sourceTree = "<group>"; };
 		1E4085292BC7BCED00AECC94 /* CodeStockSecondDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStockSecondDataModel.swift; sourceTree = "<group>"; };
+		1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSecondViewController.swift; sourceTree = "<group>"; };
+		1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditSecondView.storyboard; sourceTree = "<group>"; };
+		1E8FEE3F2C16DF24000DD33F /* logo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = logo.json; sourceTree = "<group>"; };
+		1E8FEE462C1717FD000DD33F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		1E8FEE482C1739D4000DD33F /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		63F89B6AD388D2C4DDC75553 /* Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71799A22D896AEE6BEA40242 /* Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CodeStockApp-CodeStockAppUITests/Pods-CodeStockApp-CodeStockAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A076E300EF56F40D3F1CEF9 /* Pods_CodeStockAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeStockAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +193,7 @@
 		1E4084B12BB27CE000AECC94 /* CodeStockApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E8FEE3D2C16DDCD000DD33F /* Animation */,
 				1E1EC1F42BFA3F1D0076C535 /* Component */,
 				1E4084F82BB8202100AECC94 /* Model */,
 				1E4084F62BB81F8800AECC94 /* View */,
@@ -225,6 +235,8 @@
 				1E40851F2BBF8C5C00AECC94 /* AddView.storyboard */,
 				1E4085252BC7A27300AECC94 /* AddSecondView.storyboard */,
 				1E1EC1F72C058FD70076C535 /* EditView.storyboard */,
+				1E8FEE332C14ACFF000DD33F /* EditSecondView.storyboard */,
+				1E8FEE482C1739D4000DD33F /* SplashView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +251,8 @@
 				1E40851D2BBF8C3000AECC94 /* AddViewController.swift */,
 				1E4085272BC7A2B800AECC94 /* AddSecondViewController.swift */,
 				1E1EC1F92C0590650076C535 /* EditViewController.swift */,
+				1E8FEE312C14ACD8000DD33F /* EditSecondViewController.swift */,
+				1E8FEE462C1717FD000DD33F /* SplashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +294,14 @@
 				1E4085172BBA7F1700AECC94 /* OwnWinterView.storyboard */,
 			);
 			path = SeasonView;
+			sourceTree = "<group>";
+		};
+		1E8FEE3D2C16DDCD000DD33F /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1E8FEE3F2C16DF24000DD33F /* logo.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		8DBA5715ADE112BB485DDB37 /* Frameworks */ = {
@@ -418,11 +440,13 @@
 				1E4085002BB8222F00AECC94 /* SummerView.storyboard in Resources */,
 				1E4084F52BB2FF1F00AECC94 /* OwnView.storyboard in Resources */,
 				1E4085182BBA7F1700AECC94 /* OwnWinterView.storyboard in Resources */,
+				1E8FEE492C1739D4000DD33F /* SplashView.storyboard in Resources */,
 				1E4084BC2BB27CE100AECC94 /* Assets.xcassets in Resources */,
 				1E4084BF2BB27CE100AECC94 /* Base in Resources */,
 				1E4085042BB822AB00AECC94 /* FallView.storyboard in Resources */,
 				1E4085122BBA7E0E00AECC94 /* OwnSpringView.storyboard in Resources */,
 				1E4085142BBA7E5800AECC94 /* OwnSummerView.storyboard in Resources */,
+				1E8FEE342C14ACFF000DD33F /* EditSecondView.storyboard in Resources */,
 				1E4085162BBA7EBA00AECC94 /* OwnFallView.storyboard in Resources */,
 				1E40851C2BBAB82000AECC94 /* MainTableViewCell.xib in Resources */,
 				1E1EC1F82C058FD80076C535 /* EditView.storyboard in Resources */,
@@ -562,6 +586,7 @@
 				1E4085022BB8227700AECC94 /* FallViewController.swift in Sources */,
 				1E4085282BC7A2B800AECC94 /* AddSecondViewController.swift in Sources */,
 				1E4084F32BB2FED200AECC94 /* OwnViewController.swift in Sources */,
+				1E8FEE472C1717FD000DD33F /* SplashViewController.swift in Sources */,
 				1E4084B32BB27CE000AECC94 /* AppDelegate.swift in Sources */,
 				1E40850E2BBA7D9300AECC94 /* OwnFallViewController.swift in Sources */,
 				1E40851E2BBF8C3000AECC94 /* AddViewController.swift in Sources */,
@@ -570,6 +595,7 @@
 				1E40852A2BC7BCED00AECC94 /* CodeStockSecondDataModel.swift in Sources */,
 				1E4084B52BB27CE000AECC94 /* SceneDelegate.swift in Sources */,
 				1E4084E92BB2DD0B00AECC94 /* MainTabBarController.swift in Sources */,
+				1E8FEE322C14ACD8000DD33F /* EditSecondViewController.swift in Sources */,
 				1E4085062BB822D400AECC94 /* WinterViewController.swift in Sources */,
 				1E40851B2BBAB82000AECC94 /* MainTableViewCell.swift in Sources */,
 				1E40850C2BBA7D4600AECC94 /* OwnSummerViewController.swift in Sources */,
@@ -751,13 +777,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3J8CXP9GNA;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeStockApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "アプリ内からカメラロールを使用するため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -780,13 +811,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3J8CXP9GNA;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CodeStockApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "アプリ内からカメラロールを使用するため";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

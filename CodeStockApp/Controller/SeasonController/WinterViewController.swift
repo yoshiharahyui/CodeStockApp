@@ -15,6 +15,7 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ScrollButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,13 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     func setcodestockData() {
@@ -50,9 +58,9 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: wintercodestockDataModel.recordDate)
         wintercell.datelabel.text = "\(date)"
-        wintercell.datelabel.textColor = .black
+        wintercell.datelabel.textColor = .white
         wintercell.memolabel.text = wintercodestockDataModel.memotext
-        wintercell.memolabel.textColor = .black
+        wintercell.memolabel.textColor = .white
         wintercell.delegate = self
         wintercell.indexPath = indexPath
         
@@ -66,7 +74,9 @@ class WinterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         wintercell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        wintercell.backgroundColor = UIColor(red: 202/255, green: 237/255, blue: 250/255, alpha: 1.0)
+        wintercell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        wintercell.selectionStyle = UITableViewCell.SelectionStyle.none
         return wintercell
     }
     // Cell が選択された場合

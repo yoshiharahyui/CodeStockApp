@@ -2,44 +2,47 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Add Second View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <scene sceneID="5P6-mO-6aL">
             <objects>
-                <viewController storyboardIdentifier="addsecondview" id="Y6W-OH-hqX" customClass="AddSecondViewController" customModule="CodeStockApp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Osx-oi-x79">
+                <viewController storyboardIdentifier="addsecondview" id="2Ja-3j-ns0" customClass="AddSecondViewController" customModule="CodeStockApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DRA-6Z-isg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCs-ZM-MFy">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-T3-eQY">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gHA-nq-Q2e"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem id="8Rm-ae-rxv">
-                                        <barButtonItem key="leftBarButtonItem" style="done" id="Vxp-6g-Sj1">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JzD-MX-Kve">
+                                    <navigationItem id="NHP-57-e7i">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="4R8-F1-ZZG">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AQJ-f8-6C9">
                                                 <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                                 <connections>
-                                                    <action selector="cancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8PG-a5-Msd"/>
+                                                    <action selector="cancelButton:" destination="2Ja-3j-ns0" eventType="touchUpInside" id="lss-sz-2bH"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="done" id="hrp-nH-xpV">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="t2i-8B-hBX">
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="lTz-Kt-myE">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jp0-XJ-GZi">
                                                 <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
                                                 <connections>
-                                                    <action selector="postAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1Bh-AJ-UYw"/>
+                                                    <action selector="postAction:" destination="2Ja-3j-ns0" eventType="touchUpInside" id="sj4-lt-Zct"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -50,55 +53,82 @@
                                 </navigationBarAppearance>
                                 <navigationBarAppearance key="scrollEdgeAppearance"/>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vx-3y-YCQ">
-                                <rect key="frame" x="31" y="119" width="332" height="441"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-xW-qoT">
+                                <rect key="frame" x="30" y="119" width="333" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="I6z-Ha-Kpg"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3il-vv-YWX">
-                                <rect key="frame" x="31" y="602" width="332" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RPC-5D-Wg6" customClass="HintTextView" customModule="CodeStockApp" customModuleProvider="target">
+                                <rect key="frame" x="30" y="563" width="333" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="pzA-UG-pLi"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZM8-Yv-F8I">
-                                <rect key="frame" x="31" y="568" width="113" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umh-OK-j2A">
+                                <rect key="frame" x="30" y="527" width="113" height="28"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="vVp-ZI-1iQ"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add Picture"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addImageButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="d7V-qh-VWg"/>
+                                    <action selector="addImageButtonAction:" destination="2Ja-3j-ns0" eventType="touchUpInside" id="5Ev-ps-M2d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4C-bb-VrN">
-                                <rect key="frame" x="31" y="705" width="133" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65u-CV-epW">
+                                <rect key="frame" x="30" y="666" width="133" height="28"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="USq-aK-feU"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Select Season"/>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="1EZ-fG-zVL"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="U5Y-fR-FMA"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Psp-xW-qoT" firstAttribute="top" secondItem="0Yf-T3-eQY" secondAttribute="bottom" constant="16" id="030-OX-uAD"/>
+                            <constraint firstItem="0Yf-T3-eQY" firstAttribute="trailing" secondItem="U5Y-fR-FMA" secondAttribute="trailing" id="FO1-nE-CLB"/>
+                            <constraint firstItem="U5Y-fR-FMA" firstAttribute="trailing" secondItem="Psp-xW-qoT" secondAttribute="trailing" constant="30" id="HUV-8h-hUO"/>
+                            <constraint firstItem="RPC-5D-Wg6" firstAttribute="trailing" secondItem="Psp-xW-qoT" secondAttribute="trailing" id="SJs-xm-AOK"/>
+                            <constraint firstItem="0Yf-T3-eQY" firstAttribute="top" secondItem="U5Y-fR-FMA" secondAttribute="top" id="Tgh-cN-XzG"/>
+                            <constraint firstItem="Psp-xW-qoT" firstAttribute="leading" secondItem="U5Y-fR-FMA" secondAttribute="leading" constant="30" id="jeh-Zr-Vdt"/>
+                            <constraint firstItem="umh-OK-j2A" firstAttribute="leading" secondItem="65u-CV-epW" secondAttribute="leading" id="mao-iz-bRa"/>
+                            <constraint firstItem="65u-CV-epW" firstAttribute="top" secondItem="RPC-5D-Wg6" secondAttribute="bottom" constant="8" symbolic="YES" id="nTC-8q-y9w"/>
+                            <constraint firstItem="RPC-5D-Wg6" firstAttribute="centerX" secondItem="Psp-xW-qoT" secondAttribute="centerX" id="nc5-aL-Ya6"/>
+                            <constraint firstItem="umh-OK-j2A" firstAttribute="top" secondItem="Psp-xW-qoT" secondAttribute="bottom" constant="8" symbolic="YES" id="ny2-yD-Hqe"/>
+                            <constraint firstItem="RPC-5D-Wg6" firstAttribute="top" secondItem="umh-OK-j2A" secondAttribute="bottom" constant="8" symbolic="YES" id="ok1-iy-V72"/>
+                            <constraint firstItem="0Yf-T3-eQY" firstAttribute="leading" secondItem="U5Y-fR-FMA" secondAttribute="leading" id="sRV-Gf-GUH"/>
+                            <constraint firstItem="umh-OK-j2A" firstAttribute="leading" secondItem="U5Y-fR-FMA" secondAttribute="leading" constant="30" id="yZM-RL-BTZ"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="3Vx-3y-YCQ" id="UQT-DC-qVO"/>
-                        <outlet property="memoTextView" destination="3il-vv-YWX" id="gnG-PR-OPP"/>
-                        <outlet property="selectSeasonButton" destination="K4C-bb-VrN" id="qre-iQ-RPi"/>
+                        <outlet property="imageView" destination="Psp-xW-qoT" id="ee0-B6-ac8"/>
+                        <outlet property="memoTextView" destination="RPC-5D-Wg6" id="qgW-ap-Sos"/>
+                        <outlet property="selectSeasonButton" destination="65u-CV-epW" id="smT-Gp-wmY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KPM-uv-fQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.69465648854961" y="-17.605633802816904"/>
+            <point key="canvasLocation" x="139.53488372093022" y="-18.025751072961373"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

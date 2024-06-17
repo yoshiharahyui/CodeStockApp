@@ -15,6 +15,7 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
     let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ScrollButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,13 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     func setcodestockData() {
@@ -50,9 +58,9 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: fallcodestockDataModel.recordDate)
         fallcell.datelabel.text = "\(date)"
-        fallcell.datelabel.textColor = .black
+        fallcell.datelabel.textColor = .white
         fallcell.memolabel.text = fallcodestockDataModel.memotext
-        fallcell.memolabel.textColor = .black
+        fallcell.memolabel.textColor = .white
         fallcell.delegate = self
         //セル生成時にindexPathを渡しておく
         fallcell.indexPath = indexPath
@@ -67,7 +75,9 @@ class FallViewController: UIViewController, UITableViewDelegate, UITableViewData
         fallcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        fallcell.backgroundColor = UIColor(red: 203/255, green: 155/255, blue: 97/255, alpha: 1.0)
+        fallcell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        fallcell.selectionStyle = UITableViewCell.SelectionStyle.none
         return fallcell
     }
     // Cell が選択された場合

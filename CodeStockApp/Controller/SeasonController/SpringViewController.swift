@@ -16,6 +16,8 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var ScrollButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //セルの登録
@@ -26,34 +28,15 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
-    enum SelectMenu: String {
-        case edit = "EDIT"
-        case delete = "DELETE"
-    }
-    // 選択されたMenuType
-        var selectedMenuType = SelectMenu.edit
-    
-    func configureSelectMenu() {
-        var actions = [UIMenuElement]()
-            // HIGH
-            actions.append(UIAction(title: SelectMenu.edit.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.edit ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .edit
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-            // MID
-            actions.append(UIAction(title: SelectMenu.delete.rawValue, image: nil, state: self.selectedMenuType == SelectMenu.delete ? .on : .off,
-                                    handler: { (_) in
-                                        self.selectedMenuType = .delete
-                                        // UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
-                                        self.configureSelectMenu()
-                                    }))
-    }
-    
-    func setcodestockData() {
+    private func setcodestockData() {
         let result = realm.objects(SpringCodeStockDataModel.self).sorted(byKeyPath: "recordDate", ascending: false)
         springcodestockList = Array(result)
         tableView.reloadData()
@@ -75,10 +58,9 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: springcodestockDataModel.recordDate)
         springcell.datelabel.text = "\(date)"
-
-        springcell.datelabel.textColor = .black
+        springcell.datelabel.textColor = .white
         springcell.memolabel.text = springcodestockDataModel.memotext
-        springcell.memolabel.textColor = .black
+        springcell.memolabel.textColor = .white
         springcell.delegate = self
 
         //セル生成時にindexPathを渡しておく
@@ -94,14 +76,16 @@ class SpringViewController: UIViewController, UITableViewDelegate, UITableViewDa
         springcell.resizedimage()
         view.layoutIfNeeded()
         //セルの背景色変更
-        springcell.backgroundColor = UIColor(red: 255/255, green: 227/255, blue: 254/255, alpha: 1.0)
+        springcell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        springcell.selectionStyle = UITableViewCell.SelectionStyle.none
         return springcell
     }
     // Cell が選択された場合
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
-        }
+    }
 }
 
 //新しく投稿する際のdelegate

@@ -11,7 +11,7 @@ PODS:
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Parchment (~> 3.3.0)
-  - RealmSwift
+  - RealmSwift (~> 10.46.0)
   - TPKeyboardAvoiding
 
 SPEC REPOS:
@@ -29,6 +29,6 @@ SPEC CHECKSUMS:
   RealmSwift: 3230b8fc63759433a6938a0dd2a5dc0dc2b15760
   TPKeyboardAvoiding: d55b3ea7b362540af8fcf36aa3ed2e87bf210cc6
 
-PODFILE CHECKSUM: 5db706ab559980a6414ec22bdc2ac265362268e2
+PODFILE CHECKSUM: f285d6b6c7cfdc8ca0d4ac0748e983d8ae814ec3
 
 COCOAPODS: 1.14.3

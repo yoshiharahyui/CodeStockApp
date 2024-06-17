@@ -1,50 +1,36 @@
 //
-//  EditViewController.swift
+//  EditSecondViewController.swift
 //  CodeStockApp
 //
-//  Created by 吉原飛偉 on 2024/05/28.
+//  Created by 吉原飛偉 on 2024/06/09.
 //
 
 import Foundation
 import UIKit
 import RealmSwift
 
-protocol UpdateDelegate {
-    func updatePost(updateData: SpringCodeStockDataModel)
+protocol SpringSecondUpdateDelegate {
+    func springsecondupdatePost(secondupdateData: SpringCodeStockSecondDataModel)
 }
-protocol SummerUpdateDelegate {
-    func summerupdatePost(summerupdateData: SummerCodeStockDataModel)
+protocol SummerSecondUpdateDelegate {
+    func summersecondupdatePost(secondupdateData: SummerCodeStockSecondDataModel)
 }
-protocol FallUpdateDelegate {
-    func fallupdatePost(fallupdateData: FallCodeStockDataModel)
+protocol FallSecondUpdateDelegate {
+    func fallsecondupdatePost(secondupdateData: FallCodeStockSecondDataModel)
 }
-protocol WinterUpdateDelegate {
-    func winterupdatePost(winterupdateData: WinterCodeStockDataModel)
+protocol WinterSecondUpdateDelegate {
+    func wintersecondupdatePost(secondupdateData: WinterCodeStockSecondDataModel)
 }
-class EditViewController: UIViewController, UITextDragDelegate {
-    
+class EditSecondViewController: UIViewController, UITextDragDelegate {
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true,completion: nil)
     }
-    
     @IBAction func postButton(_ sender: Any) {
-        self.updatespringData(data: updateData)
-        self.updatesummerData(data: summerupdateData)
-        self.updatefallData(data: fallupdateData)
-        self.updatewinterData(data: winterupdateData)
+        self.updatespringsecondData(data: springsecondupdateData)
+        self.updatesummersecondData(data: summersecondupdateData)
+        self.updatefallsecondData(data: fallsecondupdateData)
+        self.updatewintersecondData(data: wintersecondupdateData)
         self.dismiss(animated: true, completion: nil)
-        //選択されたUIMenuごとに保存先を分ける
-        if uimenuitem == "SPRING" {
-            print("春")
-        } else if uimenuitem == "SUMMER" {
-            print("夏")
-        } else if uimenuitem == "Fall" {
-            print("秋")
-        } else if uimenuitem == "WINTER" {
-            print("冬")
-        } else if uimenuitem == nil {
-            return
-        }
     }
     @IBOutlet weak var imageView: UIImageView!
     
@@ -54,26 +40,28 @@ class EditViewController: UIViewController, UITextDragDelegate {
         pickerView.delegate = self
         self.present(pickerView, animated: true)
     }
-    @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var memoTextView: HintTextView!
     
     var imageData: Data?
     var memotext: String = ""
     var recordDate: Date = Date()
     private let realm = try! Realm()
-    private var springcodestockData = SpringCodeStockDataModel()
-    private var summercodestockData = SummerCodeStockDataModel()
-    private var fallcodestockData = FallCodeStockDataModel()
-    private var wintercodestockData = WinterCodeStockDataModel()
-    var updatedelegate: UpdateDelegate?
-    var summerupdatedelegate: SummerUpdateDelegate?
-    var fallupdatedelegate: FallUpdateDelegate?
-    var winterupdatedelegate: WinterUpdateDelegate?
+
+    private var springcodestocksecondData = SpringCodeStockSecondDataModel()
+    private var summercodestocksecondData = SummerCodeStockSecondDataModel()
+    private var fallcodestocksecondData = FallCodeStockSecondDataModel()
+    private var wintercodestocksecondData = WinterCodeStockSecondDataModel()
+
+    var springsecondupdatedelegate: SpringSecondUpdateDelegate?
+    var summersecondupdatedelegate: SummerSecondUpdateDelegate?
+    var fallsecondupdatedelegate: FallSecondUpdateDelegate?
+    var wintersecondupdatedelegate: WinterSecondUpdateDelegate?
     //編集対象のオブジェクトはクラス直下に保持しておく
-    var updateData = SpringCodeStockDataModel()
-    var summerupdateData = SummerCodeStockDataModel()
-    var fallupdateData = FallCodeStockDataModel()
-    var winterupdateData = WinterCodeStockDataModel()
-    
+    var springsecondupdateData = SpringCodeStockSecondDataModel()
+    var summersecondupdateData = SummerCodeStockSecondDataModel()
+    var fallsecondupdateData = FallCodeStockSecondDataModel()
+    var wintersecondupdateData = WinterCodeStockSecondDataModel()
+
     //UIMenuの表示項目
     enum MenuType: String {
         case title = "Select Season"
@@ -82,7 +70,7 @@ class EditViewController: UIViewController, UITextDragDelegate {
         case fall = "FALL"
         case winter = "WINTER"
     }
-    
+
     //選択されたMenuType
     private var selectedMenuType = MenuType.title
     //選択されたUIMenuのitemを格納する変数
@@ -99,35 +87,37 @@ class EditViewController: UIViewController, UITextDragDelegate {
         setDoneButton()
     }
     
-    func configure(data: SpringCodeStockDataModel) {
+    func configure(data: SpringCodeStockSecondDataModel) {
         memotext = data.memotext
         imageData = data.imageData
         recordDate = data.recordDate
-        //クラス直下のupdateDataに代入する
-        updateData = data
+        //クラス直下のupdateDateに代入する
+        springsecondupdateData = data
     }
-    func summerconfigure(summerdata: SummerCodeStockDataModel) {
+    
+    func summerconfigure(summerdata: SummerCodeStockSecondDataModel) {
         memotext = summerdata.memotext
         imageData = summerdata.imageData
         recordDate = summerdata.recordDate
-        //クラス直下のupdateDataに代入する
-        summerupdateData = summerdata
+        //クラス直下のupdateDateに代入する
+        summersecondupdateData = summerdata
     }
-    func fallconfigure(falldata: FallCodeStockDataModel) {
+    
+    func fallconfigure(falldata: FallCodeStockSecondDataModel) {
         memotext = falldata.memotext
         imageData = falldata.imageData
         recordDate = falldata.recordDate
-        //クラス直下のupdateDataに代入する
-        fallupdateData = falldata
-    }
-    func winterconfigure(data: WinterCodeStockDataModel) {
-        memotext = data.memotext
-        imageData = data.imageData
-        recordDate = data.recordDate
-        //クラス直下のupdateDataに代入する
-        winterupdateData = data
+        //クラス直下のupdateDateに代入する
+        fallsecondupdateData = falldata
     }
     
+    func winterconfigure(winterdata: WinterCodeStockSecondDataModel) {
+        memotext = winterdata.memotext
+        imageData = winterdata.imageData
+        recordDate = winterdata.recordDate
+        //クラス直下のupdateDateに代入する
+        wintersecondupdateData = winterdata
+    }
     
     private func displayData() {
         memoTextView.text = memotext
@@ -189,13 +179,13 @@ class EditViewController: UIViewController, UITextDragDelegate {
             //UIActionのstate(チェックマーク)を更新するためにUIMenuを再設定する
             self.configureMenuButton()
         }))
-        
+
     }
     
     //Springデータの更新
-    func updatespringData(data: SpringCodeStockDataModel) {
+    func updatespringsecondData(data: SpringCodeStockSecondDataModel) {
         //更新したいデータを検索する
-        guard let targetupdateData = realm.objects(SpringCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        guard let targetupdateData = realm.objects(SpringCodeStockSecondDataModel.self).filter("id == %@", data.id).first else { return }
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
@@ -206,66 +196,71 @@ class EditViewController: UIViewController, UITextDragDelegate {
             targetupdateData.memotext = memoTextView.text
             targetupdateData.recordDate = Date()
             //クラス直下変数に代入して同じインスタンスにする
-            updateData = targetupdateData
-            updatedelegate?.updatePost(updateData: targetupdateData)
+            springsecondupdateData = targetupdateData
+            springsecondupdatedelegate?.springsecondupdatePost(secondupdateData: targetupdateData)
         }
     }
+    
     //Summerデータの更新
-    private func updatesummerData(data: SummerCodeStockDataModel) {
+    func updatesummersecondData(data: SummerCodeStockSecondDataModel) {
         //更新したいデータを検索する
-        guard let targetupdateData = realm.objects(SummerCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        guard let targetupdateData = realm.objects(SummerCodeStockSecondDataModel.self).filter("id == %@", data.id).first else { return }
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
         let pngimageData = setImage?.pngData()
+        //print("\(String(describing: targetupdateData))")
         try! realm.write {
             targetupdateData.imageData = pngimageData
             targetupdateData.memotext = memoTextView.text
             targetupdateData.recordDate = Date()
             //クラス直下変数に代入して同じインスタンスにする
-            summerupdateData = targetupdateData
-            summerupdatedelegate?.summerupdatePost(summerupdateData: targetupdateData)
+            summersecondupdateData = targetupdateData
+            summersecondupdatedelegate?.summersecondupdatePost(secondupdateData: targetupdateData)
         }
-        
     }
+    
     //Fallデータの更新
-    private func updatefallData(data: FallCodeStockDataModel) {
+    func updatefallsecondData(data: FallCodeStockSecondDataModel) {
         //更新したいデータを検索する
-        guard let targetupdateData = realm.objects(FallCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        guard let targetupdateData = realm.objects(FallCodeStockSecondDataModel.self).filter("id == %@", data.id).first else { return }
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
         let pngimageData = setImage?.pngData()
+        //print("\(String(describing: targetupdateData))")
         try! realm.write {
             targetupdateData.imageData = pngimageData
             targetupdateData.memotext = memoTextView.text
             targetupdateData.recordDate = Date()
             //クラス直下変数に代入して同じインスタンスにする
-            fallupdateData = targetupdateData
-            fallupdatedelegate?.fallupdatePost(fallupdateData: targetupdateData)
+            fallsecondupdateData = targetupdateData
+            fallsecondupdatedelegate?.fallsecondupdatePost(secondupdateData: targetupdateData)
         }
     }
+    
     //Winterデータの更新
-    private func updatewinterData(data: WinterCodeStockDataModel) {
+    func updatewintersecondData(data: WinterCodeStockSecondDataModel) {
         //更新したいデータを検索する
-        guard let targetupdateData = realm.objects(WinterCodeStockDataModel.self).filter("id == %@", data.id).first else { return }
+        guard let targetupdateData = realm.objects(WinterCodeStockSecondDataModel.self).filter("id == %@", data.id).first else { return }
         //UIImageViewを取得
         let setImage = imageView.image
         //pngDataに変換
         let pngimageData = setImage?.pngData()
+        //print("\(String(describing: targetupdateData))")
         try! realm.write {
             targetupdateData.imageData = pngimageData
             targetupdateData.memotext = memoTextView.text
             targetupdateData.recordDate = Date()
             //クラス直下変数に代入して同じインスタンスにする
-            winterupdateData = targetupdateData
-            winterupdatedelegate?.winterupdatePost(winterupdateData: targetupdateData)
+            wintersecondupdateData = targetupdateData
+            wintersecondupdatedelegate?.wintersecondupdatePost(secondupdateData: targetupdateData)
         }
     }
 }
 
 //フォトライブラリから選んだ画像をimageViewに格納
-extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditSecondViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage

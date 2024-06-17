@@ -12,9 +12,9 @@ import RealmSwift
 class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var summercodestockList: [SummerCodeStockDataModel] = []
-    let addVC = AddViewController()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ScrollButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,13 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //セルの可変
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        ScrollButton.layer.cornerRadius = 30
+        ScrollButton.addTarget(self, action: #selector(tapScrollButton(_:)), for: UIControl.Event.touchUpInside)
+    }
+    
+    // UIButtonが押された時に呼び出されるメソッド
+    @objc func tapScrollButton(_ sender:UIButton) {
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     func setcodestockData() {
@@ -49,9 +56,9 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let date = formatter.string(from: summercodestockDataModel.recordDate)
         summercell.datelabel.text = "\(date)"
-        summercell.datelabel.textColor = .black
+        summercell.datelabel.textColor = .white
         summercell.memolabel.text = summercodestockDataModel.memotext
-        summercell.memolabel.textColor = .black
+        summercell.memolabel.textColor = .white
         summercell.delegate = self
         //セル生成時にindexPathを渡しておく
         summercell.indexPath = indexPath
@@ -66,7 +73,9 @@ class SummerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.layoutIfNeeded()
         
         //セルの背景色変更
-        summercell.backgroundColor = UIColor(red: 255/255, green: 177/255, blue: 78/255, alpha: 1.0)
+        summercell.backgroundColor = .systemGray6
+        //セルのタップを不可能にする
+        summercell.selectionStyle = UITableViewCell.SelectionStyle.none
         return summercell
     }
     // Cell が選択された場合

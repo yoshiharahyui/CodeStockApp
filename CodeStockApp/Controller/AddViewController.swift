@@ -48,6 +48,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
     private var fallcodestockData = FallCodeStockDataModel()
     private var wintercodestockData = WinterCodeStockDataModel()
     private let realm = try! Realm()
+    
     var delegate: PostDelegate?
     var summerdelegate: PostSummerDelegate?
     var falldelegate: PostFallDelegate?
@@ -122,7 +123,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         setDoneButton()
         self.configureMenuButton()
         selectSeasonButton.layer.cornerRadius = 5
-        memoTextView.placeHolder = "メモなどを入力してください。"
+        memoTextView.placeHolder = "Please enter a note."
     }
     
     //UIMenuの設定
