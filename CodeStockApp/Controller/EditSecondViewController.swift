@@ -265,7 +265,7 @@ extension EditSecondViewController: UIImagePickerControllerDelegate, UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             //取得した画像をresizeImage関数を使用し圧縮
-            let compressedImage = image.resizeImage(withPercentage: 0.3)!
+            let compressedImage = image.resizeImage(withPercentage: 0.6)!
             imageView.image = compressedImage
             self.dismiss(animated: true)
         }
