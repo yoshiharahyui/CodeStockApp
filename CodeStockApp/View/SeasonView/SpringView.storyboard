@@ -26,7 +26,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66E-ha-nG0">
-                                <rect key="frame" x="290" y="609" width="60" height="60"/>
+                                <rect key="frame" x="290" y="579" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BDX-uQ-89P"/>
@@ -40,11 +40,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="66E-ha-nG0" secondAttribute="trailing" constant="43" id="8Vo-FH-kZi"/>
                             <constraint firstItem="Fei-5b-E9e" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="8kE-rF-pWN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Fei-5b-E9e" secondAttribute="trailing" id="YE2-lE-caW"/>
-                            <constraint firstItem="66E-ha-nG0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="550" id="bBG-w3-cGX"/>
                             <constraint firstItem="Fei-5b-E9e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c44-Xo-ZzZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="66E-ha-nG0" secondAttribute="trailing" constant="43" id="obp-Al-Iqo"/>
+                            <constraint firstItem="66E-ha-nG0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="520" id="sYo-LC-Vae"/>
                             <constraint firstItem="Fei-5b-E9e" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tcu-FA-zPl"/>
                         </constraints>
                     </view>
