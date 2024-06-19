@@ -26,7 +26,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHk-mQ-683">
-                                <rect key="frame" x="290" y="579" width="60" height="60"/>
+                                <rect key="frame" x="290" y="698" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Cxh-32-69t"/>
@@ -41,8 +41,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBrownColor"/>
                         <constraints>
-                            <constraint firstItem="BHk-mQ-683" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="520" id="SlM-jZ-OVw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yIS-dj-dkG" secondAttribute="trailing" id="UBH-Jd-q2w"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BHk-mQ-683" secondAttribute="bottom" constant="60" id="WI2-3c-MpL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BHk-mQ-683" secondAttribute="trailing" constant="43" id="Wg9-Pc-De2"/>
                             <constraint firstItem="yIS-dj-dkG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="lHi-zZ-Up1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yIS-dj-dkG" secondAttribute="bottom" id="oMd-XS-9DR"/>

@@ -26,7 +26,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Re9-XW-bH7">
-                                <rect key="frame" x="290" y="579" width="60" height="60"/>
+                                <rect key="frame" x="290" y="698" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="89w-Hg-bBP"/>
@@ -43,8 +43,8 @@
                         <constraints>
                             <constraint firstItem="NgH-Tt-XkW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="IyX-cP-fa2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Re9-XW-bH7" secondAttribute="trailing" constant="43" id="Jnk-xa-I8w"/>
-                            <constraint firstItem="Re9-XW-bH7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="520" id="M3r-C5-vY8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="NgH-Tt-XkW" secondAttribute="bottom" id="SDH-6z-ab1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Re9-XW-bH7" secondAttribute="bottom" constant="60" id="hDU-KW-07R"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NgH-Tt-XkW" secondAttribute="trailing" id="q3r-L9-2Sj"/>
                             <constraint firstItem="NgH-Tt-XkW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zEj-HW-FkM"/>
                         </constraints>
