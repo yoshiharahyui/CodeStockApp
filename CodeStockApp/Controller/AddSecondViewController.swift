@@ -250,9 +250,11 @@ class AddSecondViewController: UIViewController {
 extension AddSecondViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage
-        imageView.image = image
-        self.dismiss(animated: true)
-        //let imageData = image.pngData()
+        if let image = info[.originalImage] as? UIImage {
+            //取得した画像をresizeImage関数を使用し圧縮
+            let compressedImage = image.resizeImage(withPercentage: 0.6)!
+            imageView.image = compressedImage
+            self.dismiss(animated: true)
+        }
     }
 }

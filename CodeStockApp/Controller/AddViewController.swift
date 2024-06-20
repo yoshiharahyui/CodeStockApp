@@ -249,9 +249,23 @@ class AddViewController: UIViewController, UITextViewDelegate {
 extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage
-        imageView.image = image
-        self.dismiss(animated: true)
+        if let image = info[.originalImage] as? UIImage {
+            //取得した画像をresizeImage関数を使用し圧縮
+            let compressedImage = image.resizeImage(withPercentage: 0.6)!
+            imageView.image = compressedImage
+            self.dismiss(animated: true)
+        }
     }
 }
-
+//UIImageを圧縮するための関数
+extension UIImage {
+    // percentage:圧縮率
+    func resizeImage(withPercentage percentage: CGFloat) -> UIImage? {
+        // 圧縮後のサイズ情報
+        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
+        // 圧縮画像を返す
+        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
+    }
+}
